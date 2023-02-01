@@ -1307,7 +1307,6 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_Knowledge_Gap_Percentage_Zero_Showing_When_DownVoted_Question_Has_Been_Answered");
 	}
 
-
 	@Test
 	public static void Verify_HTML_Tags_Are_Not_Display_In_The_Summary() {
 		InitiateTestParams.ExecuteTestCase("Verify_HTML_Tags_Are_Not_Display_In_The_Summary");
@@ -1784,11 +1783,6 @@ public class TestCases {
 	@Test
 	public static void Verify_That_Expert_Answer_Is_Showing_On_The_Search_result_Page() {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Expert_Answer_Is_Showing_On_The_Search_result_Page");
-	}
-	
-	@Test
-	public static void test_demo() {
-		InitiateTestParams.ExecuteTestCase("test_demo");
 	}
 	
 	

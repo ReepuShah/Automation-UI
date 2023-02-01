@@ -61,7 +61,7 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement uploadedFileWithOutAssociatedToAvatar;
 	
-	@FindBy(xpath = "(//*[@class='Title_root__33NXB'])[3]")
+	@FindBy(xpath = "(//*[@class='Title_root__33NXB'])[2]")
 	@CacheLookup
 	public WebElement uploadedFileWithAssociatedToAvatar;
 	

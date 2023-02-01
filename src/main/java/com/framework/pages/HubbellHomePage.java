@@ -179,7 +179,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement uploadFileButton;
 	
-	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV']")
+	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV TextInput_withAfter__W6nFG']")
 	@CacheLookup
 	public WebElement searchOption;
 	
@@ -679,6 +679,14 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> fileName;
 	
+	@FindBy(xpath = "//*[@class='Table_root__2g7ov AnswerSection_table__3uB24']")
+	@CacheLookup
+	public List<WebElement> tableAnswer;
+	
+	@FindBy(xpath = "//*[@class='AnswerSection_img__2pRnU']")
+	@CacheLookup
+	public List<WebElement> imageAnswer;
+	
 	@FindBy(xpath = "//*[@class='AnswerSection_text__3mBkk']")
 	@CacheLookup
 	public List<WebElement> answer;
@@ -879,7 +887,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement questionList;
 	
-	@FindBy(xpath = "//*[@class='Button_root__1hsq2 Button_variant-slim__1RLk0 Button_color-default__PCuwD SecondaryLayout_backButton__3vv2R']")
+	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_slim__f5emQ Button-color_default__1lAQQ Button-size_large__3JqWL SecondaryLayout_backButton__3vv2R']")
 	@CacheLookup
 	public WebElement backButtonLink;
 	
@@ -1337,6 +1345,13 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> ThumbFeedbackOption;
 
+	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_contained__3zoUH Button-color_primary__H_f8o Button-size_large__3JqWL LevitatingVoteController_capsule__2jj8F']")
+	@CacheLookup
+	public WebElement postToExpertBtn;
+	
+	@FindBy(xpath = "(//*[@class='UserCard_body__MqeBn'])[1]")
+	@CacheLookup
+	public WebElement Expert;
 	
 	
 	

@@ -2513,29 +2513,37 @@ public class StepDefinitions {
 			
 		public static void VerifyOtherThemesAndNerTagsAreAppearInsideRecommandedTopicField() {
 			ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
+			int indexNum = 0;
 				for(WebElement e: themepage.NERTag) {
-					String NERTagName = e.getText();
-					ArrayList<String> arrayNERTag = new ArrayList<String>();
-					arrayNERTag.add("Environment");
-					arrayNERTag.add("Social");
-					arrayNERTag.add("Governance");
-					arrayNERTag.add("Person");
-					arrayNERTag.add("Organization");
-					arrayNERTag.add("Location");
-					for(int j =1; j<=arrayNERTag.size(); j++) {
-						if(NERTagName.equals(arrayNERTag.get(j))) {
-							ObjectRepo.test.log(LogStatus.PASS,NERTagName +" Tag Is Display ");
-							String indexnumber=String.valueOf(j);
-							WebElement theme = driver.findElement(By.xpath("(//*[@class='ImageCard_title__3xtrK']//h3)["+indexnumber+"]"));
-							
-							String themeName = theme.getText();
-							ObjectRepo.test.log(LogStatus.PASS,themeName +" Theme Is Display ");
-							break;
+					if(e.isDisplayed()) {
+						String NERTagName = e.getText();
+						ArrayList<String> arrayNERTag = new ArrayList<String>();
+						arrayNERTag.add("Environment");
+						arrayNERTag.add("Social");
+						arrayNERTag.add("Governance");
+						arrayNERTag.add("Person");
+						arrayNERTag.add("Organization");
+						arrayNERTag.add("Location");
+						indexNum++;
+						System.out.println(indexNum);
+						for(int j=0; j<arrayNERTag.size(); j++) {
+							System.out.println(arrayNERTag.get(j));
+							if(NERTagName.equals(arrayNERTag.get(j))) {
+								ObjectRepo.test.log(LogStatus.PASS,NERTagName +" Tag Is Display ");
+								String indexnumber=String.valueOf(indexNum);
+								WebElement theme = driver.findElement(By.xpath("(//*[@class='ImageCard_title__3xtrK']//h3)["+indexnumber+"]"));
+								String themeName = theme.getText();
+								ObjectRepo.test.log(LogStatus.PASS,themeName +" Theme Is Display ");
+								break;
+							}
+							else if(j+1==arrayNERTag.size()) {
+								ObjectRepo.test.log(LogStatus.FAIL,NERTagName +" Tag Is Not Display ");
+							}
 						}
-						else if(j==arrayNERTag.size()) {
-							ObjectRepo.test.log(LogStatus.FAIL,NERTagName +" Tag Is Not Display ");
-						}
+					}else {
+						ObjectRepo.test.log(LogStatus.FAIL, e.getText() +" Tag Is Not Display ");
 					}
+					
 				}
 		}
 	
@@ -3038,6 +3046,7 @@ public class StepDefinitions {
 			    	 ObjectRepo.test.log(LogStatus.PASS,"Relevant Passage is Display");
 			    	 break;
 			     }
+
 			     else if (i+1==answerarrayList.size()) {
 		    			ObjectRepo.test.log(LogStatus.FAIL,"Relevant Passage is Not Display");
 		    	 }
@@ -3880,27 +3889,12 @@ public class StepDefinitions {
 	
 	public static void VerifyImagesAndTablesIsNotDisplayAtTheTop() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
-		ArrayList<String> list= new ArrayList<String>();
-		for(WebElement el:hp.fileName) {
-			String xpathOld = el.toString();
-			list.add(xpathOld);
-		}
-		for(int  i=0; i<list.size(); i++) {
-			String Stringvalue = list.get(i).toString();
-			String value = Stringvalue.replace(Stringvalue,"//*[@class='ResultsCard_answerContainer__15nKY']/*/h4");
-//			*[@class='ResultsCard_answerContainer__15nKY']/*/h4//preceding-sibling::*
-			if(i==0) {
-				String ele = value+"//following-sibling::*";
-				WebElement element = driver.findElement(By.xpath(ele));
-				String eleclass = element.getAttribute("class");
-				System.out.println(eleclass);
-				if(element.isDisplayed()) {
-					ObjectRepo.test.log(LogStatus.PASS, "Tables And Images are not showing at The Top");
-					break;
-				}
-			}else if(i==list.size()) {
-				ObjectRepo.test.log(LogStatus.FAIL, "Tables And Images are showing at The Top");
-			}
+		int tablelAnswer = hp.tableAnswer.size();
+		int imageAnswer = hp.imageAnswer.size();
+		if(tablelAnswer==0 && imageAnswer==0) {
+			ObjectRepo.test.log(LogStatus.PASS, "Tables And Images are not showing at The Top");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, "Tables And Images are showing at The Top");
 		}
 	}
 	
@@ -4872,7 +4866,7 @@ public class StepDefinitions {
 		return totalUploadedFile;
 	}
 	
-	public static void VerifyThatUserIsAbleToRemoveTheFileFromUploadedFil() throws Exception{
+	public static void VerifyThatUserIsAbleToRemoveTheFileFromUploadedFile() throws Exception{
 		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
 		WebElement elementThreeDot = GenericElements.getTestOrProdLocator(dp.uploadedFileWithAssociatedToAvatarThreeDotIcon,dp.uploadedFileWithAssociatedToAvatarThreeDotIconProd);
 		int beforetotalUploadedFile = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
@@ -5651,31 +5645,37 @@ public class StepDefinitions {
 	 public static void VerifyThatPaginationIsWorkingOnWebSitePage() throws Exception {
 		 DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
 		 ArrayList<String> txtlist = new ArrayList<String>();
-		 for(WebElement element : dp.lastPage) {
-			 txtlist.add(element.getText());
+		 int totalpages =dp.lastPage.size();
+		 if(totalpages>0){
+			 for(WebElement element : dp.lastPage) {
+				 txtlist.add(element.getText());
+			 }
+			 String txt = txtlist.get(txtlist.size()-1);
+			 int totalPages = Integer.parseInt(txt); 
+			 int totalConnectedWebsite =0; 
+			
+			 for(int i=1; i<=totalPages; i++) {
+				 List<WebElement> el = getWebElement("(//*[@class='Sources_container__UdBAx'])[2]//*[@class='BaseDataSourceCard_container__3AFiS']");
+				 int totalweb = el.size();
+				 totalConnectedWebsite = totalConnectedWebsite + totalweb;
+					String term =Integer.toString(i+1);
+					if(term.equals("13")) {
+						break;
+					}
+				    WebElement btn = driver.findElement(By.xpath("//*[@aria-label='Page "+term+"']"));
+					ButtonHelper.click(btn, btn.getText());
+			 }
+			 int totalWebsite = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
+			
+			 if(totalWebsite==totalConnectedWebsite) {
+				ObjectRepo.test.log(LogStatus.PASS, "Pagination is Working On Website Page");
+			}else {
+				ObjectRepo.test.log(LogStatus.FAIL, "Pagination is not Working on Website Page");
+			} 
+		 }else {
+			 ObjectRepo.test.log(LogStatus.PASS, "There is no Pagination");
 		 }
-		String txt = txtlist.get(txtlist.size()-1);
-		int totalPages = Integer.parseInt(txt); 
-		int totalConnectedWebsite =0; 
-		
-		for(int i=1; i<=totalPages; i++) {
-			 List<WebElement> el = getWebElement("(//*[@class='Sources_container__UdBAx'])[2]//*[@class='BaseDataSourceCard_container__3AFiS']");
-			 int totalweb = el.size();
-			 totalConnectedWebsite = totalConnectedWebsite + totalweb;
-				String term =Integer.toString(i+1);
-				if(term.equals("13")) {
-					break;
-				}
-			    WebElement btn = driver.findElement(By.xpath("//*[@aria-label='Page "+term+"']"));
-				ButtonHelper.click(btn, btn.getText());
-		 }
-		int totalWebsite = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
-		
-		if(totalWebsite==totalConnectedWebsite) {
-			ObjectRepo.test.log(LogStatus.PASS, "Pagination is Working On Website Page");
-		}else {
-			ObjectRepo.test.log(LogStatus.FAIL, "Pagination is not Working on Website Page");
-		}
+		 
 	 }
 	 
 	 public static void VerifyThatSearchOptionIsWorkingOnWebsitePage() throws InterruptedException {
@@ -5881,5 +5881,14 @@ public class StepDefinitions {
 			}
 		}
 	}
+	
+	public static void ClickOnPostToExpertButton() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ButtonHelper.click(hp.postToExpertBtn, "Post To Expert Button");
+	}
+	
+	
+	
+	
 }
 	
