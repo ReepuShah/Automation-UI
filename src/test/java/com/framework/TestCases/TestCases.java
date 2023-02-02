@@ -1041,7 +1041,6 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_Topics_Are_Change_When_Other_Avatars_Were_Selected");
 	}
 	
-	
 	@Test
 	public static void Verify_Passages_Are_Change_When_Other_Avatars_Were_Selected() {
 		InitiateTestParams.ExecuteTestCase("Verify_Passages_Are_Change_When_Other_Avatars_Were_Selected");

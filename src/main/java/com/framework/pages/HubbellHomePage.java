@@ -965,7 +965,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement highlightColor;
 	
-	@FindBy(xpath = "//*[@class='AnswerSection_title__2A-DN AnswerSection_clickable__3euix']//following-sibling::*")
+	@FindBy(xpath = "//*[@class='AnswerSection_title__2A-DN AnswerSection_clickable__3euix']//parent::div//parent::div//*[@class='AnswerSection_text__3mBkk']")
 	@CacheLookup
 	public List<WebElement> topPassages;
 	
