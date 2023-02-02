@@ -1784,6 +1784,11 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Expert_Answer_Is_Showing_On_The_Search_result_Page");
 	}
 	
+	@Test
+	public static void Verify_That_Files_Are_Uploading() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Files_Are_Uploading");
+	}
+	
 	
 }  
 

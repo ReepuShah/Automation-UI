@@ -133,6 +133,13 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement upoadedFileName;
 	
+	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_contained__3zoUH Button-color_secondary__1n9OX Button-size_big__2ttnu Button-root_noPadding__2aiSQ BaseModal_closeButton__3nb62']")
+	@CacheLookup
+	public WebElement closeIcon;
+	
+	@FindBy(xpath = "(//*[@class='ProgressBar_value__zQCHp'])[1]")
+	@CacheLookup
+	public WebElement uploadingproccess;
 	
 	
 	

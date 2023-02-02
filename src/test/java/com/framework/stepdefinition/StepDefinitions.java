@@ -5144,10 +5144,10 @@ public class StepDefinitions {
 	     rb.keyPress(KeyEvent.VK_CONTROL);
 	     rb.keyPress(KeyEvent.VK_V);
 	 
-	    // release Contol+V for pasting
-	    rb.keyRelease(KeyEvent.VK_CONTROL);
-	    rb.keyRelease(KeyEvent.VK_V);
-	 
+//	    // release Contol+V for pasting
+//	    rb.keyRelease(KeyEvent.VK_CONTROL);
+//	    rb.keyRelease(KeyEvent.VK_V);
+//	 
 	    // for pressing and releasing Enter
 	    rb.keyPress(KeyEvent.VK_ENTER);
 	    rb.keyRelease(KeyEvent.VK_ENTER);
@@ -5887,8 +5887,12 @@ public class StepDefinitions {
 		ButtonHelper.click(hp.postToExpertBtn, "Post To Expert Button");
 	}
 	
-	
-	
+	public static void VerifyThatFilesAreUploading() throws Exception {
+		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
+		Thread.sleep(1000);
+		ButtonHelper.click(dp.closeIcon, "close Icon");
+		GenericElements.ValidateElementIsDisplayed(dp.uploadingproccess,dp.uploadingproccess.getText());
+	}
 	
 }
 	
