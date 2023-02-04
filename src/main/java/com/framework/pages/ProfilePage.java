@@ -40,7 +40,7 @@ public class ProfilePage extends PageBase {
 	@CacheLookup
 	public WebElement logOutBtn;
 	
-	@FindBy(xpath = "//*[@class='Button_root__1hsq2 Button_variant-outlined__s7SST Button_color-default__PCuwD']")
+	@FindBy(xpath = "//*[@class='Profile_footer__2pxnh']/*")
 	@CacheLookup
 	public WebElement editButton;
 	

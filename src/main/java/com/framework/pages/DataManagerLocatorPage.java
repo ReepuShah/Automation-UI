@@ -61,7 +61,7 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement uploadedFileWithOutAssociatedToAvatar;
 	
-	@FindBy(xpath = "(//*[@class='Title_root__33NXB'])[2]")
+	@FindBy(xpath = "(//*[@class='Title_root__33NXB'])[1]")
 	@CacheLookup
 	public WebElement uploadedFileWithAssociatedToAvatar;
 	
@@ -117,7 +117,7 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public List<WebElement>website;
 	
-	@FindBy(xpath = "//*[@class='next']//preceding-sibling::*")
+	@FindBy(xpath = "(//*[@class='Pagination_root__35vop'])[2]//*[@class='next']//preceding-sibling::*")
 	@CacheLookup
 	public List<WebElement> lastPage;
 	
@@ -133,7 +133,7 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement upoadedFileName;
 	
-	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_contained__3zoUH Button-color_secondary__1n9OX Button-size_big__2ttnu Button-root_noPadding__2aiSQ BaseModal_closeButton__3nb62']")
+	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-cross__3t7sZ']")
 	@CacheLookup
 	public WebElement closeIcon;
 	

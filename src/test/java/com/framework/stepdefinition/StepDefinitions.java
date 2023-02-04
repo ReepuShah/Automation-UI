@@ -3123,29 +3123,24 @@ public class StepDefinitions {
 		 HubbellHomePage hp = new HubbellHomePage(driver);
 		 ArrayList<String> filelist = new ArrayList<String>();
 		 ArrayList<String> updatedfilelist = new ArrayList<String>();
-		
 		 for(WebElement el : hp.fileSourceLink) {
 			 String filName  = el.getText();
 			 filelist.add(filName);
 		 }
-		 
 		 JavascriptExecutor js = (JavascriptExecutor)driver;
 		 js.executeScript("window.scrollBy(0,500)", "");
 		 ClickOnAnswerSourceLink();
 		 ClickOnBackButton();
-		 
+		 Thread.sleep(5000);
 		 for(WebElement el : hp.updatedFileSourceLink) {
 			 String filName  = el.getText();
 			 updatedfilelist.add(filName);
 		 }
-		 
-		 if(filelist.equals(updatedfilelist)) {
+		 if(filelist.equals(updatedfilelist)==true) {
 			 ObjectRepo.test.log(LogStatus.PASS,"Search Result Page Is Not Refreshed");
 		 }else {
 			 ObjectRepo.test.log(LogStatus.FAIL,"Search Result Page Is Refreshed");
 		 }
-		 
-		 
 	 }
 	 
 	 public static void VerifyFirstLetterIsCapitalOfTopic() {
@@ -3580,8 +3575,7 @@ public class StepDefinitions {
 	 public static void ClickGroupByDownIcon() throws Exception {
 		 KnowledgeAnalyticsPage kp = new KnowledgeAnalyticsPage(driver);
 		 Thread.sleep(5000);
-		 ButtonHelper.click(kp.groupByDropdowIcon, "Group BY Drown Icon ");
-		 
+		 ButtonHelper.click(kp.groupByDropdowIcon, "Group BY Drown Icon");
 	 }
 	 
 	 public static void SelectAssigneToOtherExperts() throws Exception {
@@ -3607,7 +3601,6 @@ public class StepDefinitions {
 		 WebElement user =  driver.findElement(By.xpath("(//*[text()='"+GenericHelper.getTestData("TextInputData")+"']//parent::*)[1]"));
 		 boolean value = ele.isEnabled();
 		 System.out.println("value is "+value);
-		 
 		 if(value==true) {
 			 ClickOnQuestionsIcon();
 			 int size;
@@ -3616,7 +3609,6 @@ public class StepDefinitions {
 			 }catch(Exception e) {
 				 size= kp.noQuestionFoundMgs.size();
 			 }
-			
 		    if(size!= 0) {
 		    	ClickGroupByDownIcon();
 		    	SelectAssigneToOtherExperts();
@@ -3636,7 +3628,6 @@ public class StepDefinitions {
 			 ClickOnAssignButton();
 			 GenericElements.ValidateElementIsDisplayed(kp.answerFields, "User Can Do Answer, Field");
 		 }
-	
 	 }
 	 
 	 public static void VerifyUserCanSeeOnlyAntherExpertName() throws Exception {
@@ -3787,10 +3778,6 @@ public class StepDefinitions {
 							GenericElements.ValidateElementIsDisplayed(kp.AssignExpertPopUp,"Assign Expert PopUp");
 						}
 					}
-					
-						
-					
-				
 			}
 		}catch(Exception e) {
 			ObjectRepo.test.log(LogStatus.FAIL, "Element not found");
@@ -3798,6 +3785,10 @@ public class StepDefinitions {
 		}
 	}
 	
+	public static void VerifyAssignToExpertPopUpScreenIsDisplay() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		GenericElements.ValidateElementIsDisplayed(hp.AssignExpertPopUp,"Assign Expert PopUp");
+	}
 	
 	
 	public static void SearchQuestionInTheList() throws Exception {
@@ -4786,7 +4777,6 @@ public class StepDefinitions {
 		}
 	}
 	
-	
 	public static void VerifyThatWhenUserVotedTheAnswerThenVoteThumbIsNotDisplay() throws Exception{
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		VerifyThatUserCanSelectTheAReasonWhyTheySelectedDownThumb();
@@ -4799,7 +4789,6 @@ public class StepDefinitions {
 		}
 	}
 	
-	
 	public static void VerifyThatChangeProfileIconIsValid(){
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		GenericElements.ValidateElementIsDisplayed(hp.changeProfileIcon,"Profile Icon");
@@ -4809,7 +4798,6 @@ public class StepDefinitions {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ButtonHelper.click(hp.expertIcon, "Expert Icon");
 	}
-	
 	
 	public static void VerifyThatAllProfileDetailsAreShowingOnExpertCard() throws Exception {
 		ProfilePage pp = new ProfilePage(driver);
@@ -4822,7 +4810,6 @@ public class StepDefinitions {
 			String value = el.getAttribute("value");
 			Profilelist.add(value);
 		}
-		
 		ClickOnExpertNavigationIcon();
 		String expertName = driver.findElement(By.xpath("//*[text()='"+Profilelist.get(0)+" "+Profilelist.get(1)+"']")).getText();
 		String expertJobTitleBusiness = driver.findElement(By.xpath("(//*[text()='"+Profilelist.get(0)+" "+Profilelist.get(1)+"'])[1]//following-sibling::*")).getText();
@@ -4830,17 +4817,11 @@ public class StepDefinitions {
 		String expectedName = Profilelist.get(0)+" "+Profilelist.get(1);
 		String expectedJobTitleBusinessUnit = Profilelist.get(2)+","+" "+Profilelist.get(3);
 		
-
-		
-		
-		
-		
 		if(expectedName.equals(expertName) && expectedJobTitleBusinessUnit.equals(expertJobTitleBusiness)) {
 			ObjectRepo.test.log(LogStatus.PASS,"Expert Name, Job Title and Business Unit Is Display");
 		}else {
 			ObjectRepo.test.log(LogStatus.FAIL,"Expert Name, Job Title and Business Unit not Display");
 		}
-		
 		GenericElements.ValidateElementIsDisplayed(ep.marketResearchAvatar,"Market Research Avatar");
 		GenericElements.ValidateElementIsDisplayed(ep.productSupportAvatar,"Product Support Avatar");
 		GenericElements.ValidateElementIsDisplayed(ep.RegsandPoliciesAvatar,"Regs and Policies Avatar");
@@ -4960,8 +4941,6 @@ public class StepDefinitions {
 		ButtonHelper.click(hp.expert, hp.expert.getText());
 	}
 	
-	
-	
 	public static void VerifyThatDataConnectorCardIsNotDisplayInsideFileCard() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ArrayList<String> list = new ArrayList<>();
@@ -4969,7 +4948,6 @@ public class StepDefinitions {
 			String cardName  = el.getText();
 			list.add(cardName);
 		}
-		
 		for(int i=0; i<list.size(); i++) {
 			if(list.get(i).equals("Data Connectors")) {
 				ObjectRepo.test.log(LogStatus.FAIL,"Data Connectors Card Is Display Inside File card");
@@ -5131,11 +5109,12 @@ public class StepDefinitions {
 	}
 	
 	public static void UploadFile() throws Exception {
-		HubbellHomePage hp = new HubbellHomePage(driver);
+//		HubbellHomePage hp = new HubbellHomePage(driver);
+		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
 		WebElement chooseFile = driver.findElement(By.xpath("//*[@class='DocumentDropZone_container__6aGxJ']"));
 		chooseFile.click();
 		Robot rb = new Robot();
-		 
+		
 	    // copying File path to Clipboard
 	    StringSelection str = new StringSelection("C:\\Users\\STELCO\\Desktop\\Nesh_Automation\\automationtests\\src\\main\\resources\\uploadedDocument\\relevantDocument\\brochure_Aluminium-Coil_203_en_LR_final.pdf");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
@@ -5144,14 +5123,15 @@ public class StepDefinitions {
 	     rb.keyPress(KeyEvent.VK_CONTROL);
 	     rb.keyPress(KeyEvent.VK_V);
 	 
-//	    // release Contol+V for pasting
-//	    rb.keyRelease(KeyEvent.VK_CONTROL);
-//	    rb.keyRelease(KeyEvent.VK_V);
+	    // release Contol+V for pasting
+	    rb.keyRelease(KeyEvent.VK_CONTROL);
+	    rb.keyRelease(KeyEvent.VK_V);
 //	 
 	    // for pressing and releasing Enter
 	    rb.keyPress(KeyEvent.VK_ENTER);
 	    rb.keyRelease(KeyEvent.VK_ENTER);
-	    ButtonHelper.click(hp.iconClose, "Close Icon");
+	    Thread.sleep(1000);
+		ButtonHelper.click(dp.closeIcon, "close Icon");
 	}
 	
 	public static void VerifyThatCancelButtonIsnotVissiblehWhenUploadingFiles(){
@@ -5616,9 +5596,7 @@ public class StepDefinitions {
 	 
 	 public static void VerifyThatGeneratedSummaryContainKeyExtractionsOfPassages() throws InterruptedException {
 		 HubbellHomePage hp = new HubbellHomePage(driver);
-		 Thread.sleep(10000);
 		 String marked = hp.highlightedSentance.getText();
-		 Thread.sleep(5000);
 		 String summary = hp.summaryPart.getText();
 		 String arr[]=null;
 		 arr = marked.split(" ");
@@ -5630,10 +5608,10 @@ public class StepDefinitions {
 			 if(summary.contains(list.get(i))) {
 					ObjectRepo.test.log(LogStatus.PASS, "Summary Contain Key Extractions Of Passages");
 					break;
-				 }
-				 else if(i+1==list.size()) {
-					 ObjectRepo.test.log(LogStatus.FAIL, "Summary Contain not Key Extractions Of Passages");
-				 }
+			 }
+			else if(i+1==list.size()) {
+				ObjectRepo.test.log(LogStatus.FAIL, "Summary Contain not Key Extractions Of Passages");
+			}
 		 }
 	 }
 	 
@@ -5708,27 +5686,22 @@ public class StepDefinitions {
 		 }
 		String txt = txtlist.get(txtlist.size()-1);
 		int totalPages = Integer.parseInt(txt); 
-		int totalConnectedWebsite =0; 
+		int totalConnectedfile =0; 
 		
 		for(int i=1; i<=totalPages; i++) {
 			 List<WebElement> el = getWebElement("(//*[@class='Sources_container__UdBAx'])[2]//*[@class='BaseDataSourceCard_container__3AFiS']");
 			 int totalweb = el.size();
-			 
-			 totalConnectedWebsite = totalConnectedWebsite + totalweb;
-			 
+			 totalConnectedfile = totalConnectedfile + totalweb;
 			 String term =Integer.toString(i+1);
 				
 				if(term.equals(Integer.toString(totalPages+1) )) {
 					break;
 				}
-				
-			    WebElement btn = driver.findElement(By.xpath("//*[@aria-label='Page "+term+"']"));
+			    WebElement btn = driver.findElement(By.xpath("(//*[@aria-label='Page "+term+"'])[2]"));
 				ButtonHelper.click(btn, btn.getText());
 		 }
-		
-		int totalWebsite = getTotalUploadedFile(dp.uploadedFileWithAssociatedToAvatar);
-		
-		if(totalWebsite==totalConnectedWebsite) {
+		int totalfile = getTotalUploadedFile(driver.findElement(By.xpath("(//*[@class='Title_root__33NXB'])[2]")));
+		if(totalfile==totalConnectedfile) {
 			ObjectRepo.test.log(LogStatus.PASS, "Pagination is Working On File Page");
 		}else {
 			ObjectRepo.test.log(LogStatus.FAIL, "Pagination is not Working on File Page");
@@ -5886,11 +5859,9 @@ public class StepDefinitions {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ButtonHelper.click(hp.postToExpertBtn, "Post To Expert Button");
 	}
-	
+
 	public static void VerifyThatFilesAreUploading() throws Exception {
 		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
-		Thread.sleep(1000);
-		ButtonHelper.click(dp.closeIcon, "close Icon");
 		GenericElements.ValidateElementIsDisplayed(dp.uploadingproccess,dp.uploadingproccess.getText());
 	}
 	
