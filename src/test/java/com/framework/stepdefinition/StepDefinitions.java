@@ -5865,5 +5865,61 @@ public class StepDefinitions {
 		GenericElements.ValidateElementIsDisplayed(dp.uploadingproccess,dp.uploadingproccess.getText());
 	}
 	
+	public static void ClickOnFilterButton() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		hp.txtSearchIndex.click();
+		ButtonHelper.click(hp.filterButton, "Filter Button");
+	}
+	
+	public static WebElement ChooseFiltertype(String name) {
+		WebElement el =driver.findElement(By.xpath("//*[text()='"+name+"']"));
+		return el;
+	}
+	
+	public static void SelectExtension(String name) throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		for(WebElement el : hp.fileExtensions) {
+			String exten = el.getText();
+			if(exten.equals(name)) {
+				ButtonHelper.click(el, name);
+				break;
+			}
+		}
+	}
+	
+	public static void ApplyFileExtensionFilter() throws Exception {
+		WebElement el =ChooseFiltertype(GenericHelper.getTestData("Data"));
+		ButtonHelper.click(el, "Filter Button");
+		SelectExtension(GenericHelper.getTestData("Data1"));
+	}
+	
+	public static void VerifyThatFiltersAreWorking() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		String expecteddataformate = GenericHelper.getTestData("Data1");
+		expecteddataformate=expecteddataformate.toUpperCase();
+		System.out.println(expecteddataformate);
+		ArrayList<String> list = new ArrayList<String>(); 
+		for(WebElement el : hp.fileName) {
+			list.add(el.getText());
+		}
+		
+		for (int i=0; i<list.size(); i++) {
+			String text = list.get(i);
+			int index = text.lastIndexOf('.');
+			if(index > 0) {
+			      String extension = text.substring(index + 1);
+			      if(extension.equals(expecteddataformate)) {
+			    	  ObjectRepo.test.log(LogStatus.PASS,"Filter option is working");
+			      }else {
+			    	  ObjectRepo.test.log(LogStatus.FAIL,"Filter option is not working");
+			      }
+			    }
+		}
+		
+	}
+	
+
+	
+	
 }
 	

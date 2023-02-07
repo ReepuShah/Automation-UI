@@ -1356,6 +1356,17 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement Expert;
 	
+	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_outlined__1l0WC Button-color_primary__H_f8o Button-size_tiny__5Y3Ch']")
+	@CacheLookup
+	public WebElement filterButton;
+	
+	@FindBy(xpath = "//*[@class='ListItem_item__W7-Sa ListItem_clickable__2xqMz']")
+	@CacheLookup
+	public List<WebElement> fileExtensions;
+	
+	
+	
+	
 	
 	
 	

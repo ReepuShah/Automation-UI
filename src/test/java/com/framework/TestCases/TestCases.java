@@ -1789,6 +1789,11 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Files_Are_Uploading");
 	}
 	
+	@Test
+	public static void Verify_That_Filter_Are_Working() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Filter_Are_Working");
+	}
+	
 	
 }  
 
