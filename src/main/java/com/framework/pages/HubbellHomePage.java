@@ -75,7 +75,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public  WebElement txtSearchIndex;
 	
-	@FindBy(xpath = "//*[text()='SEARCH']")
+	@FindBy(xpath = "//*[text()='Search']")
 	@CacheLookup
 	public  WebElement searchButton;
 	
@@ -681,6 +681,10 @@ public class HubbellHomePage extends PageBase {
 	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__15nKY']//*//h4")
 	@CacheLookup
 	public List<WebElement> fileName;
+	
+	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__15nKY']//*//h4")
+	@CacheLookup
+	public List<WebElement> fileNameUpdated;
 	
 	@FindBy(xpath = "//*[@class='Table_root__2g7ov AnswerSection_table__3uB24']")
 	@CacheLookup
@@ -1364,6 +1368,17 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> fileExtensions;
 	
+	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-laughing-face__38VOF Icon_color-default__cGkyg SummaryVoteController_icon__1lWxT']")
+	@CacheLookup
+	public WebElement smileIcon;
+	
+	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-laughing-face__38VOF Icon_color-default__cGkyg SummaryVoteController_icon__1lWxT']")
+	@CacheLookup
+	public List<WebElement> feedbackFace;
+	
+	@FindBy(xpath = "(//*[@class='Radio_root__2dmgP Radio_size-medium__1m2Bh'])[1]")
+	@CacheLookup
+	public WebElement feedbackIcon;
 	
 	
 	

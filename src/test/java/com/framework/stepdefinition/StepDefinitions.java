@@ -5864,7 +5864,7 @@ public class StepDefinitions {
 		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
 		GenericElements.ValidateElementIsDisplayed(dp.uploadingproccess,dp.uploadingproccess.getText());
 	}
-	
+		
 	public static void ClickOnFilterButton() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		hp.txtSearchIndex.click();
@@ -5889,7 +5889,7 @@ public class StepDefinitions {
 	
 	public static void ApplyFileExtensionFilter() throws Exception {
 		WebElement el =ChooseFiltertype(GenericHelper.getTestData("Data"));
-		ButtonHelper.click(el, "Filter Button");
+		ButtonHelper.click(el, el.getText());
 		SelectExtension(GenericHelper.getTestData("Data1"));
 	}
 	
@@ -5918,7 +5918,53 @@ public class StepDefinitions {
 		
 	}
 	
+	public static void VerifyThatOldFiltereatureIsNotAvailable() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		GenericElements.ValidateElementIsDisplayed(hp.filterButton,"New Filter");
+	}
 
+	
+	public static void VerifyThatAnswerWillBeChangedAfterApplyFilter() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<String> list1 = new ArrayList<String>();
+		for(WebElement el : hp.fileName) {
+			list.add(el.getText());
+		}
+		ClickOnFilterButton();
+		ApplyFileExtensionFilter();
+		ClickOnSearchButton();
+		
+		for(WebElement el : hp.fileNameUpdated) {
+			list1.add(el.getText());
+		}
+		
+		if(list.equals(list1)==true) {
+			ObjectRepo.test.log(LogStatus.FAIL,"Answer have not changed");
+		}else {
+			ObjectRepo.test.log(LogStatus.PASS,"Answer have changed");
+		}
+	}
+	
+	public static void SelectSmileIconForVoteTheSummary() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ButtonHelper.click(hp.smileIcon, "Smile Icon");
+	}
+	
+	public static void SelectFeedbackOption() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ButtonHelper.click(hp.feedbackIcon, "Feedback");
+	}
+	
+	public static void VerifyFeedbackIconIsNotDisplayOnceUserSubmitsTheirFeedbackForSummary() throws InterruptedException {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		Thread.sleep(5000);
+		if(hp.feedbackFace.size()==0) {
+			ObjectRepo.test.log(LogStatus.PASS,"Feedback icon is not display");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Feedback icon is display");
+		}
+	}
 	
 	
 }

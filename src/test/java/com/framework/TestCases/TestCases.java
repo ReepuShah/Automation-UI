@@ -1794,6 +1794,21 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Filter_Are_Working");
 	}
 	
+	@Test
+	public static void Verify_That_Old_Filter_Feature_Is_Available() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Old_Filter_Feature_Is_Available");
+	}
+	
+	@Test
+	public static void Verify_That_Answer_Will_Be_Changed_After_Apply_The_Filter() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Answer_Will_Be_Changed_After_Apply_The_Filter");
+	}
+	
+	@Test
+	public static void Verify_That_Voting_Icon_Is_Not_Display_Once_User_Submits_Their_Feedback_For_Summary() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Voting_Icon_Is_Not_Display_Once_User_Submits_Their_Feedback_For_Summary");
+	}
+	
 	
 }  
 

@@ -56,9 +56,9 @@ public class sendmail {
 		System.out.println("Email Sending.....");
 		ArrayList<String> userlist = new ArrayList<String>();
 		userlist.add("reepushah78@gmail.com");
-//		userlist.add("manish@hellonesh.io");
-//		userlist.add("sidd@hellonesh.io");
-//		userlist.add("seth@hellonesh.io");
+		userlist.add("manish@hellonesh.io");
+		userlist.add("sidd@hellonesh.io");
+		userlist.add("seth@hellonesh.io");
 		EmailAttachment attachment = new EmailAttachment();
 	     attachment.setPath(System.getProperty("user.dir")+"/reports/"+getreportpath());
 	     attachment.setDisposition(EmailAttachment.ATTACHMENT);
