@@ -1809,6 +1809,17 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Voting_Icon_Is_Not_Display_Once_User_Submits_Their_Feedback_For_Summary");
 	}
 	
+	@Test
+	public static void Verify_That_Client_Filter_Are_Working() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Client_Filter_Are_Working");
+	}
+	
+	@Test
+	public static void Verify_That_Text_Bubble_Is_Not_Showing_Too_Bright() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Text_Bubble_Is_Not_Showing_Too_Bright");
+	}
+	
+	  
 	
 }  
 

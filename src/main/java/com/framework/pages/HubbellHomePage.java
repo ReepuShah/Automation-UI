@@ -1380,6 +1380,9 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement feedbackIcon;
 	
+	@FindBy(xpath = "(//*[@class='Chip_title__2c-BL'])[1]")
+	@CacheLookup
+	public WebElement clientFilter;
 	
 	
 	

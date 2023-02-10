@@ -5966,6 +5966,17 @@ public class StepDefinitions {
 		}
 	}
 	
-	
+	public static void VerifyThatClientFilterIsWorking() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		String actual = hp.clientFilter.getText();
+		actual = actual.replace("Client: ", "");
+		String expected = GenericHelper.getTestData("Data1");
+		if(actual.equals(expected)) {
+			ObjectRepo.test.log(LogStatus.PASS,"Client Filter is working");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Client Filter is not working");
+		}
+		
+	}
 }
 	
