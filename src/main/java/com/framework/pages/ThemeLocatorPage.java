@@ -32,7 +32,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement nextButton;
 	
-	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV']")
+	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV TextInput_withAfter__W6nFG']")
 	@CacheLookup
 	public  WebElement searchBar;
 	

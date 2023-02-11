@@ -5976,7 +5976,25 @@ public class StepDefinitions {
 		}else {
 			ObjectRepo.test.log(LogStatus.FAIL,"Client Filter is not working");
 		}
-		
 	}
+	
+	public static void VerifyThatTextBubleIsNotTooBright() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		if(hp.notBright.isDisplayed()) {
+			ObjectRepo.test.log(LogStatus.PASS,"Text Bubble is not too bright");
+		}else{
+			ObjectRepo.test.log(LogStatus.FAIL,"Text Bubble is too bright");
+		}
+	}
+	
+	public static void VerifyThatDecisionOptionIsNotShowing() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		if(hp.decisionOtion.size()==0) {
+			ObjectRepo.test.log(LogStatus.PASS,"Decision Option is not showing");
+		}else{
+			ObjectRepo.test.log(LogStatus.FAIL,"Decision Option is showing");
+		}
+	}
+	
 }
 	

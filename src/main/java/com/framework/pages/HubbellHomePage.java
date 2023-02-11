@@ -1384,6 +1384,15 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement clientFilter;
 	
+	@FindBy(xpath = "//*[@class='ComicBubble_bubble__3EdEP']")
+	@CacheLookup
+	public WebElement notBright;
+	
+	@FindBy(xpath = "//*[text()='Decision']")
+	@CacheLookup
+	public List<WebElement> decisionOtion;
+	
+	
 	
 	
 	

@@ -96,7 +96,7 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	@CacheLookup
 	public  List<WebElement> downvotedQuestions;
 	
-	@FindBy(xpath = "//*[@class='Switch_item__2bJhs Switch_checked__1PC6O']")
+	@FindBy(xpath = "//*[text()='Waiting for Answer']")
 	@CacheLookup
 	public WebElement switchToggle;
 	

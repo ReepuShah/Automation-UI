@@ -1819,7 +1819,10 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Text_Bubble_Is_Not_Showing_Too_Bright");
 	}
 	
-	  
+	@Test
+	public static void Verify_That_Decision_Option_Is_Available_On_Result_Page() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Decision_Option_Is_Available_On_Result_Page");
+	}  
 	
 }  
 
