@@ -117,7 +117,7 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public List<WebElement>website;
 	
-	@FindBy(xpath = "(//*[@class='Pagination_root__35vop'])[2]//*[@class='next']//preceding-sibling::*")
+	@FindBy(xpath = "(//*[@class='Pagination_root__35vop'])//*[@class='next']//preceding-sibling::*")
 	@CacheLookup
 	public List<WebElement> lastPage;
 	
@@ -141,7 +141,9 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement uploadingproccess;
 	
-	
+	@FindBy(xpath = "(//*[@rel='prev'])")
+	@CacheLookup
+	public WebElement prevBtn;
 	
 	
 	

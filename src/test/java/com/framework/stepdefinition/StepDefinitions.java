@@ -25,6 +25,7 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.net.MulticastSocket;
 import java.text.Format;
 import java.time.LocalDate;
 import java.time.Period;
@@ -5996,5 +5997,40 @@ public class StepDefinitions {
 		}
 	}
 	
+	public static void VerifyThatPreviousButtonIsWorkingOfPagination() throws Exception {
+		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
+		ArrayList<String> txtlist = new ArrayList<String>();
+		 int totalpages = dp.lastPage.size()-1;
+		 if(totalpages>0){
+			 for(WebElement element : dp.lastPage) {
+				 txtlist.add(element.getText());
+			 }
+			 String txt = txtlist.get(txtlist.size()-1);
+			 int totalPages = Integer.parseInt(txt); 
+			 ButtonHelper.click(dp.prevBtn, "Previous Button");
+			 
+			 if(totalpages==totalPages) {
+				 ObjectRepo.test.log(LogStatus.PASS,"Previous Button is working fine");
+			 }else {
+				 ObjectRepo.test.log(LogStatus.FAIL,"Previous Button is not working fine");
+			 }
+		 }else {
+			 ObjectRepo.test.log(LogStatus.PASS, "There is no Pagination");
+		 }
+		
+	}
+	
+	public static void VerifyThatAvatatNameIsDsiplayInCamelCaseWord() {
+		KnowledgeAnalyticsPage kp = new KnowledgeAnalyticsPage(driver);
+		for(WebElement el : kp.channels) {
+			String text = el.getText();
+			char[] chr = text.toCharArray();
+			if(Character.isUpperCase(chr[0])&&Character.isLowerCase(chr[1])) {
+				ObjectRepo.test.log(LogStatus.PASS,text+" is Displayed in Format");
+			}else {
+				ObjectRepo.test.log(LogStatus.FAIL,text+" is not Displayed in Format");
+			}
+		}
+	}
 }
 	

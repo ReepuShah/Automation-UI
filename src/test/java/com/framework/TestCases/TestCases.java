@@ -1824,6 +1824,20 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Decision_Option_Is_Available_On_Result_Page");
 	}  
 	
+	@Test
+	public static void Verify_That_Previous_Button_Is_Working_Of_Pagination() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Previous_Button_Is_Working_Of_Pagination");
+	} 
+	
+	@Test
+	public static void Verify_That_Avatar_Name_Is_Display_In_Camel_Case_Word() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Avatar_Name_Is_Display_In_Camel_Case_Word");
+	} 
+	
+
+	
+	
+	
 }  
 
 
