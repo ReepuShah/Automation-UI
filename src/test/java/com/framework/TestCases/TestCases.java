@@ -1830,6 +1830,11 @@ public class TestCases {
 	} 
 	
 	@Test
+	public static void Verify_That_Upload_File_Button_Is_Working() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Upload_File_Button_Is_Working");
+	} 
+	
+	@Test
 	public static void Verify_That_Avatar_Name_Is_Display_In_Camel_Case_Word() {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Avatar_Name_Is_Display_In_Camel_Case_Word");
 	} 
