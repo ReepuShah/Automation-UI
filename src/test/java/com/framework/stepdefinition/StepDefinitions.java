@@ -6032,5 +6032,70 @@ public class StepDefinitions {
 			}
 		}
 	}
+	
+	public static void VerifyThatPostToExpertButtonIsClickable() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		if(hp.postQuestionPage.isDisplayed()) {
+			ObjectRepo.test.log(LogStatus.PASS,"Post To Expert Button Is Clickable");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Post To Expert Button Is not Clickable");
+		}
+	}
+	
+	public static void VerifyThatClickingBetweenQuestionsDoNotCloseTheSearchBar() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ButtonHelper.click(hp.spaceBtQues, "Space Between Question");
+		GenericElements.ValidateElementIsDisplayed(hp.spaceBtQues,"Search bar");
+	}
+	
+	public static void VerifyThatAvatarSelectionPoupIsDisplayEveryTimeLogin(){
+		HubbellLoginPage lp = new HubbellLoginPage(driver);
+		GenericElements.ValidateElementIsDisplayed(lp.avatarSelectOption,"Avatar Selcetion Page");
+	}
+	
+	public static void VerifyThatUpvotedAnswerIsShowingAtTheTop() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		if(hp.upvotedCount.size()!=0) {
+			for(WebElement el : hp.upvotedCount) {
+				String txt = el.getText();
+				int count = Integer.parseInt(txt);
+				list.add(count);
+			}
+			
+			if(list.size()>=2) {
+				if(list.get(0)>=list.get(1)) {
+					System.out.println("pass");
+				}else {
+					System.out.println("Fail");
+				}
+			}else {
+				System.out.println("click upvote button");
+			}
+		}else {
+			System.out.println("click upvote button");
+			
+			for(WebElement el : hp.upvotedCount) {
+				String txt = el.getText();
+				int count = Integer.parseInt(txt);
+				list.add(count);
+			}
+			
+			if(list.size()>=2) {
+				if(list.get(0)>=list.get(1)) {
+					System.out.println("pass");
+				}else {
+					System.out.println("Fail");
+				}
+			}else {
+				System.out.println("click upvote button");
+			}
+			// pending......
+		}
+	}
+	
+	
+	
 }
 	

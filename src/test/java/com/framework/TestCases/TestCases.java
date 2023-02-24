@@ -1839,9 +1839,28 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Avatar_Name_Is_Display_In_Camel_Case_Word");
 	} 
 	
-
+	@Test
+	public static void Verify_That_Post_To_Expert_Button_Is_Clickable() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Post_To_Expert_Button_Is_Clickable");
+	} 
+	
+	@Test
+	public static void Verify_That_Clicking_Between_Questions_Do_Not_Close_The_Search_Bar() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Clicking_Between_Questions_Do_Not_Close_The_Search_Bar");
+	} 
+	
+	@Test
+	public static void Verify_That_Avatar_Selection_PopUp_Show_Every_Time_The_User_Login() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Avatar_Selection_PopUp_Show_Every_Time_The_User_Login");
+	} 
+	
+	@Test
+	public static void Verify_That_Upvoted_Answer_Is_Showing_At_The_Top() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Upvoted_Answer_Is_Showing_At_The_Top");
+	} 
 	
 	
+	 
 	
 }  
 

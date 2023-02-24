@@ -1392,6 +1392,19 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> decisionOtion;
 	
+	@FindBy(xpath = "//*[@class='BaseModal_root__xOf-9 AssignExpertToQuestionModal_root__Jqp4u']")
+	@CacheLookup
+	public WebElement postQuestionPage;
+	
+	@FindBy(xpath = "//*[@class='QuestionSuggestions_root__3wCHD']")
+	@CacheLookup
+	public WebElement spaceBtQues;
+	
+	@FindBy(xpath = "//*[@class='Tooltip_root__2X3ua Tooltip_justify-center__3tYAX AnswerControl_upvoteCounter__dcZFn']")
+	@CacheLookup
+	public List<WebElement>upvotedCount;
+	
+	
 	
 	
 	
