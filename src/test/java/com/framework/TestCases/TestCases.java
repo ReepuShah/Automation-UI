@@ -1859,9 +1859,26 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Upvoted_Answer_Is_Showing_At_The_Top");
 	} 
 	
+	@Test
+	public static void Verify_That_Enter_Button_Is_Working_With_Chinook_Avatar() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Enter_Button_Is_Working_With_Chinook_Avatar");
+	} 
+
+	@Test
+	public static void Verify_That_Card_And_Tree_View_Is_Display() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Card_And_Tree_View_Is_Display");
+	} 
 	
+	@Test
+	public static void Verify_That_Open_Extras_Panel_Is_Display_And_There_Are_Multiple_Option_In_The_Panel() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Open_Extras_Panel_Is_Display_And_There_Are_Multiple_Option_In_The_Panel");
+	} 
+	
+	@Test
+	public static void Verify_That_Open_Extras_Panel_Is_Display() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Open_Extras_Panel_Is_Display");
+	} 
 	 
-	
 }  
 
 

@@ -6053,7 +6053,7 @@ public class StepDefinitions {
 		GenericElements.ValidateElementIsDisplayed(lp.avatarSelectOption,"Avatar Selcetion Page");
 	}
 	
-	public static void VerifyThatUpvotedAnswerIsShowingAtTheTop() {
+	public static void VerifyThatUpvotedAnswerIsShowingAtTheTop() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		
@@ -6064,37 +6064,92 @@ public class StepDefinitions {
 				list.add(count);
 			}
 			
-			if(list.size()>=2) {
-				if(list.get(0)>=list.get(1)) {
-					System.out.println("pass");
-				}else {
-					System.out.println("Fail");
-				}
-			}else {
-				System.out.println("click upvote button");
+			if(list.size()==1) {
+				System.out.println("Pass");
 			}
+			else if (list.size()>=2) {
+				for(int i=0; i<list.size(); i++) {
+					for(int j=1; j<list.size(); j++) {
+						if(list.get(i)>=list.get(j)) {
+							if(i==list.size()-1) {
+								ObjectRepo.test.log(LogStatus.PASS,"Hightest upvoted Answer is on the top");
+								break;
+							}
+						}else {
+							ObjectRepo.test.log(LogStatus.FAIL,"Highest upvoted answer is not on the top");
+						}
+					}
+				}
+				
+			}
+			
+			
 		}else {
-			System.out.println("click upvote button");
-			
-			for(WebElement el : hp.upvotedCount) {
-				String txt = el.getText();
-				int count = Integer.parseInt(txt);
-				list.add(count);
-			}
-			
-			if(list.size()>=2) {
-				if(list.get(0)>=list.get(1)) {
-					System.out.println("pass");
-				}else {
-					System.out.println("Fail");
-				}
-			}else {
-				System.out.println("click upvote button");
-			}
-			// pending......
+			ObjectRepo.test.log(LogStatus.PASS,"There is no upvoted answer for this question");
 		}
 	}
 	
+	public static boolean PressEnterKey() {
+		Actions action = new Actions(driver);
+		action.sendKeys(Keys.ENTER).build().perform();
+		return true;
+		
+	}
+
+	public static void VerifyThatEnterButtonIsWorking() {
+		if(PressEnterKey()==true) {
+			ObjectRepo.test.log(LogStatus.PASS,"Enter Key Pressed");
+		}else {
+			ObjectRepo.test.log(LogStatus.PASS,"Enter Key did not Press");
+		}
+	}
+	
+	public static void VerifyThatCardAndTreeViewIsDisplayed() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ArrayList<WebElement> webList = new ArrayList<WebElement>();
+		String expectedClass = "Switch_item__2bJhs Switch_checked__1PC6O Switch_clickable__2UIW3";
+		for(WebElement el : hp.viewMode) {
+			webList.add(el);
+		}
+		
+		for(int i=0; i<webList.size(); i++) {
+			ButtonHelper.click(webList.get(i), webList.get(i).getText());
+			 String actualClass = webList.get(i).getAttribute("class");
+			 if(expectedClass.equals(actualClass)) {
+				 ObjectRepo.test.log(LogStatus.PASS,webList.get(i).getText()+"view is Displayed");
+				 if(i==1) {
+					 break;
+				 }
+			 }else {
+				 ObjectRepo.test.log(LogStatus.FAIL,webList.get(i).getText()+"view is not Displayed");
+			 }
+		}
+	}
+	
+	public static void ClickOnOpenExtrasIcon() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ArrayList<WebElement> webList = new ArrayList<WebElement>();
+		int rand = GenericHelper.generateRamdomNumber(0, webList.size());
+		
+		for(WebElement el : hp.openExtras) {
+			webList.add(el);
+		}
+		ButtonHelper.click(webList.get(rand), "Open Extras");
+	}
+	
+	public static void VerifyThatThereAreMultipleOptionInTheOpenExtrasPanel() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		GenericElements.ValidateElementIsDisplayed(hp.openExtrasPanel,"Open Extras Panel");
+		
+		for(WebElement el : hp.openExtrasOption) {
+			ObjectRepo.test.log(LogStatus.PASS,el.getText() +" view is Displayed");
+		}
+	}
+	
+	public static void VerifyThatSideOpenExtrasPanelIsDisplayed() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		GenericElements.ValidateElementIsDisplayed(hp.openExtrasPanel,"Open Extras Panel");
+	}
 	
 	
 }

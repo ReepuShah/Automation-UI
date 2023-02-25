@@ -1404,7 +1404,25 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement>upvotedCount;
 	
+	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-big-arrow-up__2C5Bl']")
+	@CacheLookup
+	public List<WebElement> moveUp;
 	
+	@FindBy(xpath = "//*[@class='Switch_container__3l170 Switch_size-big__K1tOO Home_tabs__J44iA']/*")
+	@CacheLookup
+	public List<WebElement> viewMode;
+	
+	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-rocket__2WoAv']")
+	@CacheLookup
+	public List<WebElement> openExtras;
+	
+	@FindBy(xpath = "//*[@class='ContentBox_root__jn-o3 ContentBox_color-secondary__dWf2a SearchExtras_root__3-I0g']")
+	@CacheLookup
+	public WebElement openExtrasPanel;
+	
+	@FindBy(xpath = "//*[@class='CollapseHeader_root__LqPtM CollapseHeader_clickable__Bq7sH AnswerSection_collapsableHeader__3_uZo']")
+	@CacheLookup
+	public List<WebElement> openExtrasOption;
 	
 	
 	
