@@ -1870,6 +1870,11 @@ public class TestCases {
 	} 
 	
 	@Test
+	public static void Verify_That_Nesh_Bubble_Text_Show_Different_For_Normal_Question_And_Low_Confidence_Qustion() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Nesh_Bubble_Text_Show_Different_For_Normal_Question_And_Low_Confidence_Qustion");
+	} 
+	
+	@Test
 	public static void Verify_That_Open_Extras_Panel_Is_Display_And_There_Are_Multiple_Option_In_The_Panel() {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Open_Extras_Panel_Is_Display_And_There_Are_Multiple_Option_In_The_Panel");
 	} 

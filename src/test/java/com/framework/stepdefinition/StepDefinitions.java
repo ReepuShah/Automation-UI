@@ -6126,6 +6126,30 @@ public class StepDefinitions {
 		}
 	}
 	
+	public static String GetNeshBubbleText() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		String text = hp.bubbleText.getText();
+		return text;
+	}
+	
+	public static void VerifyThatNeshBubbleTextIsDifferentForNormalQuestionAndLowConfidenceQuestion() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		WebElement element = GenericElements.getOldOrNewLocator(hp.txtSearchIndex,hp.searchOption);
+		TextBoxHelper.enterText(element, "Normal Question", GenericHelper.getTestData("TextInputData"));
+		PressEnterKeys();
+		String bubbleTextWithNormalQuestion = GetNeshBubbleText();
+		WriteAnyNewQuestions();
+		PressEnterKeys();
+		String bubbleTextWithLowConfidenceQuestion = GetNeshBubbleText();
+		
+		if(bubbleTextWithNormalQuestion.equals(bubbleTextWithLowConfidenceQuestion)) {
+			ObjectRepo.test.log(LogStatus.FAIL,"Nesh bubble text is not different for both type of question");
+		}else {
+			 ObjectRepo.test.log(LogStatus.PASS,"Nesh bubble text is different for both type of question");
+		}
+	}
+	
+	
 	public static void ClickOnOpenExtrasIcon() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ArrayList<WebElement> webList = new ArrayList<WebElement>();

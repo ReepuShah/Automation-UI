@@ -1424,6 +1424,10 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> openExtrasOption;
 	
+	@FindBy(xpath = "//*[@class='ComicBubble_bubble__3EdEP']")
+	@CacheLookup
+	public WebElement bubbleText;
+	
 	
 	
 	
