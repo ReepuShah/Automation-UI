@@ -120,7 +120,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement environmentalTopic;
 	
-	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__15nKY']/*/h4")
+	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__15nKY']//*//h4")
 	@CacheLookup
 	public List<WebElement> passageName;
 	

@@ -20,7 +20,7 @@ public class AvatarPage extends PageBase {
 	
 	/** Web Elements */
 	
-	@FindBy(xpath = "(//*[@class='Button_root__1hsq2 Button_variant-contained__3XbRQ Button_color-primary__Hkfvx'])[1]")
+	@FindBy(xpath = "(//*[@class='Button-root_root__2hlPn Button-variant_contained__3zoUH Button-color_primary__H_f8o Button-size_large__3JqWL'])[1]")
 	@CacheLookup
 	public  WebElement createAvatarButton;
 	

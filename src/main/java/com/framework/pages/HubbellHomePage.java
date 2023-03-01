@@ -1028,7 +1028,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement hideAnswer;
 	
-	@FindBy(xpath = "//*[@class='Button_root__1hsq2 Button_variant-outlined__s7SST Button_color-default__PCuwD']")
+	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_outlined__1l0WC Button-color_default__1lAQQ Button-size_large__3JqWL']")
 	@CacheLookup
 	public WebElement loadAnotherAnswerButton;
 	
@@ -1344,7 +1344,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement>summarySizeToggle;
 	
-	@FindBy(xpath = "//*[@class='List_root__2XQRm List_gutter-0__1cAu2 List_direction-row__2EDdp List_align-center__1IS_v List_justify-flex-end__PIu9D']")
+	@FindBy(xpath = "//*[@class='List_root__2XQRm List_gutter-0__1cAu2 List_direction-row__2EDdp List_align-center__1IS_v List_justify-initial__OTyqS List_overflow-auto__1aegl']")
 	@CacheLookup
 	public WebElement summaryFeedBack;
 	

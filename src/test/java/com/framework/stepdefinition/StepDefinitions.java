@@ -2793,7 +2793,6 @@ public class StepDefinitions {
 			  list.add(element);
 		  }
 		return list;
-		  
 	  }
 	  
 	  public static void VerifyPassagesAreChangeWhenOtherAvatarsWereSelected() throws Exception {
@@ -3316,8 +3315,6 @@ public class StepDefinitions {
 			 ButtonHelper.click(hp.loadAnotherAnswerButton, "Load Another Answer Button");
 		 }
 	 }
-	 
-	 
 	 
 	 public static int GetTotalFileSize() throws InterruptedException {
 		 HubbellHomePage hp = new HubbellHomePage(driver);
@@ -6033,8 +6030,9 @@ public class StepDefinitions {
 		}
 	}
 	
-	public static void VerifyThatPostToExpertButtonIsClickable() {
+	public static void VerifyThatPostToExpertButtonIsClickable() throws InterruptedException {
 		HubbellHomePage hp = new HubbellHomePage(driver);
+		Thread.sleep(5000);
 		if(hp.postQuestionPage.isDisplayed()) {
 			ObjectRepo.test.log(LogStatus.PASS,"Post To Expert Button Is Clickable");
 		}else {
@@ -6174,7 +6172,6 @@ public class StepDefinitions {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		GenericElements.ValidateElementIsDisplayed(hp.openExtrasPanel,"Open Extras Panel");
 	}
-	
 	
 }
 	
