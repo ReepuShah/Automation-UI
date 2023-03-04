@@ -80,6 +80,10 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public List<WebElement> allTopic;
 	
+	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__LrpL+']//*//h4")
+	@CacheLookup
+	public List<WebElement> changedPassages;
+	
 	@FindBy(xpath = "(//*[@class='ImageCard_title__3xtrK']//h3)[1]")
 	@CacheLookup
 	public WebElement updatedtopicName;
@@ -116,11 +120,11 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement environmentalTopicTab;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_root__2FvFc ImageCard_theme-secondary__tzV1p ImageCard_clickable__2McHq'])[1]")
+	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V'])[1]")
 	@CacheLookup
 	public WebElement environmentalTopic;
 	
-	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__15nKY']//*//h4")
+	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__LrpL+']//*//h4")
 	@CacheLookup
 	public List<WebElement> passageName;
 	

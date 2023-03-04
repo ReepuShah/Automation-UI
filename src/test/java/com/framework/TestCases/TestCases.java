@@ -1883,6 +1883,11 @@ public class TestCases {
 	public static void Verify_That_Open_Extras_Panel_Is_Display() {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Open_Extras_Panel_Is_Display");
 	} 
+	
+	@Test
+	public static void Verify_That_Graph_View_Is_Display_On_The_Home_Page() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Graph_View_Is_Display_On_The_Home_Page");
+	} 
 	 
 }  
 

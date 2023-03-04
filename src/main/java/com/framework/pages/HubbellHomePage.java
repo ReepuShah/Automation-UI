@@ -50,7 +50,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public  WebElement iconNesh;
 	
-	@FindBy(xpath = "(//*[@class='NavItem_icon__3WPT-'])[1]")
+	@FindBy(xpath = "(//*[@href='/home'])[2]")
 	@CacheLookup
 	public  WebElement homeIcon;
 	
@@ -179,7 +179,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement uploadFileButton;
 	
-	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV TextInput_withAfter__W6nFG']")
+	@FindBy(xpath = "//*[@class='TextInput_input__fCq2t TextInput_withBefore__m3zLc TextInput_withAfter__iLW91']")
 	@CacheLookup
 	public WebElement searchOption;
 	
@@ -452,7 +452,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement factsetOption;
 	
-	@FindBy(xpath = "//*[@class='BaseModal_root__xOf-9 AssignExpertToQuestionModal_root__Jqp4u']")
+	@FindBy(xpath = "//*[@class='BaseModal_root__IVR+6 AssignExpertToQuestionModal_root__g9xmK']")
 	@CacheLookup
 	public WebElement AssignExpertPopUp;
 	
@@ -590,7 +590,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement historicalContaint;
 	
-	@FindBy(xpath = "//*[@class='AnswerSection_highlight__31LK- ']")
+	@FindBy(xpath = "//*[@class='AnswerSection_highlight__ir92+ ']")
 	@CacheLookup
 	public WebElement highlightedSentance;
 	
@@ -678,7 +678,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement totalAnswer;
 	
-	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__15nKY']//*//h4")
+	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__LrpL+']//*//h4")
 	@CacheLookup
 	public List<WebElement> fileName;
 	
@@ -920,7 +920,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement imageSwitchButton;
 	
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-arrow-down__3-KAt SelectDropDown_arrow__2ufJr']")
+	@FindBy(xpath = "//*[@class='Icon_icon__DouW- Icon_icon-arrow-down__h9YX7 SelectDropDown_arrow__ZGTGY']")
 	@CacheLookup
 	public WebElement dropDownChannelIcon;
 	
@@ -992,7 +992,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> insightsSectionTopic;
 	
-	@FindBy(xpath = "(//*[@class='AnswerSection_text__3mBkk'])[1]")
+	@FindBy(xpath = "(//*[@class='AnswerSection_text__yp2Ue'])[1]")
 	@CacheLookup
 	public WebElement summaryPart;
 	
@@ -1020,7 +1020,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement downvotedThumbIcon;
 	
-	@FindBy(xpath = "//*[@class='MixedResult_footer__1KIeO']/*")
+	@FindBy(xpath = "//*[@class='MixedResult_footer__ifiD6']/*")
 	@CacheLookup
 	public WebElement showOtherAnswerButton;
 	
@@ -1028,27 +1028,27 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement hideAnswer;
 	
-	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_outlined__1l0WC Button-color_default__1lAQQ Button-size_large__3JqWL']")
+	@FindBy(xpath = "//*[@class='Button-root_root__1sB-5 Button-variant_outlined__05o-q Button-color_default__fY5J+ Button-size_large__EoHFJ']")
 	@CacheLookup
 	public WebElement loadAnotherAnswerButton;
 	
-	@FindBy(xpath = "((//*[@class='MixedResult_container__tLQkN'])[3]/*)[1]")
+	@FindBy(xpath = "((//*[@class='MixedResult_header__Hfw-F'])[3]/*)[1]")
 	@CacheLookup
 	public WebElement otherAnswerHeading;
 	
-	@FindBy(xpath = "(//*[@class='MixedResult_container__tLQkN'])[3]//*[@class='MixedResult_body__3lFhO']//*[@class='ResultsCard_result__11JS5']")
+	@FindBy(xpath = "(//*[@class='MixedResult_body__p6xhn'])[3]/*")
 	@CacheLookup
 	public List<WebElement> totalOtherAnswer;
 	
-	@FindBy(xpath = "(//*[@class='AnswerSection_image__36iRH']//img)[1]")
+	@FindBy(xpath = "(//*[@class='AnswerSection_image__LpXD4']//img)[1]")
 	@CacheLookup
 	public WebElement images;
 	
-	@FindBy(xpath = "//*[@class='Table_root__2g7ov AnswerSection_table__3uB24']")
+	@FindBy(xpath = "//*[@class='Table_root__Ola+X Table_withBorder__MxNIq AnswerSection_table__K+NBW']")
 	@CacheLookup
 	public WebElement tables;
 	
-	@FindBy(xpath = "(//*[@class='AnswerSection_title__2A-DN AnswerSection_clickable__3euix']//parent::*//following-sibling::*[@class='AnswerSection_text__3mBkk'])[1]")
+	@FindBy(xpath = "(//*[@class='ResultsCard_answerContainer__LrpL+']//*[@class='AnswerSection_text__yp2Ue'])[1]")
 	@CacheLookup
 	public WebElement passages;
 	
@@ -1084,7 +1084,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement OtherAnswer;
 	
-	@FindBy(xpath = "(//*[@class='AnswerSection_image__36iRH']//parent::*)[1]")
+	@FindBy(xpath = "//*[@class='AnswerSection_image__36iRH']//following-sibling::*")
 	@CacheLookup
 	public List<WebElement> imagesCards;
 	
@@ -1092,7 +1092,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement gridGap;
 	
-	@FindBy(xpath = "//*[@class='ResultsCard_footer__1u--n']//*//*[@class='Avatar_root__owf-a']//following-sibling::p")
+	@FindBy(xpath = "//*[@class='ResultsCard_expert__JvBFV ResultsCard_chips__v4HZn']//P")
 	@CacheLookup
 	public List<WebElement> exertName;
 	
@@ -1224,7 +1224,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement changeProfileIcon;
 	
-	@FindBy(xpath = "//*[@class='NavItem_icon__3WPT-']//*[@class='Icon_icon__2Atss Icon_icon-users__1QFWD']")
+	@FindBy(xpath = "//*[@href='/expert']")
 	@CacheLookup
 	public WebElement expertIcon;
 	
@@ -1276,7 +1276,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement uploadingfile;
 	
-	@FindBy(xpath = "((//*[@class='QuestionsList_list__2wVUy QuestionSuggestions_listContainer__LdacQ'])[3]/*)[1]/*")
+	@FindBy(xpath = "((//*[@class='QuestionsList_list__TjV6V QuestionSuggestions_listContainer__JH3bc'])[3]//*//*)[1]")
 	@CacheLookup
 	public WebElement myQuestionSection;
 	
@@ -1352,7 +1352,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> ThumbFeedbackOption;
 
-	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_contained__3zoUH Button-color_primary__H_f8o Button-size_large__3JqWL LevitatingVoteController_capsule__2jj8F']")
+	@FindBy(xpath = "//*[@class='Button-root_root__1sB-5 Button-variant_contained__fe7h- Button-color_primary__qB7yo Button-size_large__EoHFJ LevitatingVoteController_capsule__FvIL2']")
 	@CacheLookup
 	public WebElement postToExpertBtn;
 	
@@ -1408,7 +1408,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> moveUp;
 	
-	@FindBy(xpath = "//*[@class='Switch_container__3l170 Switch_size-big__K1tOO Home_tabs__J44iA']/*")
+	@FindBy(xpath = "//*[@class='Switch_container__9SF1e Switch_size-big__7UF7y Home_tabs__xLFeg']//*[@type='button']")
 	@CacheLookup
 	public List<WebElement> viewMode;
 	
@@ -1427,6 +1427,7 @@ public class HubbellHomePage extends PageBase {
 	@FindBy(xpath = "//*[@class='ComicBubble_bubble__3EdEP']")
 	@CacheLookup
 	public WebElement bubbleText;
+	
 	
 	
 	

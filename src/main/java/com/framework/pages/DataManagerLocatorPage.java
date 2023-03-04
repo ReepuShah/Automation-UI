@@ -25,7 +25,7 @@ public class DataManagerLocatorPage extends PageBase {
 	
 	/** Web Elements */
 
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-upload-cloud__3_fZK']")
+	@FindBy(xpath = "//*[@href='/upload']")
 	@CacheLookup
 	public  WebElement dataManagerIcon;
 	
@@ -117,7 +117,7 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public List<WebElement>website;
 	
-	@FindBy(xpath = "(//*[@class='Pagination_root__35vop'])//*[@class='next']//preceding-sibling::*")
+	@FindBy(xpath = "(//*[@class='PaginatedGrid_root__JmR+x'])//*[@class='next']//preceding-sibling::*")
 	@CacheLookup
 	public List<WebElement> lastPage;
 	
@@ -133,11 +133,11 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement upoadedFileName;
 	
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-cross__3t7sZ']")
+	@FindBy(xpath = "//*[@class='Icon_icon__DouW- Icon_icon-cross__U2A4S']")
 	@CacheLookup
 	public WebElement closeIcon;
 	
-	@FindBy(xpath = "(//*[@class='ProgressBar_value__zQCHp'])[1]")
+	@FindBy(xpath = "(//*[@class='ProgressBar_value__PX1f4'])[1]")
 	@CacheLookup
 	public WebElement uploadingproccess;
 	

@@ -40,7 +40,7 @@ public class ProfilePage extends PageBase {
 	@CacheLookup
 	public WebElement logOutBtn;
 	
-	@FindBy(xpath = "//*[@class='Profile_footer__2pxnh']/*")
+	@FindBy(xpath = "//*[@class='Profile_footer__Utgzq']/*")
 	@CacheLookup
 	public WebElement editButton;
 	
@@ -64,7 +64,7 @@ public class ProfilePage extends PageBase {
 	@CacheLookup
 	public WebElement saveButton;
 	
-	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF']")
+	@FindBy(xpath = "//*[@class='TextInput_root__ovhL-']/*")
 	@CacheLookup
 	public List<WebElement> profile;
 	

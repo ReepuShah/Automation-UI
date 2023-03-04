@@ -16,6 +16,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.awt.AWTException;
+import java.awt.Button;
 import java.awt.Desktop.Action;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -482,7 +483,7 @@ public class StepDefinitions {
 	public static void ClickOnDataManagerNavigationIcon() throws Exception {
 		DataManagerLocatorPage dmlp = new DataManagerLocatorPage(driver);
 		ButtonHelper.click(dmlp.dataManagerIcon, "Data Manager Icon");
-		}
+	}
 	
 	public static void VerifyDataManagerpageIsDisplay() {
 		GenericElements.VerifyPageURL("upload","Data Manager Page");
@@ -2651,15 +2652,12 @@ public class StepDefinitions {
 			String ExpectedGridColumnGap = "32px";
 			String actualGridColumnGap  = hp.gridGap.getCssValue("column-gap").toString();
 			String actualGridRowGap  = hp.gridGap.getCssValue("row-gap").toString();
-			
 			assertEquals(ExpectedGridRowGap, actualGridRowGap);
-			
 			if(ExpectedGridRowGap.equals(actualGridRowGap) && ExpectedGridColumnGap.equals(actualGridRowGap)) {
 				ObjectRepo.test.log(LogStatus.PASS, "Topic Card Grid Gaps are Equal");
 			}else {
 				ObjectRepo.test.log(LogStatus.FAIL, "Topic Card Grid Gaps are Not Equal");
 			}
-			
 		}
 		
 		
@@ -2785,20 +2783,20 @@ public class StepDefinitions {
 			ButtonHelper.click(themepage.environmentalTopic, "Environmental Topic");
 	  }
 	  
-	  public static ArrayList<String> GetChangedTopicPassages() {
+	  public static ArrayList<String> GetChangedPassages() {
 		  ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
 		  ArrayList<String>list = new ArrayList<String>();
-		  for(WebElement ele : themepage.allTopic) {
+		  for(WebElement ele : themepage.changedPassages) {
 			  String element = ele.getText();
 			  list.add(element);
 		  }
 		return list;
 	  }
 	  
+	 
+	  
 	  public static void VerifyPassagesAreChangeWhenOtherAvatarsWereSelected() throws Exception {
 		  ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
-		  HubbellHomePage hp = new HubbellHomePage(driver);
-		  
 		  ArrayList<String> list = new ArrayList<String>();
 		  ArrayList<String> passagesList = new ArrayList<String>();
 		  
@@ -2808,9 +2806,18 @@ public class StepDefinitions {
 		  }
 		  ClickOnDropDownChannelIcon();
 		  GenericHelper.selectoptionfromdropDown("Product Support");
-		  ButtonHelper.click(hp.searchButtonIcon,"Search");
+//		  ButtonHelper.click(hp.searchButtonIcon,"Search");
 		  Thread.sleep(2000);
-		  passagesList = GetChangedTopicPassages();
+		  passagesList = GetChangedPassages();
+		  
+		  for (int i= 0; i<list.size(); i++) {
+			  System.out.println("old list is ::  "+list.get(i));
+		  }
+		  
+		  for (int i= 0; i<passagesList.size(); i++) {
+			  System.out.println("new list is ::  "+passagesList.get(i));
+		  }
+		  
 		  
 		  if(list.equals(passagesList)) {
 			  ObjectRepo.test.log(LogStatus.FAIL, "Passages Name Is not Changed");
@@ -3311,9 +3318,7 @@ public class StepDefinitions {
 	 
 	 public static void ClickOnLoadAnotherAnswerButton() throws Exception {
 		 HubbellHomePage hp = new HubbellHomePage(driver);
-		 if(hp.loadAnotherAnswerButton.isDisplayed()) {
-			 ButtonHelper.click(hp.loadAnotherAnswerButton, "Load Another Answer Button");
-		 }
+			ButtonHelper.click(hp.loadAnotherAnswerButton, "Load Another Answer Button");
 	 }
 	 
 	 public static int GetTotalFileSize() throws InterruptedException {
@@ -3327,27 +3332,18 @@ public class StepDefinitions {
 	 public static void VerifyGeneratedAnswersAreHoldPassagesImagesAndTablesTogether() throws Exception{
 		 HubbellHomePage hp = new HubbellHomePage(driver);
 		 ClickOnShowOtherAnswer();
-		 
 		 String TotalAnswer = hp.otherAnswerHeading.getText();
-		 
 		 String[] strArray = null;  
-		 
 		 strArray = TotalAnswer.split(" ");  
-		 
 		 int totalsize =Integer.parseInt(strArray[1]);
 		 
-		 int term = totalsize/12;
-		 for(int i=0; i<=term;i++) {
-				 if(GetTotalFileSize()==totalsize) {
-					 System.out.println("this one executed");
-					 GenericElements.ValidateElementIsDisplayed(hp.passages,"Passages");
-					 GenericElements.ValidateElementIsDisplayed(hp.images,"Images");
-					 GenericElements.ValidateElementIsDisplayed(hp.tables,"Tables");
-					 break;
-				 }else {
-					 ClickOnLoadAnotherAnswerButton();
-				 }
+		 while(GetTotalFileSize()<totalsize) {
+			 ClickOnLoadAnotherAnswerButton();
+			 System.out.println(GetTotalFileSize());
 		 }
+		 GenericElements.ValidateElementIsDisplayed(hp.passages,"Passages");
+		 GenericElements.ValidateElementIsDisplayed(hp.images,"Images");
+		 GenericElements.ValidateElementIsDisplayed(hp.tables,"Tables");
 	 }
 	 
 	 
@@ -3788,7 +3784,6 @@ public class StepDefinitions {
 		GenericElements.ValidateElementIsDisplayed(hp.AssignExpertPopUp,"Assign Expert PopUp");
 	}
 	
-	
 	public static void SearchQuestionInTheList() throws Exception {
 		QuestionPage qp = new QuestionPage(driver);
 		String expectedQuestion = "“"+GenericHelper.getTestData("TextInputData")+"“";
@@ -3902,26 +3897,42 @@ public class StepDefinitions {
 	public static void VerifyDuplicateImagesAreNotAvailable()throws Exception{
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ClickOnShowOtherAnswer();
-		ClickOnLoadAnotherAnswerButton();
-		ArrayList<String> fileName = new ArrayList<String>();
-		for(WebElement el : hp.imagesCards) {
-			String imagesFileName = el.getText();
-			fileName.add(imagesFileName);
+		
+		String TotalAnswer = hp.otherAnswerHeading.getText();
+		String[] strArray = null;  
+		strArray = TotalAnswer.split(" ");  
+		int totalsize =Integer.parseInt(strArray[1]);
+		
+		while(GetTotalFileSize()<totalsize) {
+			ClickOnLoadAnotherAnswerButton();
+			System.out.println(GetTotalFileSize());
 		}
 		
-		for(int i=0; i<fileName.size(); i++ ) {
-			String file = fileName.get(i);
-			
-			for(int j =0; j<fileName.size(); j++) {
-				if(file.equals(fileName.get(j))) {
-					if(j==i) {
-						ObjectRepo.test.log(LogStatus.PASS, "Duplicate Image Is not Display");
-					}else {
-						ObjectRepo.test.log(LogStatus.FAIL, "Duplicate Image Is Display");
-					}
+		ArrayList<String> fileName = new ArrayList<String>();
+		System.out.println(hp.imagesCards.size());
+		
+		for(WebElement el : hp.imagesCards) {
+			fileName.add(el.getText());
+			System.out.println(el.getText());
+		}
+		
+		boolean flag = false;
+		
+		for(int i=0; i<fileName.size(); i++) {
+			for(int j=i+1; j<fileName.size(); j++) {
+				if(fileName.get(i).equals(fileName.get(j))) {
+					System.out.println(fileName.get(j));
+					flag = true ;
 				}
 			}
+	    }
+		
+		if(flag==false) {
+			ObjectRepo.test.log(LogStatus.PASS, "There is no Dupliacte Image Answer");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, "There is Dupliacte Image Answer");
 		}
+		
 	}
 	
 	
@@ -3980,9 +3991,7 @@ public class StepDefinitions {
 					break;
 				}
 			}
-			
 		}
-		
 	}
 	
 	public static void SelectRegsAndPoliciesAvatar() throws Exception {
@@ -4810,8 +4819,9 @@ public class StepDefinitions {
 		}
 		ClickOnExpertNavigationIcon();
 		String expertName = driver.findElement(By.xpath("//*[text()='"+Profilelist.get(0)+" "+Profilelist.get(1)+"']")).getText();
-		String expertJobTitleBusiness = driver.findElement(By.xpath("(//*[text()='"+Profilelist.get(0)+" "+Profilelist.get(1)+"'])[1]//following-sibling::*")).getText();
-		
+		String expertBusinessUnit = driver.findElement(By.xpath("(((//*[text()='"+Profilelist.get(0)+" "+Profilelist.get(1)+"']//parent::*//parent::*//parent::*//parent::*[@class='EntityCard_section__VZC22']/following-sibling::*)[1]//*[@class='Pair_root__EP-E5'])[1]//*)[2]")).getText();
+		String expertJobTitle = driver.findElement(By.xpath("(((//*[text()='"+Profilelist.get(0)+" "+Profilelist.get(1)+"']//parent::*//parent::*//parent::*//parent::*[@class='EntityCard_section__VZC22']/following-sibling::*)[1]//*[@class='Pair_root__EP-E5'])[2]//*)[2]")).getText();
+		String expertJobTitleBusiness = expertJobTitle +", "+ expertBusinessUnit;
 		String expectedName = Profilelist.get(0)+" "+Profilelist.get(1);
 		String expectedJobTitleBusinessUnit = Profilelist.get(2)+","+" "+Profilelist.get(3);
 		
@@ -4820,9 +4830,11 @@ public class StepDefinitions {
 		}else {
 			ObjectRepo.test.log(LogStatus.FAIL,"Expert Name, Job Title and Business Unit not Display");
 		}
-		GenericElements.ValidateElementIsDisplayed(ep.marketResearchAvatar,"Market Research Avatar");
-		GenericElements.ValidateElementIsDisplayed(ep.productSupportAvatar,"Product Support Avatar");
-		GenericElements.ValidateElementIsDisplayed(ep.RegsandPoliciesAvatar,"Regs and Policies Avatar");
+		List<WebElement> AvatarList =driver.findElements(By.xpath("(//*[text()='"+Profilelist.get(0)+" "+Profilelist.get(1)+"']//parent::*//parent::*//parent::*//parent::*[@class='EntityCard_section__VZC22']/following-sibling::*)[2]//*//*//*"));
+		
+		for(WebElement el :AvatarList) {
+			GenericElements.ValidateElementIsDisplayed(el,el.getText());
+		}
 	}
 	
 	public static void VerifyThatMetadataSectionIsDisplay(){
@@ -5109,26 +5121,27 @@ public class StepDefinitions {
 	public static void UploadFile() throws Exception {
 //		HubbellHomePage hp = new HubbellHomePage(driver);
 		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
-		WebElement chooseFile = driver.findElement(By.xpath("//*[@class='DocumentDropZone_container__6aGxJ']"));
-		chooseFile.click();
-		Robot rb = new Robot();
-		
-	    // copying File path to Clipboard
-	    StringSelection str = new StringSelection("C:\\Users\\STELCO\\Desktop\\Nesh_Automation\\automationtests\\src\\main\\resources\\uploadedDocument\\relevantDocument\\brochure_Aluminium-Coil_203_en_LR_final.pdf");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
-	 
-	     // press Contol+V for pasting
-	     rb.keyPress(KeyEvent.VK_CONTROL);
-	     rb.keyPress(KeyEvent.VK_V);
-	 
-	    // release Contol+V for pasting
-	    rb.keyRelease(KeyEvent.VK_CONTROL);
-	    rb.keyRelease(KeyEvent.VK_V);
+		WebElement chooseFile = driver.findElement(By.xpath("//input[@type='file']"));
+		chooseFile.sendKeys("C:\\Users\\STELCO\\Desktop\\Nesh_Automation\\automationtests\\src\\main\\resources\\uploadedDocument\\relevantDocument\\brochure_Aluminium-Coil_203_en_LR_final.pdf");
+//		chooseFile.click();
+//		Robot rb = new Robot();
+//		
+//	    // copying File path to Clipboard
+//	    StringSelection str = new StringSelection("C:\\Users\\STELCO\\Desktop\\Nesh_Automation\\automationtests\\src\\main\\resources\\uploadedDocument\\relevantDocument\\brochure_Aluminium-Coil_203_en_LR_final.pdf");
+//	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
 //	 
-	    // for pressing and releasing Enter
-	    rb.keyPress(KeyEvent.VK_ENTER);
-	    rb.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(1000);
+//	     // press Contol+V for pasting
+//	     rb.keyPress(KeyEvent.VK_CONTROL);
+//	     rb.keyPress(KeyEvent.VK_V);
+//	 
+//	    // release Contol+V for pasting
+//	    rb.keyRelease(KeyEvent.VK_CONTROL);
+//	    rb.keyRelease(KeyEvent.VK_V);
+////	 
+//	    // for pressing and releasing Enter
+//	    rb.keyPress(KeyEvent.VK_ENTER);
+//	    rb.keyRelease(KeyEvent.VK_ENTER);
+//	    Thread.sleep(1000);
 		ButtonHelper.click(dp.closeIcon, "close Icon");
 	}
 	
@@ -5687,7 +5700,7 @@ public class StepDefinitions {
 		int totalConnectedfile =0; 
 		
 		for(int i=1; i<=totalPages; i++) {
-			 List<WebElement> el = getWebElement("(//*[@class='Sources_container__UdBAx'])[2]//*[@class='BaseDataSourceCard_container__3AFiS']");
+			 List<WebElement> el = getWebElement("(//*[@class='PaginatedGrid_row__+zDPJ'])[3]//*[@class='BaseDataSourceCard_root__3Tv5K']");
 			 int totalweb = el.size();
 			 totalConnectedfile = totalConnectedfile + totalweb;
 			 String term =Integer.toString(i+1);
@@ -5695,10 +5708,10 @@ public class StepDefinitions {
 				if(term.equals(Integer.toString(totalPages+1) )) {
 					break;
 				}
-			    WebElement btn = driver.findElement(By.xpath("(//*[@aria-label='Page "+term+"'])[2]"));
+			    WebElement btn = driver.findElement(By.xpath("(//*[@aria-label='Page "+term+"'])"));
 				ButtonHelper.click(btn, btn.getText());
 		 }
-		int totalfile = getTotalUploadedFile(driver.findElement(By.xpath("(//*[@class='Title_root__33NXB'])[2]")));
+		int totalfile = getTotalUploadedFile(driver.findElement(By.xpath("(//*[@class='Title_root__eU152'])[3]")));
 		if(totalfile==totalConnectedfile) {
 			ObjectRepo.test.log(LogStatus.PASS, "Pagination is Working On File Page");
 		}else {
@@ -6171,6 +6184,29 @@ public class StepDefinitions {
 	public static void VerifyThatSideOpenExtrasPanelIsDisplayed() {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		GenericElements.ValidateElementIsDisplayed(hp.openExtrasPanel,"Open Extras Panel");
+	}
+	
+	public static void VerifyThatGraphViewIsDisplay() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ArrayList<String> list = new ArrayList<String>();
+		for(WebElement el : hp.viewMode) {
+			ButtonHelper.click(el, el.getText());
+			list.add(el.getText());
+		}
+		boolean flag = false;
+		
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).equals("Graph")) {
+				flag = true;
+				break;
+			}
+		}
+		
+		if(flag==true) {
+			ObjectRepo.test.log(LogStatus.PASS," Graph view is Displayed");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL," Graph view is not Displayed");
+		}
 	}
 	
 }
