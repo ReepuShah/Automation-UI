@@ -40,6 +40,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.text.html.HTMLEditorKit.Parser;
+
 import org.apache.commons.mail.EmailException;
 import org.apache.poi.hssf.util.HSSFColor.ORANGE;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -6165,7 +6167,6 @@ public class StepDefinitions {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ArrayList<WebElement> webList = new ArrayList<WebElement>();
 		int rand = GenericHelper.generateRamdomNumber(0, webList.size());
-		
 		for(WebElement el : hp.openExtras) {
 			webList.add(el);
 		}
@@ -6206,6 +6207,219 @@ public class StepDefinitions {
 			ObjectRepo.test.log(LogStatus.PASS," Graph view is Displayed");
 		}else {
 			ObjectRepo.test.log(LogStatus.FAIL," Graph view is not Displayed");
+		}
+	}
+	
+	public static void VerifyThatExpertPageHaveTrainedNeshHeading() {
+		ExpertPage ep = new ExpertPage(driver);
+		GenericElements.ValidateElementIsDisplayed(ep.expertHeading,"Trained Nesh Heading");
+	}
+	
+	public static String PickedAvatar() {
+		ExpertPage ep = new ExpertPage(driver);
+		return ep.avatarPicker.getText();
+	}
+	
+	public static void VerifyThatTheUserCanSelectOtherAvatarOnTheExpertPage() throws Exception {
+		ExpertPage ep = new ExpertPage(driver);
+		ArrayList<WebElement> weblist = new ArrayList<WebElement>();
+		String def_avatar = PickedAvatar();
+		ButtonHelper.click(ep.avatarDropDwonIcon, "Drop Dwon Icon");
+		
+		for(WebElement el : ep.avatarUnselected) {
+			String attribute =el.getAttribute("data-selected");
+			if(attribute.equals("false")) {
+				weblist.add(el);
+			}
+		}
+		int rand = GenericHelper.generateRamdomNumber(0, weblist.size()-1);
+		
+		ButtonHelper.click(weblist.get(rand), weblist.get(rand).getText());
+		
+		String changed_avatar = PickedAvatar();
+		
+		if(!def_avatar.equals(changed_avatar)) {
+			ObjectRepo.test.log(LogStatus.PASS,"User Can Select Avatar");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"User Can't Select Avatar");
+		}
+	}
+	
+	
+	public static void VerifyThatTheTopThreeExpertsAreShownMoreProminentlyAndScoreIsDisplayedForEachExpert() {
+		ExpertPage ep = new ExpertPage(driver);
+		
+		if(ep.topThreeExpert.size()==3) {
+			ObjectRepo.test.log(LogStatus.PASS,"There are Top Three Expert is displayed");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"There aren't Top Three Expert is displayed");
+		}
+		
+		String expect= ep.totalResult.getText();
+		
+		String str [] = expect.split(" ") ;
+		System.out.println(str[0]);
+		
+		int expectedResult = Integer.parseInt(str[0]);
+		
+		if(ep.score.size()==expectedResult) {
+			ObjectRepo.test.log(LogStatus.PASS,"Expert Scrore Is Displayed For Each Expert");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Expert Scrore Is not Displayed For Each Expert");
+		}
+		
+	}
+	
+	public static void VerifyThatUploadedFileCanBeAssociated() {
+		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
+		if(dp.associatedUploadFileSection.isDisplayed()) {
+			ObjectRepo.test.log(LogStatus.PASS,"Uploaded File Can Be Associated");
+		}else {
+			ObjectRepo.test.log(LogStatus.PASS,"Uploaded File Can't Be Associated");
+		}
+	}
+	
+	public static void VerifyThatBlankCellIsNotAvailableInThePopularQuestionsAndMyQuestionsSection() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ArrayList<String> popularList = new ArrayList<String>();
+		ArrayList<String> myQuestionList = new ArrayList<String>();
+		
+		for(WebElement el : hp.popularQuestionCell) {
+			popularList.add(el.getText());
+		}
+		
+		for(WebElement el : hp.myQuestionCell) {
+			myQuestionList.add(el.getText());
+		}
+		
+		boolean flag1 = false, flag2 = false;
+		
+		for(int i=0; i<popularList.size(); i++) {
+			if(popularList.get(i).length()==0) {
+				flag1 = true;
+				break;
+			}
+		}
+		
+		for(int i=0; i<myQuestionList.size(); i++) {
+			if(myQuestionList.get(i).length()==0) {
+				flag2 = true;
+				break;
+			}
+		}
+		
+		
+		if(flag1==false && flag2==false ) {
+			ObjectRepo.test.log(LogStatus.PASS,"There is no blank cell available in the Popular Question and My Question Section");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"There is blank cell available in the Popular Question and My Question Section");
+		}
+	}
+	
+	public static void ApplyFilter() throws Exception {
+		WebElement el =ChooseFiltertype(GenericHelper.getTestData("Data"));
+		ButtonHelper.click(el, el.getText());
+	}
+	
+	public static void EnterPeriod() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		driver.findElement(By.xpath("//*[@placeholder='Select period...']")).click();
+		driver.findElement(By.xpath("//*[@placeholder='Select period...']")).sendKeys("0102202301242023");
+	}
+	
+	public static void VerifyThatCreatedDateFilterIsWorking() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		String expectUrl = "https://test-demo.hellonesh.io/home/search";
+		String actualUrl = driver.getCurrentUrl();
+		if(expectUrl.equals(actualUrl)) {
+			ObjectRepo.test.log(LogStatus.PASS,"Created Date Filter Is Working");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Created Date Filter Is not Working");
+		}
+	}
+	
+	public static void VerifyThatTreeViewIsDisplay() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ArrayList<String> list = new ArrayList<String>();
+		for(WebElement el : hp.viewMode) {
+			ButtonHelper.click(el, el.getText());
+			list.add(el.getText());
+		}
+		boolean flag = false;
+		
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).equals("Tree")) {
+				flag = true;
+				break;
+			}
+		}
+		
+		if(flag==true) {
+			ObjectRepo.test.log(LogStatus.PASS," Tree view is Displayed");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL," Tree view is not Displayed");
+		}
+	}
+	
+	
+	public static void VerifyThatClickingOnTheEmptySpaceAboveTheHomeButtonDoesNotLeadToTheHomePage() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ClickOnDataManagerNavigationIcon();
+		String url = driver.getCurrentUrl();
+		ButtonHelper.click(hp.emptySpace, "empty space");
+		String accutalurl = driver.getCurrentUrl();
+		
+		if(url.equals(accutalurl)) {
+			ObjectRepo.test.log(LogStatus.PASS,"Empty Space Doesn't Lead To The Home Page");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Empty Space Lead To The Home Page");
+		}
+	}
+
+	public static void VerifyThatThereIsSpaceAvailableBetweenPasswordFieldandForgotPasswordOption() {
+		HubbellLoginPage lp = new HubbellLoginPage(driver);
+		String value = lp.forgotOption.getCssValue("margin-left");
+		value = value.replace("px", "");
+		int space = Integer.parseInt(value);
+		if(space>0) {
+			ObjectRepo.test.log(LogStatus.PASS,"Space is Available Between Password Field and Forgot Password Option");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Space is not Available Between Password Field and Forgot Password Option");
+		}
+	}
+	
+	public static void VerifyThatThereIsAuditReportOptionIsAvailableOnTheOpenExtrasPanel() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		boolean flag = false;
+		
+		for(WebElement el : hp.openExtrasOption) {
+			if(el.getText().equals("Audit report")) {
+				flag = true;
+				break;
+			}
+		}
+		
+		if(flag== true) {
+			ObjectRepo.test.log(LogStatus.PASS,"Audit report option is available");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Audit report option is not available");
+		}
+	}
+	
+	public static void ClickOnSearchRecommendedTopic() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		Thread.sleep(5000);
+		ButtonHelper.click(hp.searchRecommendedTopic, "Recommended Topic");
+	}
+	
+	public static void VerifyThatAskedQuestionIsNotAvailableOnTheSearchbar() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		String text = hp.searchBar.getText();
+		
+		if(text.length()==0) {
+			ObjectRepo.test.log(LogStatus.PASS,"Asked Question is not available on the search bar");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL,"Asked Question is available on the search bar");
 		}
 	}
 	

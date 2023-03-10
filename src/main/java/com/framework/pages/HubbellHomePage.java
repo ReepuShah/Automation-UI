@@ -71,7 +71,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public  WebElement helpIcon;
 	
-	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV TextInput_withAfter__W6nFG']")
+	@FindBy(xpath = "//*[@class='TextInput_input__fCq2t TextInput_withBefore__m3zLc TextInput_withAfter__iLW91']")
 	@CacheLookup
 	public  WebElement txtSearchIndex;
 	
@@ -1280,6 +1280,14 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement myQuestionSection;
 	
+	@FindBy(xpath = "((//*[@class='QuestionsList_list__TjV6V QuestionSuggestions_listContainer__JH3bc'])[3]//*//*)[1]")
+	@CacheLookup
+	public List<WebElement> myQuestionCell;
+	
+	@FindBy(xpath = "((//*[@class='QuestionsList_list__TjV6V QuestionSuggestions_listContainer__JH3bc'])[2]//*//*)[1]")
+	@CacheLookup
+	public List<WebElement> popularQuestionCell;
+	
 	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__15nKY']/*/h4/following-sibling::*")
 	@CacheLookup
 	public List<WebElement> passageAnswer;
@@ -1360,7 +1368,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement Expert;
 	
-	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_outlined__1l0WC Button-color_primary__H_f8o Button-size_tiny__5Y3Ch']")
+	@FindBy(xpath = "//*[@class='Button-root_root__1sB-5 Button-variant_outlined__05o-q Button-color_primary__qB7yo Button-size_tiny__DnEQm']")
 	@CacheLookup
 	public WebElement filterButton;
 	
@@ -1412,7 +1420,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> viewMode;
 	
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-rocket__2WoAv']")
+	@FindBy(xpath = "//*[@class='Icon_icon__DouW- Icon_icon-rocket__Xw1+k']")
 	@CacheLookup
 	public List<WebElement> openExtras;
 	
@@ -1420,13 +1428,28 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement openExtrasPanel;
 	
-	@FindBy(xpath = "//*[@class='CollapseHeader_root__LqPtM CollapseHeader_clickable__Bq7sH AnswerSection_collapsableHeader__3_uZo']")
+	@FindBy(xpath = "//*[@class='CollapseHeader_root__GmG7y CollapseHeader_clickable__liVtc AnswerSection_collapsableHeader__P4wlL']")
 	@CacheLookup
 	public List<WebElement> openExtrasOption;
 	
 	@FindBy(xpath = "//*[@class='ComicBubble_bubble__3EdEP']")
 	@CacheLookup
 	public WebElement bubbleText;
+	
+	@FindBy(xpath = "//*[@class='Sidebar_header__1VC9l']")
+	@CacheLookup
+	public WebElement emptySpace;
+	
+	@FindBy(xpath = "(//*[@class='QuestionsList_list__TjV6V QuestionSuggestions_cardListContainer__QPDAg']//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V QuestionSuggestions_cardItem__utJB+'])[1]")
+	@CacheLookup
+	public WebElement searchRecommendedTopic;
+	
+	@FindBy(xpath = "//*[@class='TextInput_input__fCq2t TextInput_withBefore__m3zLc TextInput_withAfter__iLW91']")
+	@CacheLookup
+	public  WebElement searchBar;
+	
+	
+	
 	
 	
 	

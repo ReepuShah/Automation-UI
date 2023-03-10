@@ -1888,6 +1888,63 @@ public class TestCases {
 	public static void Verify_That_Graph_View_Is_Display_On_The_Home_Page() {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Graph_View_Is_Display_On_The_Home_Page");
 	} 
+	
+	@Test
+	public static void Verify_That_Expert_Page_Have_Experts_That_Have_Trained_Nesh_Heading() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Expert_Page_Have_Experts_That_Have_Trained_Nesh_Heading");
+	} 
+	
+	@Test
+	public static void Verify_That_The_User_Can_Select_Avatar_On_Expert_Page() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_The_User_Can_Select_Avatar_On_Expert_Page");
+	} 
+	
+	@Test
+	public static void Verify_That_The_Top_Three_Experts_Are_Shown_More_Prominently() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_The_Top_Three_Experts_Are_Shown_More_Prominently");
+	} 
+	
+	@Test
+	public static void Verify_That_Uploaded_File_Can_Be_Associated() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Uploaded_File_Can_Be_Associated");
+	}
+	
+	@Test
+	public static void Verify_That_Blank_Cell_Not_Available_In_The_Popular_Questions_And_My_Questions_Section() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Blank_Cell_Not_Available_In_The_Popular_Questions_And_My_Questions_Section");
+	}
+	
+	@Test
+	public static void Verify_That_File_Created_Date_Filter_Option_Is_Working() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_File_Created_Date_Filter_Option_Is_Working");
+	}
+	
+	@Test
+	public static void Verify_That_Tree_View_Is_Display_On_The_Home_Page() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Tree_View_Is_Display_On_The_Home_Page");
+	}
+	
+	@Test
+	public static void Verify_That_Clicking_On_The_Empty_Space_Above_The_Home_Button_Does_Not_Lead_To_The_Home_Page() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Clicking_On_The_Empty_Space_Above_The_Home_Button_Does_Not_Lead_To_The_Home_Page");
+	}
+	
+	@Test
+	public static void Verify_That_Asked_Question_Is_Not_Available_On_The_Search_Bar_When_Recommended_Topic_Is_Clicked() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Asked_Question_Is_Not_Available_On_The_Search_Bar_When_Recommended_Topic_Is_Clicked");
+	}
+	
+	@Test
+	public static void Verify_That_There_Is_Space_Available_Between_Password_Field_and_Forgot_Password_Option() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_There_Is_Space_Available_Between_Password_Field_and_Forgot_Password_Option");
+	}
+	
+	@Test
+	public static void Verify_That_Audit_Report_Option_Is_Available_on_The_Open_Extras_Panel() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Audit_Report_Option_Is_Available_on_The_Open_Extras_Panel");
+	}
+	
+	
 	 
 }  
 

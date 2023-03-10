@@ -145,6 +145,10 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement prevBtn;
 	
+	@FindBy(xpath = "(//*[@class='Title_root__eU152'])[3]//*")
+	@CacheLookup
+	public WebElement associatedUploadFileSection;
+	
 	
 	
 	

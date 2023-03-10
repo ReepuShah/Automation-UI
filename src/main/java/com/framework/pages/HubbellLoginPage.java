@@ -167,11 +167,7 @@ public class HubbellLoginPage extends PageBase {
 	@CacheLookup
 	public WebElement nobtn;
 	
-	
-	
-	
-	
-	
-	
-	
+	@FindBy(xpath = "//*[@class='SignInForm_after__GPmyF']")
+	@CacheLookup
+	public WebElement forgotOption;
 }

@@ -36,6 +36,33 @@ public class ExpertPage extends PageBase {
 	@CacheLookup
 	public WebElement RegsandPoliciesAvatar;
 	
+	@FindBy(xpath = "//*[text()='Experts that have trained Nesh']")
+	@CacheLookup
+	public WebElement expertHeading;
+	
+	@FindBy(xpath = "//*[@class='Icon_icon__DouW- Icon_icon-arrow-down__h9YX7 SelectDropDown_arrow__ZGTGY']")
+	@CacheLookup
+	public WebElement avatarDropDwonIcon;
+	
+	@FindBy(xpath = "//*[@class='AvatarPicker_text__9FJxf']")
+	@CacheLookup
+	public WebElement avatarPicker;
+	
+	@FindBy(xpath = "//*[@class='AvatarPicker_item__C70Ga AvatarPicker_listItem__hMeJF']")
+	@CacheLookup
+	public List<WebElement> avatarUnselected;
+	
+	@FindBy(xpath = "//*[@class='RatingFrame_medal__rj3rK']//parent::*")
+	@CacheLookup
+	public List<WebElement> topThreeExpert;
+	
+	@FindBy(xpath = "//*[@class='ScoreBar_root__SdVJ2']")
+	@CacheLookup
+	public List<WebElement> score;
+	
+	@FindBy(xpath = "(//*[@class='ExpertsPage_body__R68N3']/*)[1]")
+	@CacheLookup
+	public WebElement totalResult;
 	
 	
 	
