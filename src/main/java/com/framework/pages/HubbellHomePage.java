@@ -179,7 +179,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement uploadFileButton;
 	
-	@FindBy(xpath = "//*[@class='TextInput_input__fCq2t TextInput_withBefore__m3zLc TextInput_withAfter__iLW91']")
+	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV TextInput_withAfter__W6nFG']")
 	@CacheLookup
 	public WebElement searchOption;
 	

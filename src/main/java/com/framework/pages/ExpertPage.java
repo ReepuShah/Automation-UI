@@ -64,6 +64,25 @@ public class ExpertPage extends PageBase {
 	@CacheLookup
 	public WebElement totalResult;
 	
+	@FindBy(xpath = "//*[@class='EntityCard_title__SHMub']")
+	@CacheLookup
+	public List<WebElement> expertName;
+	
+	@FindBy(xpath = "//*[@class='ScoreBar_root__SdVJ2']")
+	@CacheLookup
+	public List<WebElement> scoreBar;
+	
+	@FindBy(xpath = "//*[text()='Business unit']")
+	@CacheLookup
+	public List<WebElement> businessUnit;
+	
+	@FindBy(xpath = "//*[text()='Job title']")
+	@CacheLookup
+	public List<WebElement> jobTitle;
+	
+	@FindBy(xpath = "//*[@class='EntityCard_list__WQFMJ']")
+	@CacheLookup
+	public List<WebElement> avatar;
 	
 	
 	

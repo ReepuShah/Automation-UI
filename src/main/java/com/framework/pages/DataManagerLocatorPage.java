@@ -37,7 +37,7 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public List<WebElement> connectorsOption;
 	
-	@FindBy(xpath = "(//*[@class='SourceTypeLink_root__3C0AI'])[4]")
+	@FindBy(xpath = "//*[@href='/upload/data-connector/google-drive']")
 	@CacheLookup
 	public WebElement googleDriveDataConnector;
 	
@@ -89,11 +89,11 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement associatedAvatar;
 	
-	@FindBy(xpath = "(//*[@class='Icon_icon__2Atss Icon_icon-dots__3N8lC ContextMenu_menuTrigger__1qRwb Icon_clickable__2wcpS'])[1]")
+	@FindBy(xpath = "(//*[@class='Icon_icon__DouW- Icon_icon-dots__j3MZJ ContextMenu_menuTrigger__duwXn Icon_clickable__zx4Rp'])[1]")
 	@CacheLookup
 	public WebElement threeDotIcon;
 	
-	@FindBy(xpath = "//*[@class='Button_root__1hsq2 Button_variant-slim__1RLk0 Button_color-default__PCuwD ContextMenu_menuItem__1qQX3']")
+	@FindBy(xpath = "//*[text()='Folders']")
 	@CacheLookup
 	public WebElement folderButton;
 	
@@ -149,6 +149,9 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement associatedUploadFileSection;
 	
+	@FindBy(xpath = "(//*[@class='Title_root__eU152'])[3]")
+	@CacheLookup
+	public WebElement associatedFolderSection;
 	
 	
 	

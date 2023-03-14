@@ -1103,7 +1103,7 @@ public class StepDefinitions {
 	
 	public static void WriteAnyNewQuestions() {
 		HubbellHomePage hp = new HubbellHomePage(driver);
-		TextBoxHelper.enterText(hp.txtSearchIndex, "New Questions", GenericHelper.getTestData("NewQuestions"));
+		TextBoxHelper.enterText(hp.searchOption, "New Questions", GenericHelper.getTestData("NewQuestions"));
 	}
 	
 	public static void ClickOnLocationCheckBox() throws Exception {
@@ -6078,7 +6078,7 @@ public class StepDefinitions {
 			}
 			
 			if(list.size()==1) {
-				System.out.println("Pass");
+				ObjectRepo.test.log(LogStatus.PASS,"Hightest upvoted Answer is on the top");
 			}
 			else if (list.size()>=2) {
 				for(int i=0; i<list.size(); i++) {
@@ -6421,6 +6421,74 @@ public class StepDefinitions {
 		}else {
 			ObjectRepo.test.log(LogStatus.FAIL,"Asked Question is available on the search bar");
 		}
+	}
+	
+	public static void VerifyThatFolderCanBeAssociateWithAvatar(){
+		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
+		try {
+			Thread.sleep(5000);
+			String str = dp.associatedFolderSection.getText();
+			String strArray[] = str.split(" ");
+			
+			if(dp.associatedFolderSection.isDisplayed()) {
+				ObjectRepo.test.log(LogStatus.PASS,"Folder Can Be Associate with Avatar ");
+				ObjectRepo.test.log(LogStatus.PASS,"Associated Folder :"+strArray[0]);
+			}
+				
+			else
+				ObjectRepo.test.log(LogStatus.FAIL,"Folder Can't Be Associate with Avatar ");
+			
+		}catch(Exception e) {
+			ObjectRepo.test.log(LogStatus.FAIL, "Unable to Click Button");
+			ExtentReportHelper.logFailWithScreenshot(e.getMessage());
+		}
+		
+	}
+	
+	public static void VerifyThatExpertCardsDesignAreSame(){
+		ExpertPage ep = new ExpertPage(driver);
+		try {
+			Thread.sleep(5000);
+			String str= ep.totalResult.getText();
+			String strArray[] = str.split(" ");
+			
+			int expectedCard = Integer.parseInt(strArray[0]);
+			int cardName = ep.expertName.size();
+			int scoreBar = ep.scoreBar.size();
+			int businessUnit = ep.businessUnit.size();
+			int jobTitle = ep.jobTitle.size();
+			int avatar = ep.avatar.size();
+			
+			int[] intArray = new int[5];
+			
+			intArray [0] =cardName;
+			intArray [1] =scoreBar;
+			intArray [2] =businessUnit;
+			intArray [3] =jobTitle;
+			intArray [4] =avatar;
+			boolean flag = false;
+			
+			for(int i = 0; i<intArray.length; i++) {
+				if(expectedCard==intArray[i]) {
+					flag = true;
+				}else {
+					flag = false;
+					break;
+				}
+			}
+			
+			if(flag==true) {
+				ObjectRepo.test.log(LogStatus.PASS, "All Expert Card's Design are Same");
+			}else {
+				ObjectRepo.test.log(LogStatus.FAIL, "All Expert Card's Design aren't Same");
+			}
+
+			
+		}catch(Exception e) {
+			ObjectRepo.test.log(LogStatus.FAIL, "Unable to Click Button");
+			ExtentReportHelper.logFailWithScreenshot(e.getMessage());
+		}
+		
 	}
 	
 }

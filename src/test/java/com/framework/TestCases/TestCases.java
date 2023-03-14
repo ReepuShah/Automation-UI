@@ -1944,6 +1944,16 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Audit_Report_Option_Is_Available_on_The_Open_Extras_Panel");
 	}
 	
+	@Test
+	public static void Verify_That_Files_Can_Be_Associate_With_Avatar() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Files_Can_Be_Associate_With_Avatar");
+	}
+	
+	@Test
+	public static void Verify_That_Expert_Cards_Design_Are_Same() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Expert_Cards_Design_Are_Same");
+	}
+	
 	
 	 
 }  
