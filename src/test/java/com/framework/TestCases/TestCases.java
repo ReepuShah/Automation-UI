@@ -1954,6 +1954,15 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Expert_Cards_Design_Are_Same");
 	}
 	
+	@Test
+	public static void Verify_That_Summary_Content_Included_in_The_Top_Of_Answer() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Summary_Content_Included_in_The_Top_Of_Answer");
+	}
+	
+	@Test
+	public static void Verify_That_Graph_View_Is_Display_On_The_Home_Page_For_Chinhook_Avatar() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Graph_View_Is_Display_On_The_Home_Page_For_Chinhook_Avatar");
+	}
 	
 	 
 }  

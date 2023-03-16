@@ -179,7 +179,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement uploadFileButton;
 	
-	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV TextInput_withAfter__W6nFG']")
+	@FindBy(xpath = "//*[@class='TextInput_input__fCq2t TextInput_withBefore__m3zLc TextInput_withAfter__iLW91']")
 	@CacheLookup
 	public WebElement searchOption;
 	
@@ -412,7 +412,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement showBtn;
 	
-	@FindBy(xpath = "//*[@class='AnswerSection_text__3mBkk']")
+	@FindBy(xpath = "//*[@class='AnswerSection_text__yp2Ue']")
 	@CacheLookup
 	public List<WebElement> answerSection;
 	
@@ -814,7 +814,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement submitButton;
 	
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-questions-chat__2LtHL']")
+	@FindBy(xpath = "//*[@href='/questions']")
 	@CacheLookup
 	public WebElement QuestionsIcon;
 	
@@ -1244,7 +1244,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement postQuestionButton;
 	
-	@FindBy(xpath = "(//*[@class='ListItem_item__W7-Sa ListItem_clickable__2xqMz'])[1]//*[@class='UserCard_body__MqeBn']//h3")
+	@FindBy(xpath = "(//*[@class='ListItem_item__wSDnd ListItem_clickable__cjxfy'])[1]//*[@class='UserCard_root__I3P7Q']//h3")
 	@CacheLookup
 	public WebElement expert;
 	
@@ -1432,7 +1432,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> openExtrasOption;
 	
-	@FindBy(xpath = "//*[@class='ComicBubble_bubble__3EdEP']")
+	@FindBy(xpath = "//*[@class='ComicBubble_body__gBPjC']")
 	@CacheLookup
 	public WebElement bubbleText;
 	
@@ -1448,7 +1448,9 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public  WebElement searchBar;
 	
-	
+	@FindBy(xpath = "//*[@class='AnswerSection_header__7Vjb9']//h4")
+	@CacheLookup
+	public List<WebElement> answerHeading;
 	
 	
 	

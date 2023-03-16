@@ -24,7 +24,7 @@ public class KnowledgeAnalyticsPage extends PageBase {
 
 	/** Web Elements */
 
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-stats-random__14wOJ']")
+	@FindBy(xpath = "//*[@href='/knowledge-analytics']")
 	@CacheLookup
 	public WebElement  KnowledgeAnalyticsIcon;
 	

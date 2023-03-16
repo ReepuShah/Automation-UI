@@ -2173,13 +2173,7 @@ public class StepDefinitions {
 	
 	public static void ClickOnAssignButton() throws Exception{
 		HubbellHomePage hp = new HubbellHomePage(driver);
-		try {
-			if(hp.assignButton.isDisplayed()) {
-				ButtonHelper.click(hp.assignButton, "Assign Button");
-			}
-		}catch (Exception e) {
-			ButtonHelper.click(hp.assignBtn, "Assign Button");
-		}
+		ButtonHelper.click(hp.assignBtn, "Assign Button");
 	}
 	
 	public static void VerifyQuestionAnswerPageIsDisplay() throws Exception{
@@ -6482,10 +6476,47 @@ public class StepDefinitions {
 			}else {
 				ObjectRepo.test.log(LogStatus.FAIL, "All Expert Card's Design aren't Same");
 			}
-
-			
 		}catch(Exception e) {
 			ObjectRepo.test.log(LogStatus.FAIL, "Unable to Click Button");
+			ExtentReportHelper.logFailWithScreenshot(e.getMessage());
+		}
+	}
+	
+	public static void VerifyThatSummaryIsIncludedAtTheTopAnswer() {
+		try {
+			HubbellHomePage hp = new HubbellHomePage(driver);
+			Thread.sleep(5000);
+			String SummaryText = hp.summaryPart.getText();
+			String[] strArray = null;  
+			strArray = SummaryText.split(" ");
+			ArrayList<String> strList = new ArrayList<String>(); 
+			
+			for(WebElement el : hp.answerSection) {
+				strList.add(el.getText());
+			}
+			boolean flag = false;
+			for(int i = 0; i<strArray.length; i++) {
+				for(int j = 1; j<strList.size(); j++) {
+					if((strList.get(j)).contains(strArray[i])) {
+						flag=true;
+						break;
+					}
+				}
+				
+				if(flag==true) {
+					break;
+				}
+			}
+			
+			if(flag==true) {
+				ObjectRepo.test.log(LogStatus.PASS, "Summary is included at the Top Answer");
+			}else {
+				ObjectRepo.test.log(LogStatus.FAIL, "Summary is not included at the Top Answer");
+			}
+			
+			
+		} catch (Exception e) {
+			ObjectRepo.test.log(LogStatus.FAIL, "Unable element");
 			ExtentReportHelper.logFailWithScreenshot(e.getMessage());
 		}
 		
