@@ -56,7 +56,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement themeTab;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_root__2FvFc ImageCard_theme-secondary__tzV1p ImageCard_clickable__2McHq'])[1]")
+	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V'])[1]")
 	@CacheLookup
 	public  WebElement topicCard;
 	
@@ -68,11 +68,11 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  List<WebElement> suggestionQuestion;
 	
-	@FindBy(xpath = "//*[@class='ImageCard_title__3xtrK']//parent::*/*/*[@class='Chip_title__2c-BL']")
+	@FindBy(xpath = "//*[@class='ImageCard_title__Imu2p']//parent::*/*/*[@class='Chip_title__5+pg8']")
 	@CacheLookup
 	public  List<WebElement> NERTag;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_title__3xtrK']//h3)[1]")
+	@FindBy(xpath = "(//*[@class='ImageCard_title__Imu2p']//h3)[1]")
 	@CacheLookup
 	public WebElement topicName;
 	
@@ -100,7 +100,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  List<WebElement> themes;
 	
-	@FindBy(xpath = "//*[@class='Radio_root__2dmgP Radio_size-medium__1m2Bh AvatarCardItem_radioButton__3VBjx']")
+	@FindBy(xpath = "//*[@class='Radio_root__+1sJp Radio_size-medium__t2nZx AvatarCardItem_radioButton__Mql3U']")
 	@CacheLookup
 	public  WebElement radioButton;
 	
@@ -144,7 +144,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement environmentTab;
 	
-	@FindBy(xpath = "(//*[@class='QuestionSuggestionItem_text__1etiB'])[1]")
+	@FindBy(xpath = "(//*[@class='QuestionSuggestionItem_text__Ajv45'])[1]")
 	@CacheLookup
 	public  WebElement suggestedQuestion;
 	
@@ -171,6 +171,10 @@ public class ThemeLocatorPage extends PageBase {
 	@FindBy(xpath = "(//*[@class='Icon_icon__2Atss Icon_icon-arrow-down__3-KAt'])[1]")
 	@CacheLookup
 	public WebElement backIcon;
+	
+	@FindBy(xpath = "//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V']")
+	@CacheLookup
+	public List<WebElement> allTopics;
 	
 	
 

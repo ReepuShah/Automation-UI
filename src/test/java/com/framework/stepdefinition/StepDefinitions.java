@@ -2529,7 +2529,7 @@ public class StepDefinitions {
 							if(NERTagName.equals(arrayNERTag.get(j))) {
 								ObjectRepo.test.log(LogStatus.PASS,NERTagName +" Tag Is Display ");
 								String indexnumber=String.valueOf(indexNum);
-								WebElement theme = driver.findElement(By.xpath("(//*[@class='ImageCard_title__3xtrK']//h3)["+indexnumber+"]"));
+								WebElement theme = driver.findElement(By.xpath("(//*[@class='ImageCard_title__Imu2p']//h3)["+indexnumber+"]"));
 								String themeName = theme.getText();
 								ObjectRepo.test.log(LogStatus.PASS,themeName +" Theme Is Display ");
 								break;
@@ -2611,7 +2611,6 @@ public class StepDefinitions {
 		public static void ClickOnFavoritesButton() throws Exception{
 			HubbellHomePage hp = new HubbellHomePage(driver);
 			ButtonHelper.click(hp.favoritesIcon, "favorites Button ");
-			
 		}
 		
 		public static void VerifyFavoritesPageIsDisplay() throws InterruptedException {
@@ -2640,7 +2639,6 @@ public class StepDefinitions {
 					ObjectRepo.test.log(LogStatus.FAIL, "Next Button Is Not Vissible In 1728X1117 Screen Resolution");
 				}
 		}
-		
 		
 		public static void VerifyThatCardsGridGapAreEquals() {
 			HubbellHomePage hp = new HubbellHomePage(driver);
@@ -2815,7 +2813,7 @@ public class StepDefinitions {
 		  }
 		  
 		  
-		  if(list.equals(passagesList)) {
+		  if(list.equals(passagesList)==true) {
 			  ObjectRepo.test.log(LogStatus.FAIL, "Passages Name Is not Changed");
 		  }else {
 			  ObjectRepo.test.log(LogStatus.PASS, "Passages Name Changed");
@@ -2912,6 +2910,7 @@ public class StepDefinitions {
 		
 	 public static void ClickOnSearchBox() throws Exception {
 			HubbellHomePage hp = new HubbellHomePage(driver);
+			Thread.sleep(5000);
 			WebElement element = GenericElements.getOldOrNewLocator(hp.txtSearchIndex,hp.searchOption);
 			ButtonHelper.click(element,"Search Box");
 	 }
@@ -2970,36 +2969,42 @@ public class StepDefinitions {
 		 }
 	 }
 		
-	 public static void VerifyAllThemesAreStillIfWhenChangedchannels() throws Exception {
-		  ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
-		  HubbellHomePage hp = new HubbellHomePage(driver);
-		  ArrayList<String> themeList = new ArrayList<String>();
-		  ArrayList<String> updatedthemeList = new ArrayList<String>();
-		  themeList.add("Environmental");
-		  themeList.add("Social");
-		  themeList.add("Governance");
-		  themeList.add("Person");
-		  themeList.add("Organization");
-		  themeList.add("Location");
+	 public static int CheckTopicsSize() {
+			ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
+			int themeSize = themepage.allTopics.size();
+			return themeSize;
+			 
+		 }
+		
+	 public static void VerifyTopicsAreStillUnderAllThemeIfWhenChangedchannels() throws Exception {
+		  ArrayList<String> themeType = new ArrayList<String>();
+		  boolean flag = false;
+		  themeType.add("Environmental");
+		  themeType.add("Social");
+		  themeType.add("Governance");
+		  themeType.add("Person");
+		  themeType.add("Organization");
+		  themeType.add("Location");
 		  
 		  ClickOnDropDownChannelIcon();
 		  GenericHelper.selectoptionfromdropDown("Product Support");
-		  ButtonHelper.click(hp.searchButtonIcon,"Search");  //changing part
 		  
-		  for(WebElement element : themepage.allThemes ) {
-			  String text = element.getText();
-			  updatedthemeList.add(text);
-		  }
-		
-		  for(int i =0; i<themeList.size(); i++) {
+		  for(int i =0; i<themeType.size(); i++) {
+			 WebElement ele = driver.findElement(By.xpath("//*[@type='button'] [text()='"+themeType.get(i)+"']"));
+			 ButtonHelper.click(ele, ele.getText());
+			 if(CheckTopicsSize()>0) {
+				flag = true;
+			 }else {
+				flag = false;
+				break;
+			 }
+		}
 			
-			  if(updatedthemeList.get(i).equals(themeList.get(i))) {
-				  ObjectRepo.test.log(LogStatus.PASS, themeList.get(i)+" Theme is still after changing channel name" );
-			  }else {
-				  ObjectRepo.test.log(LogStatus.FAIL, themeList.get(i)+ " Theme is not displayed after changing channel name" );
-			  }
-		  }
-		  
+		if(flag == true) {
+			ObjectRepo.test.log(LogStatus.PASS, "Topics are Display Under the Theme" );
+	    }else {
+			ObjectRepo.test.log(LogStatus.FAIL, "Topic are not Display Under the theme" );
+		}
 	 }
 	 
 	 
@@ -3400,7 +3405,6 @@ public class StepDefinitions {
 		 if(text.equals("Relevancy")) {
 			 GenericElements.ValidateElementIsDisplayed(hp.fileSource,text +" Relevent Answer");
 		 }
-		
 		 ClickOnShortingDropDownIcon();
 		 SelectOptionFromDropDown(hp.newestOption, "Newest");
 		 
@@ -3436,8 +3440,6 @@ public class StepDefinitions {
 		 ArrayList<String> AnswerList = new ArrayList<String>();
 		 ArrayList<String> DocumentList = new ArrayList<String>();
 		 
-//		 String matchName = null;
-		 
 		 for(WebElement ele : hp.fileSourceLink) {
 			 String elementText = ele.getText();
 			 AnswerList.add(elementText);
@@ -3463,46 +3465,6 @@ public class StepDefinitions {
 			 }
 			 
 		 }
-		 
-		 
-//		 ButtonHelper.click(hp.showAllDownArrow,"Show ALL Down Arrow");
-		 
-//			if(hp.uploadedFiles.isEmpty()) {
-//					ObjectRepo.test.log(LogStatus.FAIL,"Files are not Uploaded");
-//			}else {
-//				for (WebElement el :hp.uploadedFiles) {
-//					 String documentname = el.getText();
-//					 System.out.println(documentname);
-//					 DocumentList.add(documentname);
-//					}
-//				
-//				for(int i=0; i<AnswerList.size(); i++) {
-//					String filename = AnswerList.get(i);
-//					filename = filename.replace(".PDF","");
-//					int value = DocumentList.size();
-//					for(int j =0; j<value; j++) {
-//						String documentName = DocumentList.get(j);
-//						documentName = documentName.replace(".pdf","");
-//						System.out.println(DocumentList.size()-j);
-//						System.out.println(j+" "+filename);
-//						System.out.println(j+" "+documentName);
-//						
-//						if(filename.equals(documentName)){
-//							matchName = documentName;
-//							ObjectRepo.test.log(LogStatus.PASS,"Top Answer Appearing from Latest Uploaded Document");
-//							break;
-//						}
-//					  }
-//					
-//					if(matchName!=null) {
-//						break;
-//					}
-//					else if(i+1==AnswerList.size()) {
-//						ObjectRepo.test.log(LogStatus.FAIL,"document Not Found");
-//					}
-//			     }
-//		}
-		
 	 }
 	 
 	 public static void VerifyAnswersAreDisplay() {
@@ -3575,7 +3537,6 @@ public class StepDefinitions {
 	 public static void ClickOnAssignToAnotherExpertButton() throws Exception {
 		 KnowledgeAnalyticsPage kp = new KnowledgeAnalyticsPage(driver);
 		 ButtonHelper.click(kp.AssignToAnotherExpertButton, "Assign To Another Expert Button");
-		 
 	 }
 	 
 	 public static void AssignQuestionHimself() throws Exception {
@@ -3643,12 +3604,10 @@ public class StepDefinitions {
 		 ButtonHelper.click(kp.usersAssign,"Other User");
 	 }
 	 
-	 
 	public static void VerifyThatAssignByFieldAndAssignToFieldUpdatedDisplay() {
 		KnowledgeAnalyticsPage kp = new KnowledgeAnalyticsPage(driver);
 	    String assignBy = kp.assignBy.getText();
 	    String assignTo = kp.assignTo.getText();
-	    
 	    if(kp.assigneToOtherExpertSection.isDisplayed()) {
 	    	ObjectRepo.test.log(LogStatus.PASS,"Assign By :"+assignBy+" Field is Display");
 	    	ObjectRepo.test.log(LogStatus.PASS,"Assign By :"+assignTo+" Field is Display");
@@ -3656,7 +3615,6 @@ public class StepDefinitions {
 	    	ObjectRepo.test.log(LogStatus.FAIL,"Not Assigne To Other Expert Section");
 	    }
 	}
-	
 	
 	public static void VerifyThatAssignByFieldUpdated() {
 		KnowledgeAnalyticsPage kp = new KnowledgeAnalyticsPage(driver);
@@ -4217,10 +4175,10 @@ public class StepDefinitions {
 	public static void VerifyKnowledageGapPercentageIsZeroShowingWhenDownvotedQuestionAnswered() throws Exception {
 		KnowledgeAnalyticsPage kp= new KnowledgeAnalyticsPage(driver);
 		float gap = GetKnowledageGapPersentage();
+		String text = kp.totalUnAnsweredQuestion.getText();
+	    int	totalQuestion = Integer.parseInt(text);
 		if(gap==0) {
-			String text = kp.downvotedQustion.getText();
-			int totalQues = Integer.parseInt(text);
-			if(totalQues==0) {
+			if(totalQuestion==0) {
 				ObjectRepo.test.log(LogStatus.PASS, "Tatal Gap"+gap);
 			}else {
 				ObjectRepo.test.log(LogStatus.FAIL, "Knowledage Gap Percentage Is not Zero Showing");
@@ -4229,37 +4187,6 @@ public class StepDefinitions {
 			ObjectRepo.test.log(LogStatus.PASS, "There are Unanswered Question Available and Gap is ::"+gap);
 		}
 		
-//		String beforegapPercentage=GetKnowledageGapPersentage();
-//		boolean value = ClickOnDownVotedQuestion();
-//		if(value==true) {
-//			ClickOnAnswerQuestionButton();
-//			AssignQuestionHimself();
-//			ClickOnAssignButton();
-//			EnterTheAnswerToTheQuestion();
-//			ClickOnSubmitButton();
-//			ClickOnKnowledgeAnalyticsIcon();
-//			ClickOnMarketResearchChannel();
-//			String afterPercentage=GetKnowledageGapPersentage();
-//			if(beforegapPercentage!=afterPercentage) {
-//				ObjectRepo.test.log(LogStatus.PASS, "Knowledage Gap Percentage Is "+afterPercentage+" Showing");
-//			}else {
-//				ObjectRepo.test.log(LogStatus.FAIL, "Knowledage Gap Percentage Is "+afterPercentage+" Showing");
-//			}
-//		}
-//		else if(value==false) {
-//			ClickOnQuestionsIcon();
-//			SearchQuestionInTheList();
-//			EnterTheAnswerToTheQuestion();
-//			ClickOnSubmitButton();
-//			ClickOnKnowledgeAnalyticsIcon();
-//			ClickOnMarketResearchChannel();
-//			String afterPercentage=GetKnowledageGapPersentage();
-//			if(beforegapPercentage!=afterPercentage) {
-//				ObjectRepo.test.log(LogStatus.PASS, "Knowledage Gap Percentage Is "+afterPercentage+" Showing");
-//			}else {
-//				ObjectRepo.test.log(LogStatus.FAIL, "Knowledage Gap Percentage Is "+afterPercentage+" Showing");
-//			}
-//		}
 	}
 	
 	public static void VerifyHtmlTagsAreNotDisplayInTheSummary() {
@@ -5217,6 +5144,7 @@ public class StepDefinitions {
 		 ClickOnHomeNavigationIcon();
 		 String askedquestion =GenericHelper.getTestData("TextInputData");
 		 WebElement element = GenericElements.getOldOrNewLocator(hp.txtSearchIndex,hp.searchOption);
+		 Thread.sleep(5000);
 		 element.click();
 		 Thread.sleep(5000);
 		 String actualQuestion = hp.myQuestionSection.getText();
@@ -5554,7 +5482,6 @@ public class StepDefinitions {
 			 ObjectRepo.test.log(LogStatus.FAIL, "All WebSites Are not Connected And Associated To An Avatar");
 		 }
 	 }
-	 
 	 
 	 public static void VerifyThatAuditAvatarOptionIsNotAvailableInTheAvatarPickerPage() {
 		 try {
@@ -5922,7 +5849,6 @@ public class StepDefinitions {
 			      }
 			    }
 		}
-		
 	}
 	
 	public static void VerifyThatOldFiltereatureIsNotAvailable() throws Exception {
@@ -6114,15 +6040,17 @@ public class StepDefinitions {
 	public static void VerifyThatCardAndTreeViewIsDisplayed() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ArrayList<WebElement> webList = new ArrayList<WebElement>();
-		String expectedClass = "Switch_item__2bJhs Switch_checked__1PC6O Switch_clickable__2UIW3";
+		ArrayList<String> expectedlist = new ArrayList<String>();
+		expectedlist.add("Cards");
+		expectedlist.add("Tree");
+		
 		for(WebElement el : hp.viewMode) {
 			webList.add(el);
 		}
 		
-		for(int i=0; i<webList.size(); i++) {
+		for(int i = 0; i<expectedlist.size(); i++) {
 			ButtonHelper.click(webList.get(i), webList.get(i).getText());
-			 String actualClass = webList.get(i).getAttribute("class");
-			 if(expectedClass.equals(actualClass)) {
+			 if(webList.get(i).getText().equals(expectedlist.get(i))) {
 				 ObjectRepo.test.log(LogStatus.PASS,webList.get(i).getText()+"view is Displayed");
 				 if(i==1) {
 					 break;

@@ -52,11 +52,11 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	@CacheLookup
 	public WebElement answerFields;
 	
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-arrow-down__3-KAt Icon_color-secondary__1ATBQ']")
+	@FindBy(xpath = "//*[@class='TriggerButton_root__aOkNJ']")
 	@CacheLookup
 	public WebElement groupByDropdowIcon;
 	
-	@FindBy(xpath = "//*[@class='QuestionCard_body__2XIWn']")
+	@FindBy(xpath = "//*[@class='QuestionCard_body__pkFVZ']")
 	@CacheLookup
 	public WebElement assigneToOtherExpertSection;
 	
@@ -68,19 +68,19 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	@CacheLookup
 	public WebElement AssignToAnotherExpertButton;
 	
-	@FindBy(xpath = "(//*[@class='QuestionItem_body__HRbuY'])[1]")
+	@FindBy(xpath = "(//*[@class='QuestionItem_body__uuKaw'])[1]")
 	@CacheLookup
 	public WebElement downVotedQuestion;
 	
-	@FindBy(xpath = "((//*[@class='UserCard_body__MqeBn']))[2]")
+	@FindBy(xpath = "((//*[@class='UserCard_root__I3P7Q']))[2]")
 	@CacheLookup
 	public WebElement usersAssign;
 	
-	@FindBy(xpath = "(//*[@class='QuestionCard_title__2c1uI'])[1]")
+	@FindBy(xpath = "(//*[@class='QuestionCard_title__53XQ2'])[1]")
 	@CacheLookup
 	public WebElement assignBy;
 	
-	@FindBy(xpath = "(//*[@class='QuestionCard_title__2c1uI'])[2]")
+	@FindBy(xpath = "(//*[@class='QuestionCard_title__53XQ2'])[2]")
 	@CacheLookup
 	public WebElement assignTo;
 	
@@ -104,9 +104,15 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	@CacheLookup
 	public  List<WebElement> unassignedQuestions;
 	
-	@FindBy(xpath = "//*[@class='Chip_title__2c-BL']")
+	@FindBy(xpath = "(//*[@class='Chip_title__5+pg8'])[1]")
 	@CacheLookup
 	public WebElement knowledgeGapPersentage;
+	
+	@FindBy(xpath = "//*[@class='KnowledgeAvatar_switchItem__ftcBb']//*")
+	@CacheLookup
+	public WebElement totalUnAnsweredQuestion;
+	
+	
 	
 	@FindBy(xpath = "//*[@class='Chip_title__2c-BL']")
 	@CacheLookup

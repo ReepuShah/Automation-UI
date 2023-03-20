@@ -99,7 +99,7 @@ public class HubbellLoginPage extends PageBase {
 	@CacheLookup
 	public  WebElement passwordErrorMessage;
 	
-	@FindBy(xpath = "//*[@class='BaseModal_root__xOf-9 SelectAvatarModal_root__3OgtB']")
+	@FindBy(xpath = "//*[@class='BaseModal_root__IVR+6 SelectAvatarModal_root__GHiFC']")
 	@CacheLookup
 	public  WebElement avatarSelectOption;
 	
@@ -115,7 +115,7 @@ public class HubbellLoginPage extends PageBase {
 	@CacheLookup
 	public  WebElement regsAndPoliciesCard;
 	
-	@FindBy(xpath = "(//*[@class='SelectAvatarModal_header__1sBDo']/*)[2]")
+	@FindBy(xpath = "(//*[@class='SelectAvatarModal_header__C6UUc']/*)[2]")
 	@CacheLookup
 	public  WebElement avatarHeader;
 	
@@ -135,7 +135,7 @@ public class HubbellLoginPage extends PageBase {
 	@CacheLookup
 	public  WebElement requestMessage;
 	
-	@FindBy(xpath = "//*[@class='AvatarCardList_title__2xb5G']")
+	@FindBy(xpath = "//*[@class='AvatarCardList_title__ioAj-']")
 	@CacheLookup
 	public WebElement auditAvatarOption;
 	

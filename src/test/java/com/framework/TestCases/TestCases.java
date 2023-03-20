@@ -992,7 +992,6 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_All_Topic_Cards_Highlited_With_Purpul_Color");
 	}
 	
-	
 	@Test
 	public static void Verify_Select_Avatar_Option_Is_Display_Before_Asking_Question() {
 		InitiateTestParams.ExecuteTestCase("Verify_Select_Avatar_Option_Is_Display_Before_Asking_Question");
