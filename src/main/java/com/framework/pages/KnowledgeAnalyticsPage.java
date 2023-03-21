@@ -52,7 +52,7 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	@CacheLookup
 	public WebElement answerFields;
 	
-	@FindBy(xpath = "//*[@class='TriggerButton_root__aOkNJ']")
+	@FindBy(xpath = "//*[@class='TriggerButton_root__aOkNJ Filter_groupBy__v0jXe']")
 	@CacheLookup
 	public WebElement groupByDropdowIcon;
 	
@@ -84,7 +84,7 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	@CacheLookup
 	public WebElement assignTo;
 	
-	@FindBy(xpath = "(//*[@class='UserCard_body__265-8'])[1]")
+	@FindBy(xpath = "(//*[@class='UserCard_root__I3P7Q'])[1]")
 	@CacheLookup
 	public WebElement selfAssign;
 	
@@ -114,7 +114,7 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	
 	
 	
-	@FindBy(xpath = "//*[@class='Chip_title__2c-BL']")
+	@FindBy(xpath = "(//*[@class='Chip_title__5+pg8'])[1]")
 	@CacheLookup
 	public WebElement knowledgeRecallPersentage;
 	

@@ -4505,6 +4505,7 @@ public class StepDefinitions {
 	 }
 	 
 	public static void SelectMediaTypeGroupOption() throws Exception {
+		Thread.sleep(5000);
 		GenericElements.selectByGroup("Media Type");
 	}
 	
@@ -5087,7 +5088,7 @@ public class StepDefinitions {
 		ButtonHelper.click(dp.sharePointDataConnector, "Sahre Point DataConnector");
 	}
 	
-	 public static void VerifyThatSharePointConnected(){
+	public static void VerifyThatSharePointConnected(){
 		  ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
 		  String[] strArray = null;
 		  String text = themepage.connectedFile.getText();
@@ -5162,12 +5163,12 @@ public class StepDefinitions {
 		 
 		 for(int i=0; i<passwordList.length; i++) {
 			 lp.txtPassword.sendKeys(passwordList[0]);
-			 WebElement element =  driver.findElement(By.xpath("//*[@class='IntroLayout_intro__2OkfX']"));
+			 WebElement element =  driver.findElement(By.xpath("//*[@class='IntroLayout_intro__BttQg']"));
 			 action.moveToElement(element).click().perform();
 			 if(lp.passwordErrorMessage.isDisplayed()) {
 				 action.moveToElement(lp.passwordErrorMessage).perform();
 				 Thread.sleep(5000);
-				 WebElement passwordErrorType = driver.findElement(By.xpath("(//*[@class='Tooltip_body__MTizS Tooltip_alignment-center__H9KAT Tooltip_color-primary__2W1-_ ErrorChip_errorMessage__2whPH']/*)[2]"));
+				 WebElement passwordErrorType = driver.findElement(By.xpath("(//*[@class='Tooltip_body__0iFWZ Tooltip_alignment-center__8ANnk Tooltip_color-primary__HO02D ErrorChip_errorMessage__wxcYh']/*)[2]"));
 				 if(passwordErrorType.isEnabled()) {
 					 String errorType = passwordErrorType.getText();
 					 ObjectRepo.test.log(LogStatus.PASS,errorType + " Message Displayed");
@@ -5530,6 +5531,7 @@ public class StepDefinitions {
 	 
 	 public static void VerifyThatGeneratedSummaryContainKeyExtractionsOfPassages() throws InterruptedException {
 		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 Thread.sleep(5000);
 		 String marked = hp.highlightedSentance.getText();
 		 String summary = hp.summaryPart.getText();
 		 String arr[]=null;
@@ -5603,7 +5605,7 @@ public class StepDefinitions {
 		 String text = listall.get(index);
 		 TextBoxHelper.enterText(dp.searchField, "",text);
 		 Thread.sleep(5000);
-		 String searchText = driver.findElement(By.xpath("(//*[@class='BaseDataSourceCard_title__30rL1'])[1]")).getText();
+		 String searchText = driver.findElement(By.xpath("(//*[@class='BaseDataSourceCard_title__+2yJz'])[1]")).getText();
 		 
 		 if(text.equals(searchText)) {
 			 ObjectRepo.test.log(LogStatus.PASS, "Search Option is Working On Website Page");
@@ -5655,7 +5657,7 @@ public class StepDefinitions {
 		 String text = listall.get(index);
 		 TextBoxHelper.enterText(dp.searchField, "",text);
 		 Thread.sleep(5000);
-		 String searchText = driver.findElement(By.xpath("(//*[@class='BaseDataSourceCard_title__30rL1'])[1]")).getText();
+		 String searchText = driver.findElement(By.xpath("(//*[@class='BaseDataSourceCard_title__+2yJz'])[1]")).getText();
 		 
 		 if(text.equals(searchText)) {
 			 ObjectRepo.test.log(LogStatus.PASS, "Search Option is Working On UploadFile Page");

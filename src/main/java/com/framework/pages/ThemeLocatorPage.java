@@ -160,7 +160,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement sourcePassage;
 	
-	@FindBy(xpath = "//*[@class='TrendingChart_root__3kIsZ']")
+	@FindBy(xpath = "//*[@class='TrendingChart_root__bRBxQ']")
 	@CacheLookup
 	public  WebElement trendingChart;
 	
@@ -168,7 +168,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement connectedFile;
 	
-	@FindBy(xpath = "(//*[@class='Icon_icon__2Atss Icon_icon-arrow-down__3-KAt'])[1]")
+	@FindBy(xpath = "(//*[@class='Icon_icon__DouW- Icon_icon-arrow-down__h9YX7'])[1]")
 	@CacheLookup
 	public WebElement backIcon;
 	

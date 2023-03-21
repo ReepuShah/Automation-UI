@@ -121,11 +121,11 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public List<WebElement> lastPage;
 	
-	@FindBy(xpath = "//*[@class='BaseDataSourceCard_title__30rL1']")
+	@FindBy(xpath = "//*[@class='BaseDataSourceCard_title__+2yJz']")
 	@CacheLookup
 	public List<WebElement> conectedFileName;
 	
-	@FindBy(xpath = "//*[@class='TextInput_input__pKOrF TextInput_withBefore__3sbEV']")
+	@FindBy(xpath = "//*[@placeholder='Search']")
 	@CacheLookup
 	public WebElement searchField;
 	

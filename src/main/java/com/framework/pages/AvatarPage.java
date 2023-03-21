@@ -20,19 +20,19 @@ public class AvatarPage extends PageBase {
 	
 	/** Web Elements */
 	
-	@FindBy(xpath = "(//*[@class='Button-root_root__2hlPn Button-variant_contained__3zoUH Button-color_primary__H_f8o Button-size_large__3JqWL'])[1]")
+	@FindBy(xpath = "//*[text()=' Create Avatar']")
 	@CacheLookup
 	public  WebElement createAvatarButton;
 	
-	@FindBy(xpath = "(//*[@class='Icon_icon__2Atss Icon_icon-dots__3N8lC EntityCard_menuTrigger__qIcvH Icon_clickable__2wcpS'])[1]")
+	@FindBy(xpath = "(//*[@class='Icon_icon__DouW- Icon_icon-dots__j3MZJ EntityCard_menuTrigger__FbNGS Icon_clickable__zx4Rp'])[1]")
 	@CacheLookup
 	public  WebElement threeDot;
 	
-	@FindBy(xpath = "(//*[@class='Tooltip_tip__1AmT_']//following::ul/*)[2]")
+	@FindBy(xpath = "//*[text()='Edit']")
 	@CacheLookup
 	public  WebElement editOption;
 	
-	@FindBy(xpath = "(//*[@class='Button_root__1hsq2 Button_variant-contained__3XbRQ Button_color-primary__Hkfvx'])[2]")
+	@FindBy(xpath = "(//*[@class='Button-root_root__1sB-5 Button-variant_contained__fe7h- Button-color_primary__qB7yo Button-size_large__EoHFJ'])[2]")
 	@CacheLookup
 	public  WebElement runDomainAdaptationButton;
 	

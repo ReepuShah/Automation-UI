@@ -67,7 +67,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public  WebElement latestUpdateIcon;
 	
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-question-mark__1A-kN Sidebar_helpButton__3K7Xw']")
+	@FindBy(xpath = "//*[@href='https://nesh.atlassian.net/servicedesk/customer/portals']")
 	@CacheLookup
 	public  WebElement helpIcon;
 	
@@ -1160,7 +1160,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> latestSuggestions;
 	
-	@FindBy(xpath = "//*[@class='SelectItem_root__3Z0GP']")
+	@FindBy(xpath = "//*[@class='SelectItem_root__-yOQZ']")
 	@CacheLookup
 	public List<WebElement> groupBy;
 	
@@ -1168,7 +1168,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> filesize;
 	
-	@FindBy(xpath = "//*[@class='Switch_item__2bJhs Switch_checked__1PC6O Switch_clickable__2UIW3']/*")
+	@FindBy(xpath = "//*[@class='Switch_item__jj0FZ Switch_checked__V4AVE Switch_clickable__w1Es6']/*")
 	@CacheLookup
 	public WebElement switchedField;
 	
@@ -1208,7 +1208,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> resetButton;
 	
-	@FindBy(xpath = "//*[@class='ModalTitle_root__15BOH']")
+	@FindBy(xpath = "//*[@class='ModalTitle_root__I74dm']")
 	@CacheLookup
 	public WebElement addingCompanyToEdgar;
 	
@@ -1232,7 +1232,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement metadataSection;
 	
-	@FindBy(xpath = "//*[@class='ResultsCard_chips__2a2bq']//*[text()='data-connector']")
+	@FindBy(xpath = "//*[@class='ResultsCard_chips__v4HZn']//*[text()='data-connector']")
 	@CacheLookup
 	public WebElement dataConnectorData;
 	
@@ -1248,7 +1248,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement expert;
 	
-	@FindBy(xpath = "//*[@class='AlertPopupTemplate_message__2j-y5']")
+	@FindBy(xpath = "//*[@class='AlertPopupTemplate_message__fhl6C']")
 	@CacheLookup
 	public WebElement questionAssignMessage;
 	
@@ -1316,11 +1316,11 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> postToAnExpertButton;
 	
-	@FindBy(xpath = "(//*[@class='NavItem_root__WNXe- Sidebar_navItem__mOPkc'])[1]")
+	@FindBy(xpath = "//*[@href='/avatars']")
 	@CacheLookup
 	public WebElement avatarNavigationIcon;
 	
-	@FindBy(xpath = "(//*[@class='Icon_icon__2Atss Icon_icon-share__2Hu7L'])[1]//parent::*")
+	@FindBy(xpath = "(//*[@class='Icon_icon__DouW- Icon_icon-share__MTkCW'])[1]//parent::*")
 	@CacheLookup
 	public WebElement shareIcon;
 	
@@ -1372,7 +1372,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement filterButton;
 	
-	@FindBy(xpath = "//*[@class='ListItem_item__W7-Sa ListItem_clickable__2xqMz']")
+	@FindBy(xpath = "//*[@class='ListItem_item__wSDnd ListItem_clickable__cjxfy']")
 	@CacheLookup
 	public List<WebElement> fileExtensions;
 	
@@ -1388,7 +1388,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement feedbackIcon;
 	
-	@FindBy(xpath = "(//*[@class='Chip_title__2c-BL'])[1]")
+	@FindBy(xpath = "(//*[@class='Chip_title__5+pg8'])[1]")
 	@CacheLookup
 	public WebElement clientFilter;
 	
@@ -1400,7 +1400,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> decisionOtion;
 	
-	@FindBy(xpath = "//*[@class='BaseModal_root__xOf-9 AssignExpertToQuestionModal_root__Jqp4u']")
+	@FindBy(xpath = "//*[@class='BaseModal_root__IVR+6 AssignExpertToQuestionModal_root__g9xmK']")
 	@CacheLookup
 	public WebElement postQuestionPage;
 	
@@ -1424,11 +1424,11 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> openExtras;
 	
-	@FindBy(xpath = "//*[@class='ContentBox_root__jn-o3 ContentBox_color-secondary__dWf2a SearchExtras_root__3-I0g']")
+	@FindBy(xpath = "//*[@class='SidebarContainer_container__EpSSK']")
 	@CacheLookup
 	public WebElement openExtrasPanel;
 	
-	@FindBy(xpath = "//*[@class='CollapseHeader_root__GmG7y CollapseHeader_clickable__liVtc AnswerSection_collapsableHeader__P4wlL']")
+	@FindBy(xpath = "//*[@class='CollapseHeader_root__Z-d49 CollapseHeader_clickable__BKwmd']")
 	@CacheLookup
 	public List<WebElement> openExtrasOption;
 	
