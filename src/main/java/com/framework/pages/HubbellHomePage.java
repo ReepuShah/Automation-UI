@@ -742,7 +742,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement VotedCount;
 	
-	@FindBy(xpath = "//*[@class='AnswerSection_title__2A-DN AnswerSection_clickable__3euix']")
+	@FindBy(xpath = "//*[@class='AnswerSection_title__Zc87Z AnswerSection_clickable__cid+Z']")
 	@CacheLookup
 	public List<WebElement> FilesName;
 	
@@ -968,7 +968,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement updatedmyQuestions;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_root__2FvFc ImageCard_theme-secondary__tzV1p ImageCard_clickable__2McHq'])[1]")
+	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V'])[1]")
 	@CacheLookup
 	public WebElement highlightColor;
 	
@@ -996,7 +996,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement summaryPart;
 	
-	@FindBy(xpath = "(//*[@class='AnswerSection_text__3mBkk'])[1]")
+	@FindBy(xpath = "(//*[@class='AnswerSection_text__yp2Ue'])[1] ")
 	@CacheLookup
 	public WebElement repeatSummaryPart;
 	
@@ -1376,7 +1376,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> fileExtensions;
 	
-	@FindBy(xpath = "//*[@class='Icon_icon__2Atss Icon_icon-laughing-face__38VOF Icon_color-default__cGkyg SummaryVoteController_icon__1lWxT']")
+	@FindBy(xpath = "//*[@class='Icon_icon__DouW- Icon_icon-laughing-face__JiOl9 Icon_color-default__Xz+FY SummaryVoteController_icon__imWat']")
 	@CacheLookup
 	public WebElement smileIcon;
 	
@@ -1384,7 +1384,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> feedbackFace;
 	
-	@FindBy(xpath = "(//*[@class='Radio_root__2dmgP Radio_size-medium__1m2Bh'])[1]")
+	@FindBy(xpath = "(//*[@class='Radio_root__+1sJp Radio_size-medium__t2nZx'])[1]")
 	@CacheLookup
 	public WebElement feedbackIcon;
 	

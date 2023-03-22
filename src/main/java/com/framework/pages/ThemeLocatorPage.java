@@ -64,7 +64,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  List<WebElement> topPassages;
 	
-	@FindBy(xpath = "//*[@class='QuestionSuggestionItem_root__1Vz5V SuggestionsSidebar_listItem__1Hxzz QuestionSuggestionItem_clickable__1iOM6']")
+	@FindBy(xpath = "//*[@class='QuestionSuggestionItem_text__Ajv45']")
 	@CacheLookup
 	public  List<WebElement> suggestionQuestion;
 	

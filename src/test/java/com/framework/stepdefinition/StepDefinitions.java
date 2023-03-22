@@ -2504,7 +2504,7 @@ public class StepDefinitions {
 					ObjectRepo.test.log(LogStatus.PASS,"Suggestion Question is : "+Question);
 				}
 			}else {
-				ObjectRepo.test.log(LogStatus.FAIL,"Suggestion Question : 5");
+				ObjectRepo.test.log(LogStatus.FAIL,"Suggestion Question: "+suggestionQuestion);
 			}
 		}
 			
