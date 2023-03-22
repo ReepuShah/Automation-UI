@@ -164,7 +164,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement trendingChart;
 	
-	@FindBy(xpath = "//*[@class='Title_root__33NXB']")
+	@FindBy(xpath = "//*[@class='Title_root__eU152']")
 	@CacheLookup
 	public  WebElement connectedFile;
 	

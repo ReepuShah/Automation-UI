@@ -143,7 +143,7 @@ public class HubbellLoginPage extends PageBase {
 	@CacheLookup
 	public WebElement highlightedSentance;
 	
-	@FindBy(xpath = "//*[@class='Button-root_root__2hlPn Button-variant_outlined__1l0WC Button-color_default__1lAQQ Button-size_large__3JqWL']")
+	@FindBy(xpath = "//*[text()='Log In with SSO ']")
 	@CacheLookup
 	public WebElement SSOButton;
 	

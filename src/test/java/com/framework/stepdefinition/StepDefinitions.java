@@ -4522,7 +4522,6 @@ public class StepDefinitions {
 	
 	
 	public static void VerifyThatMediaTypeGroupingIsWorking() throws Exception {
-		HubbellHomePage hp = new HubbellHomePage(driver);
 		ArrayList<String>listTab= new ArrayList<>();
 		listTab.add("Text");
 		listTab.add("Table");
@@ -4772,7 +4771,8 @@ public class StepDefinitions {
 	}
 	
 	
-	public static int getTotalUploadedFile(WebElement element) {
+	public static int getTotalUploadedFile(WebElement element) throws InterruptedException {
+		Thread.sleep(5000);
 		String text = element.getText();
 		String[] arr = null;
 		arr = text.split(" ");
@@ -4811,6 +4811,8 @@ public class StepDefinitions {
 				}else {
 					ObjectRepo.test.log(LogStatus.FAIL,"User Is Not Able To Remove The File From Uploaded File");
 				}
+			}else {
+				ObjectRepo.test.log(LogStatus.PASS,"not available uploaded file");
 			}
 		}
 		
@@ -5118,16 +5120,16 @@ public class StepDefinitions {
 		 String SourceLink = hp.questionList.getText();
 		 if(IsSourceLinkClickable()==true) {
 			 ObjectRepo.test.log(LogStatus.PASS,"Source Link Is Clickable");
+			 ClickOnBackButton();
+			 String Sourcelink = driver.findElement(By.xpath("(//*[@class='AnswerSection_title__Zc87Z AnswerSection_clickable__cid+Z'])[1]")).getText();
+			  if(SourceLink.equals(Sourcelink)) {
+				  ObjectRepo.test.log(LogStatus.PASS,"Passages Page is Not Reloaded");
+			  }else {
+				  ObjectRepo.test.log(LogStatus.FAIL,"Passages Page is Reloaded");
+			  }
 		 }else {
 			 ObjectRepo.test.log(LogStatus.FAIL,"Source Link Is not Clickable");
 		 }
-		 ClickOnBackButton();
-		 String Sourcelink = driver.findElement(By.xpath("(//*[@class='AnswerSection_title__2A-DN AnswerSection_clickable__3euix'])[1]")).getText();
-		  if(SourceLink.equals(Sourcelink)) {
-			  ObjectRepo.test.log(LogStatus.PASS,"Passages Page is Not Reloaded");
-		  }else {
-			  ObjectRepo.test.log(LogStatus.FAIL,"Passages Page is Reloaded");
-		  }
 	 }
 	 
 	 public static void VerifyThatVerticallyScrollIsPresent() {

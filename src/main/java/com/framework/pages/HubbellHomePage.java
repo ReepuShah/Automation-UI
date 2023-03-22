@@ -199,7 +199,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement uploadYourFiles;
 	
-	@FindBy(xpath = "//*[@class='ModalTitle_root__15BOH']")
+	@FindBy(xpath = "//*[text()='Upload your files']")
 	@CacheLookup
 	public WebElement uploadFiles;
 	
@@ -890,7 +890,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement newestOption;
 	
-	@FindBy(xpath = "((//*[@class='ResultContainer_root__mctnQ'])[2]//*[@class='AnswerSection_header__7Vjb9']//h4)[1]")
+	@FindBy(xpath = "((//*[@class='ResultsCard_answerContainer__LrpL+'])[1]//*[@class='AnswerSection_header__7Vjb9']//h4)[1]")
 	@CacheLookup
 	public WebElement questionList;
 	
@@ -972,7 +972,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement highlightColor;
 	
-	@FindBy(xpath = "//*[@class='AnswerSection_title__2A-DN AnswerSection_clickable__3euix']//parent::div//parent::div//*[@class='AnswerSection_text__3mBkk']")
+	@FindBy(xpath = "//*[@class='AnswerSection_title__Zc87Z AnswerSection_clickable__cid+Z']//parent::div//parent::div//*[@class='AnswerSection_text__yp2Ue']")
 	@CacheLookup
 	public List<WebElement> topPassages;
 	
@@ -980,7 +980,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement recommendedTopicSection;
 	
-	@FindBy(xpath = "//*[@class='ImageCard_title__3xtrK']//h3")
+	@FindBy(xpath = "//*[@class='ImageCard_title__Imu2p']//h3")
 	@CacheLookup
 	public List<WebElement> recommendedTopicName;
 	
@@ -1352,7 +1352,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement>summarySizeToggle;
 	
-	@FindBy(xpath = "//*[@class='List_root__2XQRm List_gutter-0__1cAu2 List_direction-row__2EDdp List_align-center__1IS_v List_justify-initial__OTyqS List_overflow-auto__1aegl']")
+	@FindBy(xpath = "//*[@class='List_root__Ubol2 List_gutter-0__Faeb3 List_direction-row__5pVnl List_align-center__F+Um6 List_justify-initial__xH6xs List_overflow-auto__A0jBL']")
 	@CacheLookup
 	public WebElement summaryFeedBack;
 	
@@ -1392,7 +1392,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement clientFilter;
 	
-	@FindBy(xpath = "//*[@class='ComicBubble_bubble__3EdEP']")
+	@FindBy(xpath = "//*[@class='ComicBubble_bubble__RO6Ov']")
 	@CacheLookup
 	public WebElement notBright;
 	

@@ -57,11 +57,11 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement connectButton;
 	
-	@FindBy(xpath = "(//*[@class='Title_root__33NXB'])[2]")
+	@FindBy(xpath = "(//*[@class='Title_root__eU152'])[2]")
 	@CacheLookup
 	public WebElement uploadedFileWithOutAssociatedToAvatar;
 	
-	@FindBy(xpath = "(//*[@class='Title_root__33NXB'])[1]")
+	@FindBy(xpath = "(//*[@class='Title_root__eU152'])[3]")
 	@CacheLookup
 	public WebElement uploadedFileWithAssociatedToAvatar;
 	
@@ -69,7 +69,7 @@ public class DataManagerLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement uploadedFileWithOutAssociatedToAvatarThreeDotIcon;
 	
-	@FindBy(xpath = "(//*[@class='Icon_icon__2Atss Icon_icon-dots__3N8lC ContextMenu_menuTrigger__1qRwb Icon_clickable__2wcpS'])[1]")
+	@FindBy(xpath = "(//*[@class='Icon_icon__DouW- Icon_icon-dots__j3MZJ ContextMenu_menuTrigger__duwXn Icon_clickable__zx4Rp'])[1]")
 	@CacheLookup
 	public WebElement uploadedFileWithAssociatedToAvatarThreeDotIcon;
 	
