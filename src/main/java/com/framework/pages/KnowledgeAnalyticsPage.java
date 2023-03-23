@@ -48,11 +48,11 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	@CacheLookup
 	public WebElement assignButton;
 	
-	@FindBy(xpath = "//*[@class='Editor_textArea__13FSe']")
+	@FindBy(xpath = "//*[@class='Editor_textArea__Vm3xz']")
 	@CacheLookup
 	public WebElement answerFields;
 	
-	@FindBy(xpath = "//*[@class='TriggerButton_root__aOkNJ Filter_groupBy__v0jXe']")
+	@FindBy(xpath = "//*[@class='TriggerButton_root__aOkNJ']")
 	@CacheLookup
 	public WebElement groupByDropdowIcon;
 	

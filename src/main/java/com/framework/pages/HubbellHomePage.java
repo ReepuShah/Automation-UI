@@ -1076,7 +1076,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement avatarChannelsIcon;
 	
-	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__15nKY']")
+	@FindBy(xpath = "//*[@class='ResultsCard_answerContainer__LrpL+']")
 	@CacheLookup
 	public WebElement searchedresult;
 	

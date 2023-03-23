@@ -2833,7 +2833,6 @@ public class StepDefinitions {
 	  
 	  public static void VerifyTopicAreDisappearWhenOtherAvatarsWereSelected() throws Exception {
 		  ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
-		  HubbellHomePage hp = new HubbellHomePage(driver);
 		  ArrayList<String> list = new ArrayList<String>();
 		  ArrayList<String> topiclist = new ArrayList<String>();
 		  Thread.sleep(2000);
@@ -2844,7 +2843,7 @@ public class StepDefinitions {
 		  try {
 			  ClickOnDropDownChannelIcon();
 			  GenericHelper.selectoptionfromdropDown("Product Support");
-			  ButtonHelper.click(hp.searchButtonIcon,"Search");
+//			  ButtonHelper.click(hp.searchButtonIcon,"Search");
 			  topiclist =  GetChangedTopic();
 			  if(list.size()==topiclist.size()) {
 				  if(list.equals(topiclist)) {
@@ -3472,7 +3471,6 @@ public class StepDefinitions {
 		 GenericElements.ValidateElementIsDisplayed( hp.searchedresult, "Answer");
 		 
 	 }
-	 
 	 
 	 public static void VerifyThatChannelsAreRenameToAvatarsEveryWhereOnNesh() {
 		 HubbellHomePage hp = new HubbellHomePage(driver);

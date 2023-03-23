@@ -76,7 +76,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement topicName;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_title__3xtrK']//h3)")
+	@FindBy(xpath = "(//*[@class='ImageCard_title__Imu2p']//h3)")
 	@CacheLookup
 	public List<WebElement> allTopic;
 	
@@ -148,7 +148,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement suggestedQuestion;
 	
-	@FindBy(xpath = "//*[@class='TrendingChart_root__3kIsZ']")
+	@FindBy(xpath = "//*[@class='TrendingChart_root__bRBxQ']")
 	@CacheLookup
 	public  WebElement trendingDataChart;
 	
