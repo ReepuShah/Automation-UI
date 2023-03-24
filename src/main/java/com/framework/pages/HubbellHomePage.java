@@ -1020,7 +1020,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement downvotedThumbIcon;
 	
-	@FindBy(xpath = "//*[@class='MixedResult_footer__ifiD6']/*")
+	@FindBy(xpath = "//*[@class='ResultContainer_footer__scJOG']/*")
 	@CacheLookup
 	public WebElement showOtherAnswerButton;
 	
@@ -1032,11 +1032,11 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement loadAnotherAnswerButton;
 	
-	@FindBy(xpath = "((//*[@class='MixedResult_header__Hfw-F'])[3]/*)[1]")
+	@FindBy(xpath = "((//*[@class='ResultContainer_header__CZI2d'])[3]/*)[1]")
 	@CacheLookup
 	public WebElement otherAnswerHeading;
 	
-	@FindBy(xpath = "(//*[@class='MixedResult_body__p6xhn'])[3]/*")
+	@FindBy(xpath = "(//*[@class='ResultContainer_body__n5-ef ResultContainer_space-medium__EcZTw'])[3]/*")
 	@CacheLookup
 	public List<WebElement> totalOtherAnswer;
 	
@@ -1084,7 +1084,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement OtherAnswer;
 	
-	@FindBy(xpath = "//*[@class='AnswerSection_image__36iRH']//following-sibling::*")
+	@FindBy(xpath = "//*[@class='AnswerSection_image__LpXD4']//following-sibling::*")
 	@CacheLookup
 	public List<WebElement> imagesCards;
 	
