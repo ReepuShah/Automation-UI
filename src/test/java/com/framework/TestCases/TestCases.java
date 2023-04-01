@@ -1963,7 +1963,40 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Graph_View_Is_Display_On_The_Home_Page_For_Chinhook_Avatar");
 	}
 	
-	 
+	@Test
+	public static void Verify_That_Decision_Section_Is_Display_In_The_The_Side_Panel() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Decision_Section_Is_Display_In_The_The_Side_Panel");
+	}
+	
+	@Test
+	public static void Verify_That_Expert_Is_Not_Able_To_Submit_Empty_Answer() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Expert_Is_Not_Able_To_Submit_Empty_Answer");
+	}
+	
+	@Test
+	public static void Verify_That_Avatar_Section_Is_Aligned() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Avatar_Section_Is_Aligned");
+	}
+	
+	@Test
+	public static void Verify_That_Summary_View_And_Source_View_Toggle_Is_Display() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Summary_View_And_Source_View_Toggle_Is_Display");
+	}
+	
+	@Test
+	public static void Verify_That_Multiple_Tag_Is_Available_At_The_Source_View() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Multiple_Tag_Is_Available_At_The_Source_View");
+	}
+	
+	@Test
+	public static void Verify_That_Inside_Source_View_Passages_Option_Is_Working_Such_As_Normal_Passage() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Inside_Source_View_Passages_Option_Is_Working_Such_As_Normal_Passage");
+	}
+	
+	@Test
+	public static void Verify_That_Bubble_Message_Is_Display_On_Chinook_Avatar() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Bubble_Message_Is_Display_On_Chinook_Avatar");
+	}
 }  
 
 

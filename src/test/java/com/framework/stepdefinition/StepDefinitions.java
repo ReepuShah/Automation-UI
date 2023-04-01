@@ -2448,7 +2448,10 @@ public class StepDefinitions {
 //		action.sendKeys(Keys.TAB).build().perform();
 //		action.sendKeys(Keys.TAB).build().perform();
 //		action.sendKeys(Keys.ENTER).build().perform();
-		ButtonHelper.click(themepage.nextButton, "Next Button");
+//		driver.findElement(By.xpath("//*[text()='Search and ask questions']")).click();
+//		Thread.sleep(5000);
+//		driver.findElement(By.xpath("(//*[@class='CheckboxCard_root__-GInH CheckboxCard_clickable__8RjDs'])[1]")).click();
+//		ButtonHelper.click(themepage.nextButton, "Next Button");
 	}
 	
 	
@@ -6449,8 +6452,105 @@ public class StepDefinitions {
 			ObjectRepo.test.log(LogStatus.FAIL, "Unable element");
 			ExtentReportHelper.logFailWithScreenshot(e.getMessage());
 		}
-		
 	}
 	
+	public static void VerifyThatDecisionSectionIsDisplayedInTheSidePanel() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		boolean flag = false;
+		for(WebElement el : hp.openExtrasOption) {
+			if(el.getText().equals("Decisions")) {
+				flag = true;
+				break;
+			}
+		}
+		if(flag==true) {
+			ObjectRepo.test.log(LogStatus.PASS, "Decision Section Is Displayed");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, "Decision Section Is Displayed");
+		}
+	}
+	
+	public static void VerifyThatUserIsNotAbleToSubmitEmptyAnswer() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		if(hp.answerTextField.getText().equals("")) {
+			if(hp.submitDissable.isEnabled()==false) {
+				ObjectRepo.test.log(LogStatus.PASS, "User Is Not Able To Submit Empty Answer");
+			}else {
+				ObjectRepo.test.log(LogStatus.FAIL, "User Is Able To Submit Empty Answer");
+			}
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, "Answer Field is not empty");
+		}
+	}
+	
+	public static void VerifyThatAvatarSectionIsAligned() {
+		HubbellLoginPage lp = new HubbellLoginPage(driver);
+		String value  = lp.avatarSelectOption.getCssValue("padding");
+		String expectedValue = "30px 40px 40px";
+		
+		if(value.equals(expectedValue)) {
+			ObjectRepo.test.log(LogStatus.PASS, "Avatar Section is Aligned");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, "Avatar Section is not Aligned");
+		}
+	}
+	
+	
+	public static void VerifyThatSummaryViewAndSourceViewIsDisplay() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		
+		if(hp.toggleBtn.size()>0) {
+			for(WebElement el : hp.toggleBtn) {
+				ObjectRepo.test.log(LogStatus.PASS, el.getText() + " Toggle is display");
+			}
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, "Toggle Button is not display");
+		}
+	}
+	
+	public static void ClickOnSourceViewOption() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		if(hp.toggleBtn.size()>0) {
+			for(WebElement el : hp.toggleBtn) {
+				if(el.getText().equals("Source View")) {
+					ButtonHelper.click(el, el.getText());
+				}
+			}
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, "Toggle Button is not display");
+		}
+	}
+	
+	public static void VerifyThatMultipleTagIsAvailableAtTheSourceViewPage() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		if(hp.sourceTag.size()>0) {
+			for(WebElement el :hp.sourceTag) {
+				ObjectRepo.test.log(LogStatus.PASS, el.getText() + " is Displayed");
+			}
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, " Source View Tag is not  Displayed");
+		}
+	}
+	
+	public static void ClickOnSourceViewDownIcon() throws Exception {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		ButtonHelper.click(hp.sourceViewDownIcon, "Down Icon");
+	}
+	
+	public static void VerifyThatSourcePassageIsWorkingSuchAsNormalPassage() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		if(hp.sourceOption.size()>0) {
+			for(WebElement el : hp.sourceOption) {
+				ObjectRepo.test.log(LogStatus.PASS, el.getText() + " is Displayed");
+			}
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, " Source View Passages Option is not  Displayed");
+		}
+	}
+	
+	public static void VerifyThatBubbleMessageIsDisplayOnChinookAvatar() {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		GenericElements.ValidateElementIsDisplayed(hp.bubbleText,"Bubble Message");
+	}
 }
 	
