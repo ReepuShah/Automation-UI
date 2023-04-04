@@ -24,7 +24,7 @@ public class ProfilePage extends PageBase {
 
 	/** Web Elements */
 	
-	@FindBy(xpath = "(//*[@type='button'])[1]")
+	@FindBy(xpath = "//*[@class='Avatar_image__A0PIh']//parent::*")
 	@CacheLookup
 	public WebElement profileButton;
 	

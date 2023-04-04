@@ -2622,8 +2622,7 @@ public class StepDefinitions {
 		}
 		
 		public static void VerifyNextButtonIsVissibleIn1728X1117ScreenResolution() throws InterruptedException {
-			
-				HubbellHomePage hp = new HubbellHomePage(driver);
+				HubbellLoginPage lp = new HubbellLoginPage(driver);
 				Dimension dimension = new Dimension(1728, 1117);
 				driver.manage().window().setSize(dimension);
 				
@@ -2632,7 +2631,7 @@ public class StepDefinitions {
 				int width = dimension.getWidth();
 				int height = dimension.getHeight();
 				if(expectedResolutionWidth==width && expectedResolutionHight==height) {
-					if(hp.nextButton.isDisplayed()) {
+					if(lp.avatarSelectOption.isDisplayed()) {
 						ObjectRepo.test.log(LogStatus.PASS, "Next Button Is Vissible In 1728X1117 Screen Resolution");
 					}else {
 						ObjectRepo.test.log(LogStatus.FAIL, "Next Button Is Not Vissible In 1728X1117 Screen Resolution");
@@ -5829,6 +5828,7 @@ public class StepDefinitions {
 	public static void ApplyFileExtensionFilter() throws Exception {
 		WebElement el =ChooseFiltertype(GenericHelper.getTestData("Data"));
 		ButtonHelper.click(el, el.getText());
+		Thread.sleep(5000);
 		SelectExtension(GenericHelper.getTestData("Data1"));
 	}
 	
@@ -6555,19 +6555,20 @@ public class StepDefinitions {
 	
 	public static void VerifyThatSameFilterIsNotWorkingForMultipleTime() throws InterruptedException {
 		HubbellHomePage hp = new HubbellHomePage(driver);
-		String expectedColor = "#8854f7";
-		String selctedColor = null;
+		String expectedClass = "ListItem_item__wSDnd ListItem_active__N0Zyq ListItem_clickable__cjxfy";
+		String selctedClass = null;
 		Thread.sleep(5000);
 		for(WebElement el : hp.fileExtensions) {
 			String exten = el.getText();
 			if(exten.equals(GenericHelper.getTestData("Data1"))) {
-				selctedColor = el.getCssValue("border-color");
-				System.out.println(selctedColor);
+//				el.click();
+				selctedClass = el.getAttribute("class");
+				System.out.println(selctedClass);
 				break;
 			}
 		}
 			
-		if(expectedColor.equals(selctedColor)) {
+		if(expectedClass.equals(selctedClass)) {
 			ObjectRepo.test.log(LogStatus.PASS, "Same Filter is not Applying for Multiple Time");
 		}else {
 			ObjectRepo.test.log(LogStatus.FAIL, "Same Filter is Applying for Multiple Time");

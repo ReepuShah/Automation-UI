@@ -32,7 +32,7 @@ public class KnowledgeAnalyticsPage extends PageBase {
 	@CacheLookup
 	public WebElement  knowledgeAnalyticsTitle;
 	
-	@FindBy(xpath = "//*[@class='QuestionSuggestionItem_text__1etiB']")
+	@FindBy(xpath = "//*[@class='QuestionSuggestionItem_text__Ajv45']")
 	@CacheLookup
 	public List<WebElement>  downvotedQuestion;
 	

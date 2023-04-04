@@ -1008,7 +1008,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> updatedFileSourceLink;
 	
-	@FindBy(xpath = "//*[@class='NavItem_root__WDxYr NavItem_active__2kCT- Sidebar_navItem__V-uHb']")
+	@FindBy(xpath = "//*[@class='NavItem_root__WDxYr NavItem_active__2kCT- NavItemSwitch_navItem__kG-sq']")
 	@CacheLookup
 	public WebElement activeHomeTab;
 
@@ -1372,7 +1372,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement filterButton;
 	
-	@FindBy(xpath = "//*[@class='ListItem_item__wSDnd ListItem_clickable__cjxfy']")
+	@FindBy(xpath = "//*[@class='ScrollableContainer_list__wZ0JO']/*")
 	@CacheLookup
 	public List<WebElement> fileExtensions;
 	
@@ -1416,7 +1416,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> moveUp;
 	
-	@FindBy(xpath = "//*[@class='Switch_container__9SF1e Switch_size-big__7UF7y Home_tabs__xLFeg']//*[@type='button']")
+	@FindBy(xpath = "//*[@class='Switch_container__9SF1e']//*[@type='button']")
 	@CacheLookup
 	public List<WebElement> viewMode;
 	

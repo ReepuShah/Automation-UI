@@ -56,7 +56,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement themeTab;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V'])[1]")
+	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V TilesView_cardAppearAnimation__gHfSS'])[1]")
 	@CacheLookup
 	public  WebElement topicCard;
 	
@@ -120,7 +120,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement environmentalTopicTab;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V'])[1]")
+	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V TilesView_cardAppearAnimation__gHfSS'])[1]")
 	@CacheLookup
 	public WebElement environmentalTopic;
 	
@@ -172,7 +172,7 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public WebElement backIcon;
 	
-	@FindBy(xpath = "//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V']")
+	@FindBy(xpath = "//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V TilesView_cardAppearAnimation__gHfSS']")
 	@CacheLookup
 	public List<WebElement> allTopics;
 	
