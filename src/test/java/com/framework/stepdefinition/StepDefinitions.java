@@ -2222,7 +2222,7 @@ public class StepDefinitions {
 	public static void VerifyQuestionAppearInTheAnsweredTab() throws Exception{
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		boolean value = hp.answeredTab.isDisplayed();
-		WebElement ele =  driver.findElement(By.xpath("(//*[text()='“"+GenericHelper.getTestData("TextInputData")+"“'])[1]"));
+		WebElement ele =  driver.findElement(By.xpath("(//*[text()='ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½'])[1]"));
 		boolean ElementValue = ele.isDisplayed(); 
 		if(value&&ElementValue==true) {
 			ObjectRepo.test.log(LogStatus.PASS, "Question Is moved in the answered Tab");
@@ -3589,7 +3589,7 @@ public class StepDefinitions {
 	 
 	 
 	 public static String SelectQuestion() throws Exception {
-		 WebElement ele =  driver.findElement(By.xpath("(//*[text()='“"+GenericHelper.getTestData("TextInputData")+"“'])[1]"));
+		 WebElement ele =  driver.findElement(By.xpath("(//*[text()='ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½'])[1]"));
 		 String question = ele.getText();
 		 ButtonHelper.click(ele,"Selected Downvoted Question");
 		return question;
@@ -3705,7 +3705,7 @@ public class StepDefinitions {
 			else if(value==false) {
 				ClickOnQuestionsIcon();
 				QuestionPage qp = new QuestionPage(driver);
-				String expectedQuestion = "“"+GenericHelper.getTestData("TextInputData")+"“";
+				String expectedQuestion = "ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½";
 				int size = qp.waitingForAnswerQuestionList.size();
 				ArrayList<String>list = new ArrayList<String>();
 					for(WebElement el : qp.waitingForAnswerQuestionList) {
@@ -3741,7 +3741,7 @@ public class StepDefinitions {
 	
 	public static void SearchQuestionInTheList() throws Exception {
 		QuestionPage qp = new QuestionPage(driver);
-		String expectedQuestion = "“"+GenericHelper.getTestData("TextInputData")+"“";
+		String expectedQuestion = "ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½";
 		int size = qp.waitingForAnswerQuestionList.size();
 		ArrayList<String> list = new ArrayList<String>();
 			for(WebElement el : qp.waitingForAnswerQuestionList) {
@@ -3780,7 +3780,7 @@ public class StepDefinitions {
 				AssignQuestionHimself();
 				ClickOnAssignButton();
 				String question = SelectQuestion();
-				String expectedQuestion = "“"+GenericHelper.getTestData("TextInputData")+"“";
+				String expectedQuestion = "ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½";
 				String switchToggleText = kp.switchToggle.getText();
 				
 				if(switchToggleText.equals("Waiting for Answer")) {
@@ -3797,7 +3797,7 @@ public class StepDefinitions {
 			}else {
 				ClickOnQuestionsIcon();
 				String question = SelectQuestion();
-				String expectedQuestion = "“"+GenericHelper.getTestData("TextInputData")+"“";
+				String expectedQuestion = "ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½";
 				String switchToggleText = kp.switchToggle.getText();
 				if(switchToggleText.equals("Waiting for Answer")) {
 					if(question.equals(expectedQuestion)) {
@@ -3979,7 +3979,7 @@ public class StepDefinitions {
 				
 			}else {
 				ClickOnQuestionsIcon();
-				String expectedQuestion = "“"+GenericHelper.getTestData("TextInputData")+"“";
+				String expectedQuestion = "ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½";
 				ArrayList<String> qestionList = new ArrayList<String>();
 				for(WebElement ele:qp.waitingForAnswerQuestion) {
 					String question = ele.getText();
@@ -5763,7 +5763,7 @@ public class StepDefinitions {
 	 
 	 public static void ExpertCanAnswerOfAnssignedQuestion() throws Exception {
 		 QuestionPage qp = new QuestionPage(driver);
-		 String expectedQuestion = "“"+GenericHelper.getTestData("TextInputData")+"“";
+		 String expectedQuestion = "ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½";
 		 WebElement element =  driver.findElement(By.xpath("//*[text()='"+expectedQuestion+"']"));
 		 ButtonHelper.click(element, "Question Selected");
 		 TextBoxHelper.enterText(qp.answerTextField, "Answer", "Green hydrogen is becoming a key component in bringing about energy transition and ensuring a sustainable future");
@@ -6551,6 +6551,27 @@ public class StepDefinitions {
 	public static void VerifyThatBubbleMessageIsDisplayOnChinookAvatar() {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		GenericElements.ValidateElementIsDisplayed(hp.bubbleText,"Bubble Message");
+	}
+	
+	public static void VerifyThatSameFilterIsNotWorkingForMultipleTime() throws InterruptedException {
+		HubbellHomePage hp = new HubbellHomePage(driver);
+		String expectedColor = "#8854f7";
+		String selctedColor = null;
+		Thread.sleep(5000);
+		for(WebElement el : hp.fileExtensions) {
+			String exten = el.getText();
+			if(exten.equals(GenericHelper.getTestData("Data1"))) {
+				selctedColor = el.getCssValue("border-color");
+				System.out.println(selctedColor);
+				break;
+			}
+		}
+			
+		if(expectedColor.equals(selctedColor)) {
+			ObjectRepo.test.log(LogStatus.PASS, "Same Filter is not Applying for Multiple Time");
+		}else {
+			ObjectRepo.test.log(LogStatus.FAIL, "Same Filter is Applying for Multiple Time");
+		}
 	}
 }
 	

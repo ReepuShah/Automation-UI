@@ -1997,6 +1997,11 @@ public class TestCases {
 	public static void Verify_That_Bubble_Message_Is_Display_On_Chinook_Avatar() {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Bubble_Message_Is_Display_On_Chinook_Avatar");
 	}
+	
+	@Test
+	public static void Verify_That_Same_Filter_Is_Not_Applying_For_Multiple_Time() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Same_Filter_Is_Not_Applying_For_Multiple_Time");
+	}
 }  
 
 

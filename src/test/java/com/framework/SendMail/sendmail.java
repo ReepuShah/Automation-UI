@@ -21,7 +21,7 @@ public class sendmail {
 		Email email = new SimpleEmail();
 		email.setHostName("smtp.gmail.com");
 		email.setSmtpPort(465);
-		email.setAuthenticator(new DefaultAuthenticator("reepushah78@gmail.com", "xqxwlswlbiwxuwcr"));
+		email.setAuthenticator(new DefaultAuthenticator("manishsangwan920@gmail.com", "wdjkrlfmqnejgsgg"));
 		email.setSSLOnConnect(true);
 		email.setFrom("reepukumar38@gmail.com");
 		email.setSubject("TestMail");
@@ -74,7 +74,7 @@ public class sendmail {
 	     MultiPartEmail email = new MultiPartEmail();
 	     email.setHostName("smtp.gmail.com");
 	     email.setSmtpPort(465);
-	     email.setAuthenticator(new DefaultAuthenticator("manishsangwan920@gmail.com","scfnchxurwmehvhh"));
+	     email.setAuthenticator(new DefaultAuthenticator("manishsangwan920@gmail.com","wdjkrlfmqnejgsgg"));
 	     email.setSSLOnConnect(true);
 	     for(int i=0; i<userlist.size(); i++) {
 	    	String emaiId = userlist.get(i);
