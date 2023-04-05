@@ -2644,12 +2644,12 @@ public class StepDefinitions {
 		
 		public static void VerifyThatCardsGridGapAreEquals() {
 			HubbellHomePage hp = new HubbellHomePage(driver);
-			String ExpectedGridRowGap = "32px";
-			String ExpectedGridColumnGap = "32px";
+			String ExpectedGridRowGap = "18px";
+			String ExpectedGridColumnGap = "18px";
 			String actualGridColumnGap  = hp.gridGap.getCssValue("column-gap").toString();
 			String actualGridRowGap  = hp.gridGap.getCssValue("row-gap").toString();
 			assertEquals(ExpectedGridRowGap, actualGridRowGap);
-			if(ExpectedGridRowGap.equals(actualGridRowGap) && ExpectedGridColumnGap.equals(actualGridRowGap)) {
+			if(ExpectedGridRowGap.equals(actualGridRowGap) && ExpectedGridColumnGap.equals(actualGridColumnGap)) {
 				ObjectRepo.test.log(LogStatus.PASS, "Topic Card Grid Gaps are Equal");
 			}else {
 				ObjectRepo.test.log(LogStatus.FAIL, "Topic Card Grid Gaps are Not Equal");
@@ -5762,8 +5762,8 @@ public class StepDefinitions {
 	 
 	 public static void ExpertCanAnswerOfAnssignedQuestion() throws Exception {
 		 QuestionPage qp = new QuestionPage(driver);
-		 String expectedQuestion = "ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½";
-		 WebElement element =  driver.findElement(By.xpath("//*[text()='"+expectedQuestion+"']"));
+		 String expectedQuestion = GenericHelper.getTestData("TextInputData");
+		 WebElement element =  driver.findElement(By.xpath("(//*[text()='“"+expectedQuestion+"“'])[1]"));
 		 ButtonHelper.click(element, "Question Selected");
 		 TextBoxHelper.enterText(qp.answerTextField, "Answer", "Green hydrogen is becoming a key component in bringing about energy transition and ensuring a sustainable future");
 	 }
@@ -5983,7 +5983,7 @@ public class StepDefinitions {
 	public static void VerifyThatClickingBetweenQuestionsDoNotCloseTheSearchBar() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		ButtonHelper.click(hp.spaceBtQues, "Space Between Question");
-		GenericElements.ValidateElementIsDisplayed(hp.spaceBtQues,"Search bar");
+		GenericElements.ValidateElementIsDisplayed(hp.searchBar,"Search bar");
 	}
 	
 	public static void VerifyThatAvatarSelectionPoupIsDisplayEveryTimeLogin(){
@@ -6103,7 +6103,6 @@ public class StepDefinitions {
 	public static void VerifyThatThereAreMultipleOptionInTheOpenExtrasPanel() {
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		GenericElements.ValidateElementIsDisplayed(hp.openExtrasPanel,"Open Extras Panel");
-		
 		for(WebElement el : hp.openExtrasOption) {
 			ObjectRepo.test.log(LogStatus.PASS,el.getText() +" view is Displayed");
 		}
@@ -6510,10 +6509,12 @@ public class StepDefinitions {
 	
 	public static void ClickOnSourceViewOption() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
+		Thread.sleep(5000);
 		if(hp.toggleBtn.size()>0) {
 			for(WebElement el : hp.toggleBtn) {
 				if(el.getText().equals("Source View")) {
 					ButtonHelper.click(el, el.getText());
+					break;
 				}
 			}
 		}else {
@@ -6574,5 +6575,28 @@ public class StepDefinitions {
 			ObjectRepo.test.log(LogStatus.FAIL, "Same Filter is Applying for Multiple Time");
 		}
 	}
+	
+	public static void ClickOnTopicCards() throws Exception {
+		ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
+		ArrayList<WebElement> webList = new ArrayList<WebElement>(); 
+		
+		for(WebElement el : themepage.topicCards) {
+			webList.add(el);
+		}
+		int rand = GenericHelper.generateRamdomNumber(0,webList.size()-1);
+		
+		ButtonHelper.click(webList.get(rand), "Topic Card");
+		
+	}
+	
+	 public static void VerifyThatUserRedirectOnSameTopicCardWhichWasSelected() throws Exception {
+		 ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
+		 ButtonHelper.click(themepage.backIcon, "Back Icon");
+		 if(themepage.topicCard.isDisplayed()) {
+			 ObjectRepo.test.log(LogStatus.PASS, "Same Topic Card is Displayed");
+		 }else {
+			 ObjectRepo.test.log(LogStatus.FAIL, "Same Topic Card is not Displayed");
+		 }
+	 }
 }
 	

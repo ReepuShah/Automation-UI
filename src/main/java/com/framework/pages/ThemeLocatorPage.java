@@ -104,9 +104,9 @@ public class ThemeLocatorPage extends PageBase {
 	@CacheLookup
 	public  WebElement radioButton;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_root__2FvFc ImageCard_theme-primary__2ADmd'])[1]")
-	@CacheLookup
-	public WebElement topicCards;
+//	@FindBy(xpath = "(//*[@class='ImageCard_root__2FvFc ImageCard_theme-primary__2ADmd'])[1]")
+//	@CacheLookup
+//	public WebElement topicCards;
 	
 	@FindBy(xpath = "//*[@class='Chip_root__39ywK Chip_variant-rounded__wlMyu Chip_color-blue-solid__3whSc']//*[@class='Chip_title__2c-BL']")
 	@CacheLookup
@@ -175,6 +175,10 @@ public class ThemeLocatorPage extends PageBase {
 	@FindBy(xpath = "//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V TilesView_cardAppearAnimation__gHfSS']")
 	@CacheLookup
 	public List<WebElement> allTopics;
+	
+	@FindBy(xpath = "//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V TilesView_cardAppearAnimation__gHfSS']")
+	@CacheLookup
+	public  List<WebElement> topicCards;
 	
 	
 

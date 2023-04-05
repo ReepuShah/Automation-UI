@@ -1088,7 +1088,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> imagesCards;
 	
-	@FindBy(xpath = "//*[@CLASS='TopicTiles_body__L9g9o']")
+	@FindBy(xpath = "//*[@class='TilesView_root__vIiv4']")
 	@CacheLookup
 	public WebElement gridGap;
 	
@@ -1168,7 +1168,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> filesize;
 	
-	@FindBy(xpath = "//*[@class='Switch_item__jj0FZ Switch_checked__V4AVE Switch_clickable__w1Es6']/*")
+	@FindBy(xpath = "//*[@class='Switch_item__jj0FZ Switch_checked__V4AVE']/*")
 	@CacheLookup
 	public WebElement switchedField;
 	
@@ -1188,15 +1188,15 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement auditAvatarColunm;
 	
-	@FindBy(xpath = "//*[@class='sc-iQtOjA eQomna']")
+	@FindBy(xpath = "//*[@class='sc-drMfKT isEnVV']")
 	@CacheLookup
 	public List<WebElement> neshHelpSection;
 	
-	@FindBy(xpath = "//*[@class='sc-drMfKT cxKvYY sc-bEjcJn fSxTIP']")
+	@FindBy(xpath = "//*[@href='/servicedesk/customer/portal/1/group/-1']")
 	@CacheLookup
 	public WebElement needToRaiseField;
 	
-	@FindBy(xpath = "//*[@class='sc-hIVACf gFyEZL']")
+	@FindBy(xpath = "//*[@class='sc-drMfKT esrmKO']")
 	@CacheLookup
 	public List<WebElement> raiseRequestFields;
 	
@@ -1292,11 +1292,11 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> passageAnswer;
 	
-	@FindBy(xpath = "((((//*[@class='ResultsCard_chips__2a2bq']//*[text()='data-connector'])[1]//parent::*)[1]//parent::*)[1]//parent::*//preceding-sibling::*)[1]")
+	@FindBy(xpath = "((((//*[@class='ResultsCard_chips__v4HZn']//*[text()='data-connector'])[1]//parent::*)[1]//parent::*)[1]//parent::*//preceding-sibling::*)[1]")
 	@CacheLookup
 	public WebElement passageAnswerDataConnector;
 	
-	@FindBy(xpath = "//*[@class='QuestionSuggestionItem_text__1etiB']")
+	@FindBy(xpath = "//*[@class='QuestionSuggestionItem_text__Ajv45']")
 	@CacheLookup
 	public List<WebElement> suggestedQuestionList;
 	
@@ -1424,7 +1424,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public List<WebElement> openExtras;
 	
-	@FindBy(xpath = "//*[@class='SidebarContainer_container__EpSSK']")
+	@FindBy(xpath = "//*[@class='BlurBackground_root__SUIz6 BlurBackground_blur__3ggsW SidebarContainer_mobileRoot__nZFUI']")
 	@CacheLookup
 	public WebElement openExtrasPanel;
 	

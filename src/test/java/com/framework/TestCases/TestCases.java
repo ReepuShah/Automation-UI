@@ -2002,6 +2002,13 @@ public class TestCases {
 	public static void Verify_That_Same_Filter_Is_Not_Applying_For_Multiple_Time() {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Same_Filter_Is_Not_Applying_For_Multiple_Time");
 	}
+	
+	@Test
+	public static void Verify_That_User_Redirect_On_Same_Topic_Which_Was_Selected() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_User_Redirect_On_Same_Topic_Which_Was_Selected");
+	}
+	
+	
 }  
 
 
