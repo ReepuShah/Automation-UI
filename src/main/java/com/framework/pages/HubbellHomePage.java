@@ -968,7 +968,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement updatedmyQuestions;
 	
-	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V'])[1]")
+	@FindBy(xpath = "(//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V TilesView_cardAppearAnimation__gHfSS'])[1]")
 	@CacheLookup
 	public WebElement highlightColor;
 	
@@ -1116,7 +1116,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement auditReport;
 	
-	@FindBy(xpath = "//*[@class='PassageList_root__1Zlsu']//*[@class='AnswerSection_text__3mBkk']")
+	@FindBy(xpath = "//*[@class='PassageList_root__lPH4o']//*[@class='AnswerSection_text__yp2Ue']")
 	@CacheLookup
 	public List<WebElement> topPassage;
 	
@@ -1471,6 +1471,18 @@ public class HubbellHomePage extends PageBase {
 	@FindBy(xpath = "//*[@class='Switch_container__9SF1e']//*")
 	@CacheLookup
 	public List<WebElement> sourceOption;
+	
+	@FindBy(xpath = "//*[@class='IconButton_root__yiOJX NavItemSwitch_badge__xMmXw']")
+	@CacheLookup
+	public WebElement btn;
+	
+	@FindBy(xpath = "//*[@class='IconButton_root__yiOJX IconButton_rounded__A+8XT NavItemSwitch_menuItem__CX0rC']")
+	@CacheLookup
+	public WebElement rfiBtn;
+	
+	@FindBy(xpath = "//*[@class='IconButton_root__yiOJX IconButton_rounded__A+8XT NavItemSwitch_menuItem__CX0rC']")
+	@CacheLookup
+	public WebElement searchAskBtn;
 	
 	
 	

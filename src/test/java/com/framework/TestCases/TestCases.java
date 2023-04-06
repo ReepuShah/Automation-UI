@@ -2008,6 +2008,23 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_User_Redirect_On_Same_Topic_Which_Was_Selected");
 	}
 	
+	@Test
+	public static void Verify_That_SearchOrAskSomething_Option_Redirects_To_At_Home_Page() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_SearchOrAskSomething_Option_Redirects_To_At_Home_Page");
+	}
+	
+	@Test
+	public static void Verify_That_User_Can_Switch_SearchOrAskSomething_To_FillOutAnRFI_Option_Witchout_Again_Login() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_User_Can_Switch_SearchOrAskSomething_To_FillOutAnRFI_Option_Witchout_Again_Login");
+	}
+	
+	@Test
+	public static void Verify_That_User_Can_Switch_FillOutAnRFI_To_SearchOrAskSomething_Option_Witchout_Again_Login() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_User_Can_Switch_FillOutAnRFI_To_SearchOrAskSomething_Option_Witchout_Again_Login");
+	}
+	
+	
+	
 	
 }  
 

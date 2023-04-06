@@ -170,4 +170,10 @@ public class HubbellLoginPage extends PageBase {
 	@FindBy(xpath = "//*[@class='SignInForm_after__GPmyF']")
 	@CacheLookup
 	public WebElement forgotOption;
+	
+	@FindBy(xpath = "(//*[@class='CheckboxCard_root__-GInH CheckboxCard_clickable__8RjDs'])[1]")
+	@CacheLookup
+	public WebElement searchAndAksQuestionOption;
+	
+	
 }

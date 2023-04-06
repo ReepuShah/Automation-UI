@@ -2222,7 +2222,7 @@ public class StepDefinitions {
 	public static void VerifyQuestionAppearInTheAnsweredTab() throws Exception{
 		HubbellHomePage hp = new HubbellHomePage(driver);
 		boolean value = hp.answeredTab.isDisplayed();
-		WebElement ele =  driver.findElement(By.xpath("(//*[text()='ï¿½"+GenericHelper.getTestData("TextInputData")+"ï¿½'])[1]"));
+		WebElement ele =  driver.findElement(By.xpath("(//*[text()='“"+GenericHelper.getTestData("TextInputData")+"“'])[1]"));
 		boolean ElementValue = ele.isDisplayed(); 
 		if(value&&ElementValue==true) {
 			ObjectRepo.test.log(LogStatus.PASS, "Question Is moved in the answered Tab");
@@ -2436,10 +2436,7 @@ public class StepDefinitions {
 		String channelsName =GenericHelper.getTestData("Channel");
 		WebElement element =driver.findElement(By.xpath("(//*[text()='"+channelsName+"'])[1]"));
 		ButtonHelper.click(element, channelsName);
-		
-		
 //		ButtonHelper.click(themepage.exploreAndAskCard, "Explore And Ask Card");
-		
 	}
 	
 	public static void ClickOnNextButton() throws Exception {
@@ -2453,7 +2450,6 @@ public class StepDefinitions {
 //		driver.findElement(By.xpath("(//*[@class='CheckboxCard_root__-GInH CheckboxCard_clickable__8RjDs'])[1]")).click();
 //		ButtonHelper.click(themepage.nextButton, "Next Button");
 	}
-	
 	
 	public static void ClickOnSearchBar() throws Exception {
 		ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
@@ -6589,7 +6585,7 @@ public class StepDefinitions {
 		
 	}
 	
-	 public static void VerifyThatUserRedirectOnSameTopicCardWhichWasSelected() throws Exception {
+	public static void VerifyThatUserRedirectOnSameTopicCardWhichWasSelected() throws Exception {
 		 ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
 		 ButtonHelper.click(themepage.backIcon, "Back Icon");
 		 if(themepage.topicCard.isDisplayed()) {
@@ -6598,5 +6594,61 @@ public class StepDefinitions {
 			 ObjectRepo.test.log(LogStatus.FAIL, "Same Topic Card is not Displayed");
 		 }
 	 }
+	 
+	 public static void ClickOnSearchAndAksQuestionOption() throws Exception {
+		 HubbellLoginPage lp = new HubbellLoginPage(driver);
+		 ButtonHelper.click(lp.searchAndAksQuestionOption, "Search And Aks Question Option");
+	 }
+	 
+	 public static void ClickOnSearchAskAndQuestionIcon() throws Exception {
+		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 ButtonHelper.click(hp.btn, "Search Ask And Question Icon");
+	 }
+	 
+	 public static void ClickOnSearchRFIIcon() throws Exception {
+		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 ButtonHelper.click(hp.btn, "RFI Icon");
+	 }
+	 
+	 public static void ClickOnRFIButton() throws Exception {
+		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 ButtonHelper.click(hp.rfiBtn, "RFI");
+	 }
+	 
+	 public static void ClickOnSearchAskButton() throws Exception {
+		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 ButtonHelper.click(hp.searchAskBtn, "Search Ask");
+	 }
+	 
+	 public static void VerifyThatUserCanSwitchSearchOrAskSomethingToFillOutAnRFIOptionWitchoutAgainLogin() throws Exception {
+		 String preClass = driver.findElement(By.xpath("//*[@class='IconButton_root__yiOJX NavItemSwitch_badge__xMmXw']//*")).getAttribute("class");
+		 System.out.println(preClass);
+		 ClickOnSearchAskAndQuestionIcon();
+		 ClickOnRFIButton();
+		 String afterClass = driver.findElement(By.xpath("//*[@class='IconButton_root__yiOJX NavItemSwitch_badge__xMmXw']//*")).getAttribute("class");
+		 System.out.println(afterClass);
+		 if(!preClass.equals(afterClass)) {
+			 ObjectRepo.test.log(LogStatus.PASS, "User Can Switch Option Without again login");
+		 }else {
+			 ObjectRepo.test.log(LogStatus.FAIL, "User Can't Switch Option Without again login");
+		 }
+	 }
+	 
+	 public static void VerifyThatUserCanSwitchFillOutAnRFIToSearchOrAskSomethingOptionWitchoutAgainLogin() throws Exception {
+		 ClickOnSearchAskAndQuestionIcon();
+		 ClickOnRFIButton();
+		 String preClass = driver.findElement(By.xpath("//*[@class='IconButton_root__yiOJX NavItemSwitch_badge__xMmXw']//*")).getAttribute("class");
+		 System.out.println(preClass);
+		 ClickOnSearchRFIIcon();
+		 ClickOnSearchAskButton();
+		 String afterClass = driver.findElement(By.xpath("//*[@class='IconButton_root__yiOJX NavItemSwitch_badge__xMmXw']//*")).getAttribute("class");
+		 System.out.println(afterClass);
+		 if(!preClass.equals(afterClass)) {
+			 ObjectRepo.test.log(LogStatus.PASS, "User Can Switch Option Without again login");
+		 }else {
+			 ObjectRepo.test.log(LogStatus.FAIL, "User Can't Switch Option Without again login");
+		 }
+	 }
+	 
 }
 	
