@@ -175,5 +175,9 @@ public class HubbellLoginPage extends PageBase {
 	@CacheLookup
 	public WebElement searchAndAksQuestionOption;
 	
+	@FindBy(xpath = "(//*[@class='CheckboxCard_root__-GInH CheckboxCard_clickable__8RjDs'])[2]")
+	@CacheLookup
+	public WebElement fillOutAnFRIOption;
+	
 	
 }

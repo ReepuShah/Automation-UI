@@ -6600,12 +6600,28 @@ public class StepDefinitions {
 		 ButtonHelper.click(lp.searchAndAksQuestionOption, "Search And Aks Question Option");
 	 }
 	 
+	 public static void VerifyThatSearchHomePageIsDisplay() {
+		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 GenericElements.ValidateElementIsDisplayed(hp.searchHome,"Search Home Page");
+	 }
+	 
+	 public static void ClickOnFillOutAnRFIOption() throws Exception {
+		 HubbellLoginPage lp = new HubbellLoginPage(driver);
+		 ButtonHelper.click(lp.fillOutAnFRIOption, "Fill out an RFI Option");
+	 }
+	 
+	 public static void VerifyThatRFIHomePageIsDisplay() {
+		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 GenericElements.ValidateElementIsDisplayed(hp.RFIHome,"RFI Home Page");
+	 }
+	 
 	 public static void ClickOnSearchAskAndQuestionIcon() throws Exception {
 		 HubbellHomePage hp = new HubbellHomePage(driver);
 		 ButtonHelper.click(hp.btn, "Search Ask And Question Icon");
 	 }
 	 
-	 public static void ClickOnSearchRFIIcon() throws Exception {
+	 
+	 public static void ClickOnRFIIcon() throws Exception {
 		 HubbellHomePage hp = new HubbellHomePage(driver);
 		 ButtonHelper.click(hp.btn, "RFI Icon");
 	 }
@@ -6639,7 +6655,7 @@ public class StepDefinitions {
 		 ClickOnRFIButton();
 		 String preClass = driver.findElement(By.xpath("//*[@class='IconButton_root__yiOJX NavItemSwitch_badge__xMmXw']//*")).getAttribute("class");
 		 System.out.println(preClass);
-		 ClickOnSearchRFIIcon();
+		 ClickOnRFIIcon();
 		 ClickOnSearchAskButton();
 		 String afterClass = driver.findElement(By.xpath("//*[@class='IconButton_root__yiOJX NavItemSwitch_badge__xMmXw']//*")).getAttribute("class");
 		 System.out.println(afterClass);
@@ -6647,6 +6663,55 @@ public class StepDefinitions {
 			 ObjectRepo.test.log(LogStatus.PASS, "User Can Switch Option Without again login");
 		 }else {
 			 ObjectRepo.test.log(LogStatus.FAIL, "User Can't Switch Option Without again login");
+		 }
+	 }
+	 
+	 public static void VerifyThatUserCanGoToBackRFIHomePageAfterChangingTheAvatar() throws Exception {
+		 ClickOnDropDownChannelIcon();
+		 GenericHelper.selectoptionfromdropDown("Product Support");
+		 ClickOnSearchAskAndQuestionIcon();
+		 ClickOnRFIButton();
+		 VerifyThatRFIHomePageIsDisplay();
+	 }
+	 
+	 public static String GetSelectedFilter() {
+		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 String text = hp.selectedFilter.getText();
+		return text;
+	 }
+	 
+	 
+	 public static void ClickOnGroupByFilteroption(WebElement el) throws Exception {
+		 ButtonHelper.click(el, el.getText());
+	 }
+	 
+	 public static void VerifyThatGroupByFilterIsWorking() throws Exception {
+		 HubbellHomePage hp = new HubbellHomePage(driver);
+		 ClickGroupByDownIcon();
+		 ArrayList<WebElement> listEle = new ArrayList<WebElement>();
+		 for(WebElement el : hp.filterOptions) {
+			 listEle.add(el);
+		 }
+		 
+		 boolean flag = false;
+		 
+		 for(int i = 1; i<listEle.size(); i++) {
+			 Thread.sleep(5000);
+			 ClickOnGroupByFilteroption(listEle.get(i));
+			 System.out.println(listEle.get(i).getText());
+			 if(GetSelectedFilter().equals(listEle.get(i).getText())) {
+				 flag = true;
+				 ClickGroupByDownIcon();
+			 }else {
+				 flag = true;
+				 break;
+			 }
+		 }
+		 
+		 if(flag==true) {
+			 ObjectRepo.test.log(LogStatus.PASS, "Filter Is Working");
+		 }else {
+			 ObjectRepo.test.log(LogStatus.FAIL, "Filter Is Not Working");
 		 }
 	 }
 	 

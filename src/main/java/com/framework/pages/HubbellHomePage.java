@@ -1484,7 +1484,21 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement searchAskBtn;
 	
+	@FindBy(xpath = "(//*[@class='Icon_icon__DouW- Icon_icon-search__aPOAB'])[1]")
+	@CacheLookup
+	public WebElement searchHome;
 	
+	@FindBy(xpath = "(//*[@class='Icon_icon__DouW- Icon_icon-apps__eCO3+'])[1]")
+	@CacheLookup
+	public WebElement RFIHome;
+	
+	@FindBy(xpath = "//*[@class='SelectItem_root__-yOQZ']")
+	@CacheLookup
+	public List<WebElement> filterOptions;
+	
+	@FindBy(xpath = "(//*[@class='TriggerButton_label__zNWEm'])[1]")
+	@CacheLookup
+	public WebElement selectedFilter;
 	
 	
 	

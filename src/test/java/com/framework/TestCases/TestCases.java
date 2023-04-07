@@ -2009,8 +2009,13 @@ public class TestCases {
 	}
 	
 	@Test
-	public static void Verify_That_SearchOrAskSomething_Option_Redirects_To_At_Home_Page() {
-		InitiateTestParams.ExecuteTestCase("Verify_That_SearchOrAskSomething_Option_Redirects_To_At_Home_Page");
+	public static void Verify_That_SearchOrAskSomething_Option_Redirects_To_At_Search_Home_Page() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_SearchOrAskSomething_Option_Redirects_To_At_Search_Home_Page");
+	}
+	
+	@Test
+	public static void Verify_That_FillOutAnRFI_Option_Redirects_To_At_RFI_Home_Page() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_FillOutAnRFI_Option_Redirects_To_At_RFI_Home_Page");
 	}
 	
 	@Test
@@ -2022,6 +2027,17 @@ public class TestCases {
 	public static void Verify_That_User_Can_Switch_FillOutAnRFI_To_SearchOrAskSomething_Option_Witchout_Again_Login() {
 		InitiateTestParams.ExecuteTestCase("Verify_That_User_Can_Switch_FillOutAnRFI_To_SearchOrAskSomething_Option_Witchout_Again_Login");
 	}
+	
+	@Test
+	public static void Verify_That_User_Can_Go_To_Back_RFI_Home_Page_After_Changing_The_Avatar() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_User_Can_Go_To_Back_RFI_Home_Page_After_Changing_The_Avatar");
+	}
+	
+	@Test
+	public static void Verify_That_Group_By_Filter_Is_Working() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_Group_By_Filter_Is_Working");
+	}
+	
 	
 	
 	
