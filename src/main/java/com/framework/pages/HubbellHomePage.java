@@ -1440,7 +1440,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement emptySpace;
 	
-	@FindBy(xpath = "(//*[@class='QuestionsList_list__TjV6V QuestionSuggestions_cardListContainer__QPDAg']//*[@class='ImageCard_root__-qoiM ImageCard_theme-secondary__h96BK ImageCard_clickable__8iY9V QuestionSuggestions_cardItem__utJB+'])[1]")
+	@FindBy(xpath = "((//*[text()='Recommended topic']//following-sibling::*)[1]//*[@type='button'])[1]")
 	@CacheLookup
 	public WebElement searchRecommendedTopic;
 	

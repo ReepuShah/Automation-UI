@@ -2448,7 +2448,7 @@ public class StepDefinitions {
 //		driver.findElement(By.xpath("//*[text()='Search and ask questions']")).click();
 //		Thread.sleep(5000);
 //		driver.findElement(By.xpath("(//*[@class='CheckboxCard_root__-GInH CheckboxCard_clickable__8RjDs'])[1]")).click();
-//		ButtonHelper.click(themepage.nextButton, "Next Button");
+		ButtonHelper.click(themepage.nextButton, "Next Button");
 	}
 	
 	public static void ClickOnSearchBar() throws Exception {
@@ -6251,9 +6251,10 @@ public class StepDefinitions {
 	
 	public static void VerifyThatCreatedDateFilterIsWorking() {
 		HubbellHomePage hp = new HubbellHomePage(driver);
-		String expectUrl = "https://test-demo.hellonesh.io/home/search";
+		String expectUrlTest = "https://test-demo.hellonesh.io/home/search";
+		String expectUrlProd = "https://demo.hellonesh.io/home/search";
 		String actualUrl = driver.getCurrentUrl();
-		if(expectUrl.equals(actualUrl)) {
+		if(expectUrlTest.equals(actualUrl)||expectUrlProd.equals(actualUrl)) {
 			ObjectRepo.test.log(LogStatus.PASS,"Created Date Filter Is Working");
 		}else {
 			ObjectRepo.test.log(LogStatus.FAIL,"Created Date Filter Is not Working");
@@ -6330,7 +6331,7 @@ public class StepDefinitions {
 	
 	public static void ClickOnSearchRecommendedTopic() throws Exception {
 		HubbellHomePage hp = new HubbellHomePage(driver);
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		ButtonHelper.click(hp.searchRecommendedTopic, "Recommended Topic");
 	}
 	
@@ -6680,26 +6681,18 @@ public class StepDefinitions {
 		return text;
 	 }
 	 
-	 
-	 public static void ClickOnGroupByFilteroption(WebElement el) throws Exception {
-		 ButtonHelper.click(el, el.getText());
-	 }
-	 
 	 public static void VerifyThatGroupByFilterIsWorking() throws Exception {
 		 HubbellHomePage hp = new HubbellHomePage(driver);
 		 ClickGroupByDownIcon();
-		 ArrayList<WebElement> listEle = new ArrayList<WebElement>();
-		 for(WebElement el : hp.filterOptions) {
-			 listEle.add(el);
-		 }
-		 
 		 boolean flag = false;
 		 
-		 for(int i = 1; i<listEle.size(); i++) {
+		 for(int i = 1; i<hp.filterOptions.size(); i++) {
 			 Thread.sleep(5000);
-			 ClickOnGroupByFilteroption(listEle.get(i));
-			 System.out.println(listEle.get(i).getText());
-			 if(GetSelectedFilter().equals(listEle.get(i).getText())) {
+			 WebElement listEle =  driver.findElement(By.xpath("(//*[@class='SelectItem_root__-yOQZ'])["+i+"]"));
+			 String elText = listEle.getText();
+			 ButtonHelper.click(listEle, elText);
+			 System.out.println(elText);
+			 if(GetSelectedFilter().equals(elText)) {
 				 flag = true;
 				 ClickGroupByDownIcon();
 			 }else {
@@ -6707,13 +6700,11 @@ public class StepDefinitions {
 				 break;
 			 }
 		 }
-		 
 		 if(flag==true) {
 			 ObjectRepo.test.log(LogStatus.PASS, "Filter Is Working");
 		 }else {
 			 ObjectRepo.test.log(LogStatus.FAIL, "Filter Is Not Working");
 		 }
 	 }
-	 
 }
 	
