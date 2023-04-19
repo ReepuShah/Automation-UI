@@ -2038,6 +2038,11 @@ public class TestCases {
 		InitiateTestParams.ExecuteTestCase("Verify_That_Group_By_Filter_Is_Working");
 	}
 	
+	@Test
+	public static void Verify_That_When_User_Click_On_The_RocketIcon_Then_RocketPanel_Is_Showing() {
+		InitiateTestParams.ExecuteTestCase("Verify_That_When_User_Click_On_The_RocketIcon_Then_RocketPanel_Is_Showing");
+	}
+	
 	
 	
 }  

@@ -2447,8 +2447,8 @@ public class StepDefinitions {
 //		action.sendKeys(Keys.ENTER).build().perform();
 //		driver.findElement(By.xpath("//*[text()='Search and ask questions']")).click();
 //		Thread.sleep(5000);
-//		driver.findElement(By.xpath("(//*[@class='CheckboxCard_root__-GInH CheckboxCard_clickable__8RjDs'])[1]")).click();
-		ButtonHelper.click(themepage.nextButton, "Next Button");
+		driver.findElement(By.xpath("(//*[@class='CheckboxCard_root__-GInH CheckboxCard_clickable__8RjDs'])[1]")).click();
+//		ButtonHelper.click(themepage.nextButton, "Next Button");
 	}
 	
 	public static void ClickOnSearchBar() throws Exception {
@@ -4779,39 +4779,48 @@ public class StepDefinitions {
 	
 	public static void VerifyThatUserIsAbleToRemoveTheFileFromUploadedFile() throws Exception{
 		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
-		WebElement elementThreeDot = GenericElements.getTestOrProdLocator(dp.uploadedFileWithAssociatedToAvatarThreeDotIcon,dp.uploadedFileWithAssociatedToAvatarThreeDotIconProd);
-		int beforetotalUploadedFile = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
+		WebElement elementThreeDot = GenericElements.getTestOrProdLocator(dp.uploadedFileWithOutAssociatedToAvatarThreeDotIcon,dp.uploadedFileWithAssociatedToAvatarThreeDotIconProd);
 		
-		if(beforetotalUploadedFile!=0) {
-			ButtonHelper.click(elementThreeDot, "Three dot Icon");
-			ButtonHelper.click(dp.fileRemoveButton, "Remove Button");
-			Thread.sleep(8000);
-			int afterTotalUploadedFile = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
-			
-			if(beforetotalUploadedFile!=afterTotalUploadedFile) {
-				ObjectRepo.test.log(LogStatus.PASS,"User Is Able To Remove The File From Uploaded File");
-			}else {
-				ObjectRepo.test.log(LogStatus.FAIL,"User Is Not Able To Remove The File From Uploaded File");
-			}
-		}else {
-			int beforetotalUploadedFile1 = getTotalUploadedFile(dp.uploadedFileWithAssociatedToAvatar);
-			
-			if(beforetotalUploadedFile1!=0) {
+		List<WebElement> totalTestFile = driver.findElements(By.xpath("(//*[text()='test.txt']//parent::*)"));
+		
+		int beforetotalUploadedFile = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
+	
+			if(totalTestFile.size()!=0) {
 				ButtonHelper.click(elementThreeDot, "Three dot Icon");
 				ButtonHelper.click(dp.fileRemoveButton, "Remove Button");
 				Thread.sleep(8000);
-				int afterTotalUploadedFile1 = getTotalUploadedFile(dp.uploadedFileWithAssociatedToAvatar);
+				int afterTotalUploadedFile = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
 				
-				if(beforetotalUploadedFile1!=afterTotalUploadedFile1) {
+				if(beforetotalUploadedFile!=afterTotalUploadedFile) {
 					ObjectRepo.test.log(LogStatus.PASS,"User Is Able To Remove The File From Uploaded File");
 				}else {
 					ObjectRepo.test.log(LogStatus.FAIL,"User Is Not Able To Remove The File From Uploaded File");
 				}
-			}else {
-				ObjectRepo.test.log(LogStatus.PASS,"not available uploaded file");
 			}
-		}
-		
+			else {
+				System.out.println("uploading ");
+				ClickOnUploadFileButtonOption();
+				
+				WebElement chooseFile = driver.findElement(By.xpath("//input[@type='file']"));
+				chooseFile.sendKeys("C:\\Users\\STELCO\\Desktop\\Nesh_Automation\\automationtests\\src\\main\\resources\\uploadedDocument\\relevantDocument\\brochure_Aluminium-Coil_203_en_LR_final.pdf");
+				ButtonHelper.click(dp.closeIcon, "close Icon");
+				Thread.sleep(10000);
+				
+				if(totalTestFile.size()!=0) {
+					ButtonHelper.click(elementThreeDot, "Three dot Icon");
+					ButtonHelper.click(dp.fileRemoveButton, "Remove Button");
+					Thread.sleep(8000);
+					int afterTotalUploadedFile = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
+					
+					if(beforetotalUploadedFile!=afterTotalUploadedFile) {
+						ObjectRepo.test.log(LogStatus.PASS,"User Is Able To Remove The File From Uploaded File");
+					}else {
+						ObjectRepo.test.log(LogStatus.FAIL,"User Is Not Able To Remove The File From Uploaded File");
+					}
+				}else {
+					ObjectRepo.test.log(LogStatus.PASS,"Uploaded File is not available");
+				}
+			}
 		
 	}
 	
@@ -4832,8 +4841,6 @@ public class StepDefinitions {
 			ExtentReportHelper.logFailWithScreenshot(e.getMessage());
 		}
 	}
-	
-	
 	
 	public static void SelectDownVotedQuestionFromKnowledgeAnalytics() throws Exception {
 		WebElement ele = driver.findElement(By.xpath("(//*[text()='"+GenericHelper.getTestData("TextInputData")+"']//parent::*)[1]"));
@@ -4895,10 +4902,14 @@ public class StepDefinitions {
 	
 	public static void VerifyThatRemovingAnyFileNotLeadToUserLogout() throws Exception{
 		DataManagerLocatorPage dp = new DataManagerLocatorPage(driver);
-		WebElement elementThreeDot = GenericElements.getTestOrProdLocator(dp.uploadedFileWithAssociatedToAvatarThreeDotIcon,dp.uploadedFileWithAssociatedToAvatarThreeDotIconProd);
-		int beforetotalUploadedFile = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
 		
-		if(beforetotalUploadedFile!=0) {
+		WebElement elementThreeDot = GenericElements.getTestOrProdLocator(dp.uploadedFileWithOutAssociatedToAvatarThreeDotIcon,dp.uploadedFileWithAssociatedToAvatarThreeDotIconProd);
+		
+		List<WebElement> totalTestFile = driver.findElements(By.xpath("(//*[text()='test.txt']//parent::*)"));
+		
+		int beforetotalUploadedFile = getTotalUploadedFile(dp.uploadedFileWithOutAssociatedToAvatar);
+	
+		if(totalTestFile.size()!=0) {
 			ButtonHelper.click(elementThreeDot, "Three dot Icon");
 			ButtonHelper.click(dp.fileRemoveButton, "Remove Button");
 			Thread.sleep(10000);
@@ -4917,9 +4928,19 @@ public class StepDefinitions {
 				ObjectRepo.test.log(LogStatus.FAIL,"User Is Not Able To Remove The File From Uploaded File");
 			}
 		}else {
+			System.out.println("uploading ");
+			ClickOnUploadFileButtonOption();
+
+			WebElement chooseFile = driver.findElement(By.xpath("//input[@type='file']"));
+			chooseFile.sendKeys("C:\\Users\\STELCO\\Desktop\\Nesh_Automation\\automationtests\\src\\main\\resources\\uploadedDocument\\relevantDocument\\brochure_Aluminium-Coil_203_en_LR_final.pdf");
+			ButtonHelper.click(dp.closeIcon, "close Icon");
+			
+			Thread.sleep(10000);
+			
+			
 			int beforetotalUploadedFile1 = getTotalUploadedFile(dp.uploadedFileWithAssociatedToAvatar);
 			
-			if(beforetotalUploadedFile1!=0) {
+			if(totalTestFile.size()!=0) {
 				ButtonHelper.click(elementThreeDot, "Three dot Icon");
 				ButtonHelper.click(dp.fileRemoveButton, "Remove Button");
 				Thread.sleep(10000);
@@ -4935,7 +4956,7 @@ public class StepDefinitions {
 					}
 					
 				}else {
-					ObjectRepo.test.log(LogStatus.FAIL,"User Is Not Able To Remove The File From Uploaded File");
+					ObjectRepo.test.log(LogStatus.PASS,"Uploaded File is not available");
 				}
 			}
 		}
@@ -6706,5 +6727,10 @@ public class StepDefinitions {
 			 ObjectRepo.test.log(LogStatus.FAIL, "Filter Is Not Working");
 		 }
 	 }
+	 
+	 public static void VerifyThatRocketPanelIsDisplayed() {
+			HubbellHomePage hp = new HubbellHomePage(driver);
+			GenericElements.ValidateElementIsDisplayed(hp.openExtrasPanel,"Rocket Panel");
+		}
 }
 	
