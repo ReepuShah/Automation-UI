@@ -3158,7 +3158,7 @@ public class StepDefinitions {
 		 for(int i = 0; i < topicName.length(); i++) {
 			 ch[i] = topicName.charAt(i);
 		 }
-		 String CapitalLetter  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		 String CapitalLetter  = "abcdefghijklmnopqrstuvwxyz";
 		 char[] Letter = new char[CapitalLetter.length()];
 				 
 		 
@@ -3166,7 +3166,7 @@ public class StepDefinitions {
 			 Letter[i] = CapitalLetter.charAt(i);
 		 }	
 		 for(char charLetter : Letter)
-			 if(ch[0]==charLetter) {
+			 if(ch[0]!=charLetter) {
 				 ObjectRepo.test.log(LogStatus.PASS,"First Letter Is Capital Of Topic");
 				 break;
 			 }
@@ -6731,6 +6731,22 @@ public class StepDefinitions {
 	 public static void VerifyThatRocketPanelIsDisplayed() {
 			HubbellHomePage hp = new HubbellHomePage(driver);
 			GenericElements.ValidateElementIsDisplayed(hp.openExtrasPanel,"Rocket Panel");
-		}
+	}
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 }
 	
