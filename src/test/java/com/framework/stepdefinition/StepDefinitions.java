@@ -2493,9 +2493,9 @@ public class StepDefinitions {
 		
 	}
 		
-		public static void VerifyMinimumFiveQuestionIsDisplayInsideTheSuggestionQuestionField() {
+	public static void VerifyMinimumFiveQuestionIsDisplayInsideTheSuggestionQuestionField() {
 			ThemeLocatorPage themepage = new ThemeLocatorPage(driver);
-			int suggestionQuestion =themepage.suggestionQuestion.size();
+			int suggestionQuestion = themepage.suggestionQuestion.size();
 			if(suggestionQuestion >= 5) {
 				ObjectRepo.test.log(LogStatus.PASS,"Total Suggestion Question is : "+ suggestionQuestion);
 				for(WebElement e: themepage.suggestionQuestion) {
@@ -5188,6 +5188,7 @@ public class StepDefinitions {
 				 action.moveToElement(lp.passwordErrorMessage).perform();
 				 Thread.sleep(5000);
 				 WebElement passwordErrorType = driver.findElement(By.xpath("(//*[@class='Tooltip_body__0iFWZ Tooltip_alignment-center__8ANnk Tooltip_color-primary__HO02D ErrorChip_errorMessage__wxcYh']/*)[2]"));
+				 Thread.sleep(5000);
 				 if(passwordErrorType.isEnabled()) {
 					 String errorType = passwordErrorType.getText();
 					 ObjectRepo.test.log(LogStatus.PASS,errorType + " Message Displayed");
@@ -6690,7 +6691,7 @@ public class StepDefinitions {
 	 
 	 public static void VerifyThatUserCanGoToBackRFIHomePageAfterChangingTheAvatar() throws Exception {
 		 ClickOnDropDownChannelIcon();
-		 GenericHelper.selectoptionfromdropDown("Product Support");
+		 GenericHelper.selectoptionfromdropDown("Regs and Policies");
 		 ClickOnSearchAskAndQuestionIcon();
 		 ClickOnRFIButton();
 		 VerifyThatRFIHomePageIsDisplay();
