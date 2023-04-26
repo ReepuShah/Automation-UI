@@ -5084,7 +5084,7 @@ public class StepDefinitions {
 //	    // for pressing and releasing Enter
 //	    rb.keyPress(KeyEvent.VK_ENTER);
 //	    rb.keyRelease(KeyEvent.VK_ENTER);
-//	    Thread.sleep(1000);
+	    Thread.sleep(1000);
 		ButtonHelper.click(dp.closeIcon, "close Icon");
 	}
 	
@@ -6733,19 +6733,6 @@ public class StepDefinitions {
 			HubbellHomePage hp = new HubbellHomePage(driver);
 			GenericElements.ValidateElementIsDisplayed(hp.openExtrasPanel,"Rocket Panel");
 	}
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
 	 
 	 
 	 
