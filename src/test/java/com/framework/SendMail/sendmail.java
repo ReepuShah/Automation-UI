@@ -64,6 +64,7 @@ public class sendmail {
 		userlist.add("mohan@hellonesh.io");
 		userlist.add("ishita@hellonesh.io");
 		userlist.add("kalpesh@hellonesh.io");
+		userlist.add("venkat@hellonesh.io");
 		userlist.add("ivan@hellonesh.io");
 		EmailAttachment attachment = new EmailAttachment();
 	     attachment.setPath(System.getProperty("user.dir")+"/reports/"+getreportpath());
