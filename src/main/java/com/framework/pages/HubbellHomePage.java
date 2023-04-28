@@ -1244,7 +1244,7 @@ public class HubbellHomePage extends PageBase {
 	@CacheLookup
 	public WebElement postQuestionButton;
 	
-	@FindBy(xpath = "(//*[@class='ListItem_item__wSDnd ListItem_clickable__cjxfy'])[1]//*[@class='UserCard_root__I3P7Q']//h3")
+	@FindBy(xpath = "(//*[@class='ListItem_item__wSDnd ListItem_clickable__cjxfy'])[1]//*[@class='UserCard_root__I3P7Q UserCard_orientation-horizontal__GQrXC']//h3")
 	@CacheLookup
 	public WebElement expert;
 	
